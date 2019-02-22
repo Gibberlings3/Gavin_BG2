@@ -1,0 +1,23 @@
+
+// b!amket5.baf - Rests party and gets Gavin back in the group 
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+    CutSceneId(Player1) 
+    FadeToColor([20.0],0) 
+    Activate("B!Gavin2") 
+    Wait(1) 
+    Rest() 
+    ActionOverride(Player2,Rest()) 
+    ActionOverride(Player3,Rest()) 
+    ActionOverride(Player4,Rest()) 
+    ActionOverride(Player5,Rest()) 
+    ActionOverride(Player6,Rest()) 
+    DayNight(DAWN_END) 
+    Wait(1) 
+    FadeFromColor([20.0],0) 
+    Wait(1) 
+    ActionOverride("B!Gavin2",StartDialogueNoSet("Imoen2")) 
+END 

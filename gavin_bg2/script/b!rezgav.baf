@@ -1,0 +1,13 @@
+
+// b!rezgav.baf - Resurrects Gavin 
+
+IF 
+      True() 
+THEN 
+      RESPONSE #100 
+            CutSceneId(Player1) 
+            Wait(1) 
+            ActionOverride("arval",ForceSpell("B!Gavin2",CLERIC_RESURRECTION)) 
+            Wait(1) 
+            EndCutSceneMode()
+END 

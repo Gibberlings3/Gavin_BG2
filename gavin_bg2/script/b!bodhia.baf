@@ -1,0 +1,10 @@
+
+// b!bodhia.baf gets extended onto BODHIAMB.bcs
+
+IF 
+	Global("B!GavVampire","GLOBAL",1) 
+THEN 
+	RESPONSE #100 
+		SetGlobal("Deactivate0801","AR0800",3) 
+		ForceSpell(Myself,DRYAD_TELEPORT) 
+END 

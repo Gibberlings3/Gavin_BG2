@@ -1,0 +1,10 @@
+
+// b!riftcr04.baf - EXTEND_BOTTOM riftcr04.bcs - Gavin reacts to empathic manifestation 
+
+IF 
+    Global("SayThisOnce","LOCALS",1) 
+    Global("B!GavEmpathicManifest","AR0203",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavEmpathicManifest","AR0203",1) 
+END 

@@ -1,0 +1,163 @@
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavSex","GLOBAL",1) 
+    Global("B!GavAnoReactsToSex","GLOBAL",0) 
+    Global("AnomenRomanceActive","GLOBAL",1) 
+    !Global("B!GavRA","GLOBAL",3) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!AnoGavT","GLOBAL",30) 
+        SetGlobal("B!GavAnoReactsToSex","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    RealGlobalTimerExpired("B!AnoGavT","GLOBAL") 
+    Global("B!GavAnoReactsToSex","GLOBAL",1) 
+    Global("AnomenRomanceActive","GLOBAL",1) 
+    !Global("B!GavRA","GLOBAL",3) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAnoReactsToSex","GLOBAL",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavAnoReactsToSex","GLOBAL",2) 
+    Global("AnomenRomanceActive","GLOBAL",1) 
+    !Global("B!GavRA","GLOBAL",3) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+ 
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    GlobalGT("Lovetalk","LOCALS",30) 
+    Global("B!GavAnoConflict","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavAnoT","GLOBAL",30) 
+        SetGlobal("B!GavAnoConflict","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    GlobalGT("Lovetalk","LOCALS",32) 
+    Global("B!GavAnoConflict","GLOBAL",3) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavAnoT","GLOBAL",30) 
+        SetGlobal("B!GavAnoConflict","GLOBAL",4) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    RealGlobalTimerExpired("B!GavAnoT","GLOBAL") 
+    Global("B!GavAnoConflict","GLOBAL",6) 
+    Global("B!GavAnoSex","GLOBAL",1) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAnoConflict","GLOBAL",7) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavAnoConflict","GLOBAL",7) 
+    Global("B!GavAnoSex","GLOBAL",1) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+/* b!anomen - alcohol */ 
+
+IF  
+   CheckStatGT("B!Gavin2",40,INTOXICATION)
+   InParty(Myself)
+   InParty("B!Gavin2") 
+   InMyArea("B!Gavin2") 
+   Global("B!GavAno6","GLOBAL",0) 
+   !GlobalGT("TalkedCor","GLOBAL",0) 
+   RealGlobalTimerExpired("B!GavDrunkT","GLOBAL") 
+   CombatCounter(0)
+   !See([ENEMY])
+   !Global("B!GavHush","GLOBAL",1)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+THEN
+   RESPONSE #100  
+      SetGlobal("B!GavAno6","GLOBAL",1)
+END
+
+IF  
+   InParty(Myself)
+   InParty("B!Gavin2") 
+   InMyArea("B!Gavin2") 
+   Global("B!GavAno6","GLOBAL",1)
+   CombatCounter(0)
+   !See([ENEMY])
+   !Global("B!GavHush","GLOBAL",1)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+THEN
+   RESPONSE #100  
+      StartDialogueNoSet("B!Gavin2")  
+END
+
+/* Gavin abducted by Bodhi */ 
+
+IF 
+    InParty(Myself) 
+    PartyHasItem("b!gavbod") 
+    Global("B!GavBody","GLOBAL",0) 
+    GlobalGT("B!GavAnoKill","GLOBAL",0) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+   RESPONSE #100  
+      SetGlobal("B!GavBody","GLOBAL",1)  
+END
+
+IF 
+    InParty(Myself) 
+    Global("B!GavBody","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+   RESPONSE #100  
+      StartDialogueNoSet(Player1)   
+END

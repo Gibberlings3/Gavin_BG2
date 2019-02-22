@@ -1,0 +1,266 @@
+
+@129  = ~A mortar is a bowl-shaped vessel made of some hard material in which substances may be ground into a powder or pulp. A pestle is a short rod, usually with a rounded end, that is used to grind substances against the mortar. They range in size from tiny, barely big enough to grind a couple seeds, to immense, capable of holding a sackful of nuts or grain. This set is travel-sized. It can be used to prepare a number of herbal or botanical preparations.
+
+Use: Enables user to create potions, salves, or other herbal preparations
+Weight: 2
+~ 
+
+@131  = ~Cassil herb is a tasteless herb used by males to cause temporary sterility. In addition, it bestows a slight bonus to constitution. Its effects last for 12 hours. 
+
+Use: Causes temporary male sterility 
+Constitution bonus: 1 
+Duration: 12 hours 
+Weight: 0
+~ 
+
+@139  = ~Honey is made by bees and used as an all-purpose sweetener. It is used in a number of herbal preparations. 
+
+Use: Many
+Weight: 1
+~ 
+
+@141  = ~Grain spirits are distilled from fermented grain. If imbibed in large quantities, it results in intoxication, however the quantities commonly used in crafting herbal preparations is usually too small to produce any such effect. Grain spirits are a common component of herbal mixtures.
+
+Use: Many 
+Weight: 1
+~ 
+@143  = ~This container may be used to store any of the herbal mixtures you prepare. 
+
+Use: Many 
+Weight: 0 (while empty)
+~ 
+
+@145  = ~Snakebite will neutralize any poison currently affecting the user. The use of this potion is not without cost, however. The imbiber suffers a mild penalty to dexterity that persists for 1 hour. The cleansing is instant and the potion may only be used once.
+
+Use: Neutralizes poison.
+Dexterity Penalty: -1 for 1 hour
+~ 
+
+@147  = ~When crushed and applied to the skin, these purplish-black berries seem to exude darkness. They increase stealth by +30% 
+
+Stealth bonus: +30% 
+Duration: 10 turns
+~ 
+
+@151  = ~This sweet-smelling perfume is made from the blossoms of the felsul tree. It enhances charisma for up to 12 hours. 
+
+Charisma Bonus: +2 
+Duration: 12 hours 
+Weight: 1
+~ 
+
+@153  = ~This bright yellow daisy-like flower grows on the high moors and on the lower slopes of some mountain ranges. When its pollen is inhaled it grants the user a +2 bonus to strength, but a -2 penalty to intelligence and wisdom. These effects last for 1 hour.
+
+Strength Bonus: +2 
+Intelligence Penalty: -2 
+Wisdom Penalty: -2 
+Duration: 1 hour 
+Weight: 0
+~ 
+
+@155  = ~The sap of the silverbark tree is clear and slightly viscous. If consumed, it grants the imbiber a +2 bonus to save vs. poison.
+
+Save vs. Poison: +2 bonus
+Duration: 1 hour 
+Weight: 1
+~ 
+
+@157  = ~When brown mold is stripped of the lime and algae that neutralize it and exposed to air, it quickly regenerates and expands, dealing 5-30 damage to all within its 30' blast radius. 
+
+Range: 40 
+Damage: 5-30 fire damage
+Weight: 1
+~ 
+
+
+@163  = ~Limestone is a soft white rock typically found near water. Together with algae, pulverized lime stabilizes brown mold until the latter can be deployed. A chunk of limestone might also be hurled, in which case it does 1d4 damage. 
+
+Use: Component of Brown Mold Oil, potential weapon 
+Damage: 1d4  
+Weight: 1~ 
+
+
+@165  = ~Whittlewort Brew is made from the delicate, lacey leaves of the whittlewort plant, which grows in temperate, sub-tropical, and tropical regions. Fresh, whittlewort leaves are used to repel garden pests, but dried, powdered, and mixed with hot water, they make a tea that proteccts the imbiber from charm-based spells. The effects of Whittlewort Brew last for one hour. 
+
+Special: Protects imbiber from charm 
+Duration: 1 hour 
+Weight: 1
+~ 
+
+@167  = ~This hardy plant is native to temperate and sub-tropical forests. Midwives and hedge-wizards consider its fresh-smelling leaves a curative against a variety of childhood ailments, though most clerics and skilled healers discredit this practice. Nevertheless, its leaves, when combined with honey and grain spirits, produce a salve that provides effective protection against poison.
+
+Use: Component of Purebalm
+Weight: 0
+~ 
+
+@169  = ~Cotsbalm leaves are mixed with honey and grain spirits to produce Purebalm, an effective salve against poison. The salve provides protection for one hour. 
+
+Special: Protects against poison
+Duration: 1 hour 
+Weight: 1
+~ 
+
+@171  = ~This sturdy leather bag can be used to store potions, medicinal preparations, or their components. 
+
+Weight: 2
+~ 
+
+@175  = ~The soft, gray-green leaves of the prickly tea bush are used extensively in temple gardens, scriptoriums, and wizards' herb beds, no doubt because a tea brewed from them restores some measure of alertness and mental acuity. Early risers and sentries both favor the tea to remain alert. 
+
+Special: 
+  Reduces Fatigue
+Duration: 6 hours
+Weight: 0
+~ 
+
+@177  = ~When extracted with grain alcohol, a decoction of prickly tea becomes a powerful stimulant capable of enhancing the senses. Thieves, especially benefit from this, as improved sight, hearing, and touch enhance their ability to detect illusion, open locks, and to detect, disarm and set traps. By itself, the solution is too bitter to drink, however, so honey is added to counteract the astringency. 
+
+Find Trap Bonus: +10% 
+Open Lock Bonus: +10% 
+Set Traps Bonus: +10%
+Detect Illusion Bonus: +10%
+Duration: 1 hour
+Weight: 1
+~ 
+
+@302  = ~The enchantment that keeps the roses in this circlet fresh is unknown, but the passage of time has no effect on it and its beauty never fades. Whatever the enchantment is, however, it also bestows some regenerative powers to the wearer, as well as providing a modest AC bonus.
+
+STATISTICS
+
+While Equiped:
+  Regenerate 1 HP every 10 seconds 
+  AC Bonus: 1 
+  
+Not Usable By:
+  Wizard Slayer~ 
+@303  = ~Helm of Loyalty~ 
+@304  = ~Legend has it that King Haedrak III bestowed this heavy helmet on an unnamed foot soldier as a reward for performing a feat of exceptional loyalty. History declines to record the exact nature of this service, however. Regardless, the helmet offers protection against enchantments that would otherwise ensnare the wearer.
+
+STATISTICS
+
+While Equiped: 
+  Immunity to Charm 
+  Protection from Critical Hits
+~ 
+
+
+@310  = ~This medallion is a holy symbol of Lathander. It has been imbued with additional enchantments that make it more valuable to a cleric of that faith.
+
+STATISTICS
+
+While Equipped:
+ Magic Resistance: +5%
+ Vocalize
+ Decrease Spell Casting Speed by 1
+ Immunity to Level Drain
+~ 
+
+@314  = ~This jeweled brooch is shaped like the flower of the same name. It grants one additional mage spell for levels 1 through 5.
+
+STATISTICS 
+
+While Equiped: 
+  Addional Mage Spells
+  Level 1 
+  Level 2 
+  Level 3
+  Level 4 
+  Level 5
+~ 
+
+@316  = ~This leaf-shaped medallion is the holy symbol of Silvanus. It offers +20% to all elemental resistances.
+
+STATISTICS
+
+While Equiped: 
+  +20% fire resistance 
+  +20% cold resistance 
+  +20% electrical resistance 
+  +20% acid resistance
+~ 
+
+@318  = ~The wearer of this ring is immune to any effects that would prevent a stealthy getaway, however the wearer is also immune to haste and slow spells.
+
+STATISTICS
+
+While Equiped:
+  Free Action
+~ 
+
+@320  = ~The speedy execution of one's duty is one of the hallmarks of a paladin's role, however not all are up to the task without magical assistance. To this end, Sir Roderick of Cormyr commissioned this holy symbol of Torm.
+
+STATISTICS 
+
+While Equiped: 
+  Dexterity set to 18
+~ 
+
+@322  = ~This engraved horn bears the tribal markings of the Narfel. Merely wearing it bestows a bonus to constitution.
+
+STATISTICS
+
+While Equiped: 
+  Constitution Bonus +2
+~ 
+
+@324  = ~This amulet bears the emblem of Avoreen, the halfling god of valor. Its two crossed shortswords are worked in silver and gold, and it bears signs of magical enchantment. It grants the wearer complete immunity to poison and a modest combat bonus.
+
+STATISTICS 
+
+While Equiped:
+  Immunity to Poison
+  THACO Bonus +1
+~ 
+
+@326  = ~This intricate golden belt buckle bears obvious signs of enchantment. It bestows a bonus to all saving throws and conveys an additional bonus to maximum HP.
+
+STATISTICS
+
+While Equiped:
+  Saving Throw Bonus +1 
+  +5 Bonus to Maximum HP
+~ 
+
+@328  = ~This handy spell component pouch and silk belt was made to the specifications of the most demanding mages in Halruua, or so Master Grolim claims. Not only does wearing this convenient accessory permit the memorization of one extra first through fifth level spell per level, it is stylish, too!    
+
+STATISTICS 
+
+While Equiped: 
+  Addional Mage Spells
+  Level 1 
+  Level 2 
+  Level 3
+  Level 4 
+  Level 5
+~ 
+
+@330  = ~This well-worn woolen garment is a boon to wanderers everywhere. It shields the wearer from all sorts of elemental damage.
+
+STATISTICS
+
+While Equiped: 
+  +20% fire resistance 
+  +20% cold resistance 
+  +20% electrical resistance 
+  +20% acid resistance
+~ 
+
+@332  = ~This medallion is a holy symbol of Shar. It has been imbued with additional enchantments that make it more valuable to a cleric of that faith.
+
+STATISTICS
+
+While Equiped:
+ Magic Resistance: +5%
+ Vocalize
+ Decrease Spell Casting Speed by 1
+ Immunity to Level Drain
+~ 
+
+@334  = ~It is no longer possible to determing the symbol this ancient ring once bore, but its enchantment remains undimmed by the passage of time. It grants the wearer a bonus to lockpicking ability.
+
+STATISTICS
+
+While Equiped: 
+  Lockpicking Bonus +25%
+~ 
+

@@ -1,0 +1,14 @@
+
+// b!drunk2.baf - spawns prison guard and opens door 
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        CreateCreature("b!prsgrd",[605.652],2) 
+        ActionOverride("b!prsgrd",MoveToObject("DOOR10")) 
+        ActionOverride("b!prsgrd",OpenDoor("DOOR10")) 
+        ActionOverride("b!prsgrd",StartDialogueNoSet(Player1) 
+END 
+        

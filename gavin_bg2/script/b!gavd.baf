@@ -1,0 +1,308 @@
+
+// b!gavd.baf - Gavin's dream script 
+
+/* First talk */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavTalk","GLOBAL",1) 
+    !AreaType(DUNGEON) 
+    See(Player1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavTalk","GLOBAL",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* First night */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavFirstNight","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavFirstNight","LOCALS",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Let's get serious */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavSerious","GLOBAL",1) 
+    !AreaType(DUNGEON) 
+    See(Player1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavSerious","GLOBAL",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Talk 14 "I need focus," aka the importance of concentration */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavTalk","GLOBAL",27) 
+    !Global("B!GavHush","GLOBAL",1) 
+    !AreaType(DUNGEON) 
+    !Global("Chapter","GLOBAL",%bg2_chapter_4%) 
+    !Global("Chapter","GLOBAL",%bg2_chapter_5%) 
+    See(Player1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavTalk","GLOBAL",28) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Draw PC Nude */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavDrawNude","LOCALS",1) 
+    !Global("B!GavHush","GLOBAL",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    OR(11) 
+        AreaCheck("AR0021")       // Crooked Crane, 1st floor
+        AreaCheck("AR0313")       // Sea's Bounty, 1st floor 
+        AreaCheck("AR0406")       // Copper Coronet 
+        AreaCheck("AR0509")       // Five Flagons, 1st floor 
+        AreaCheck("AR0513")       // Delosar's, 1st floor 
+        AreaCheck("AR0522")       // Five Flagons, 1st floor (stronghold) 
+        AreaCheck("AR0704")       // Mithrest Inn 
+        AreaCheck("AR0709")       // Den of the Seven Vales 
+        AreaCheck("AR1105")       // Imnesvale Inn 
+        AreaCheck("AR1602")       // Vulgar Monkey 
+        AreaCheck("AR2010")       // Trademeet Inn 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavDrawNude","LOCALS",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Pose Nude */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPoseNude","LOCALS",1) 
+    !Global("B!GavHush","GLOBAL",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    OR(11) 
+        AreaCheck("AR0021")       // Crooked Crane, 1st floor
+        AreaCheck("AR0313")       // Sea's Bounty, 1st floor 
+        AreaCheck("AR0406")       // Copper Coronet 
+        AreaCheck("AR0509")       // Five Flagons, 1st floor 
+        AreaCheck("AR0513")       // Delosar's, 1st floor 
+        AreaCheck("AR0522")       // Five Flagons, 1st floor (stronghold) 
+        AreaCheck("AR0704")       // Mithrest Inn 
+        AreaCheck("AR0709")       // Den of the Seven Vales 
+        AreaCheck("AR1105")       // Imnesvale Inn 
+        AreaCheck("AR1602")       // Vulgar Monkey 
+        AreaCheck("AR2010")       // Trademeet Inn 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPoseNude","LOCALS",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Spiders */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavInnSpider","LOCALS",0) 
+    GlobalGT("B!GavTalk","GLOBAL",6) 
+    !Global("B!GavHush","GLOBAL",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    OR(11) 
+        AreaCheck("AR0021")       // Crooked Crane, 1st floor
+        AreaCheck("AR0313")       // Sea's Bounty, 1st floor 
+        AreaCheck("AR0406")       // Copper Coronet 
+        AreaCheck("AR0509")       // Five Flagons, 1st floor 
+        AreaCheck("AR0513")       // Delosar's, 1st floor 
+        AreaCheck("AR0522")       // Five Flagons, 1st floor (stronghold) 
+        AreaCheck("AR0704")       // Mithrest Inn 
+        AreaCheck("AR0709")       // Den of the Seven Vales 
+        AreaCheck("AR1105")       // Imnesvale Inn 
+        AreaCheck("AR1602")       // Vulgar Monkey 
+        AreaCheck("AR2010")       // Trademeet Inn 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s2") 
+        SetGlobal("B!GavInnSpider","LOCALS",1) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Camp chores */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavCampChores","LOCALS",0) 
+    GlobalGT("B!GavTalk","GLOBAL",10) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaType(OUTDOOR) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s2") 
+        SetGlobal("B!GavCampChores","LOCALS",1) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Floater 4: 'Wine, women and song' */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavBender","GLOBAL",1) 
+    GlobalGT("B!GavTalk","GLOBAL",6) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavInnSpider","LOCALS",2) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    OR(11) 
+        AreaCheck("AR0021")       // Crooked Crane, 1st floor
+        AreaCheck("AR0313")       // Sea's Bounty, 1st floor 
+        AreaCheck("AR0406")       // Copper Coronet 
+        AreaCheck("AR0509")       // Five Flagons, 1st floor 
+        AreaCheck("AR0513")       // Delosar's, 1st floor 
+        AreaCheck("AR0522")       // Five Flagons, 1st floor (stronghold) 
+        AreaCheck("AR0704")       // Mithrest Inn 
+        AreaCheck("AR0709")       // Den of the Seven Vales 
+        AreaCheck("AR1105")       // Imnesvale Inn 
+        AreaCheck("AR1602")       // Vulgar Monkey 
+        AreaCheck("AR2010")       // Trademeet Inn 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s2") 
+        SetGlobal("B!GavBender","GLOBAL",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Floater 5 - 'What's for dinner?' */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavDinner","LOCALS",0) 
+    GlobalGT("B!GavTalk","GLOBAL",12) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaType(OUTDOOR) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s2") 
+        SetGlobal("B!GavDinner","LOCALS",1) 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* PC wants sex */ 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaType(OUTDOOR)
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    !AreaType(DUNGEON) 
+    !AreaType(OUTDOOR) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",3) 
+        StartDialogueNoSet(Player1) 
+END 
+
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !Global("B!GavHush","GLOBAL",1) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !Global("B!GavTalk","GLOBAL",19) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaType(DUNGEON) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",4) 
+        StartDialogueNoSet(Player1) 
+END 

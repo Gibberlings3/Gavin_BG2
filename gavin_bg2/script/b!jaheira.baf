@@ -1,0 +1,31 @@
+
+/* b!jaheira.baf - Banter between Gavin and Jaheira */ 
+
+IF
+  InParty(Myself) 
+  InParty("B!Gavin2") 
+  HPPercentLT("B!Gavin2",50)
+  Global("B!GavJah5","GLOBAL",0)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    SetGlobal("B!GavJah5","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2") 
+  Global("B!GavJah5","GLOBAL",1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    StartDialogueNoSet("B!Gavin2") 
+END

@@ -1,0 +1,244 @@
+
+// b!gav25d.baf - Gavin's ToB dream script 
+// first night since Hell - dialogue in b!tob_romance.d 
+// Master Wraith reaction 
+// Saradush 
+// Challenge 4
+// Imoen romance stuff
+// PC wants sex 
+
+// first night since Hell - dialogue in b!tob_romance.d
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBLT","GLOBAL",3) 
+    Global("B!GavRA","GLOBAL",2) //from here on, it is only for RA = 2
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavToBLT","GLOBAL",4) 
+        StartDialogueNoSet(Player1) 
+END 
+
+// Master Wraith reaction 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavMWLovedOne","GLOBAL",2) 
+    Global("B!GavRA","GLOBAL",2) 
+    See(Player1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s1") 
+        SetGlobal("B!GavMWLovedOne","GLOBAL",3) 
+        StartDialogueNoSet(Player1) 
+END 
+
+// Saradush 
+IF 
+    InParty(Myself) 
+    Global("SaradushSacked","GLOBAL",1)
+    Global("B!GavSaradushFell","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s1") 
+        SetGlobal("B!GavSaradushFell","GLOBAL",1) 
+        StartDialogueNoSet(Player1) 
+END 
+
+// Challenge 4
+
+IF 
+    InParty(Myself) 
+    Global("BeginChallenge4","GLOBAL",6) 
+    Global("B!GavToBc4","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See(Player1)
+    CombatCounter(0)
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s1") 
+        SetGlobal("B!GavToBc4","GLOBAL",1) 
+        StartDialogueNoSet(Player1) 
+END 
+
+
+// Imoen romance stuff
+IF 
+    InParty("Imoen2") 
+    InParty(Myself) 
+    Global("B!GavImoen2ToB1","GLOBAL",0) 
+    GlobalGT("TalkedSarMel01","GLOBAL",0) 
+    !Global("B!GavImoenRA","GLOBAL",1) 
+    !Global("B!GavImoenRA","GLOBAL",2) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("Imoen2") 
+    CombatCounter(0) 
+    OR(2) 
+        AreaType(OUTDOOR) 
+        AreaCheck("AR4500") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImoen2ToB1","GLOBAL",1) 
+        StartDialogueNoSet("Imoen2") 
+END 
+
+IF 
+    InParty("Imoen2") 
+    InParty(Myself) 
+    RealGlobalTimerExpired("B!GavImToBNightT","GLOBAL") 
+    Global("B!GavImToBNight","GLOBAL",1) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("Imoen2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImToBNight","GLOBAL",2) 
+        StartDialogueNoSet("Imoen2") 
+END 
+
+/* --taken out, as these are only placeholders
+// PC wants sex 
+    // Separate dialogues for Pocket Plane, Tankard Tree (Saradush), Amkethran Inn, Dungeon (includes Watcher's Keep, but not Gromnir's castle), Outdoor, elsewhere
+
+    /* Pocket Plane */ 
+    /* Tankard Tree (Saradush) */ 
+    /* Amkethran Inn */ 
+    /* Dungeon */ 
+    /* Outdoor */ 
+    /* Elsewhere */ 
+
+    /* Pocket Plane */ 
+    
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaCheck("AR4500") 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",2) 
+        StartDialogueNoSet(Player1) 
+END 
+
+    /* Tankard Tree (Saradush) */ 
+    
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaCheck("AR5003") 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",3) 
+        StartDialogueNoSet(Player1) 
+END 
+
+    /* Amkethran Inn */ 
+    
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaCheck("AR5501") 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",4) 
+        StartDialogueNoSet(Player1) 
+END 
+
+    /* Dungeon */ 
+    
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaType(DUNGEON) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",5) 
+        StartDialogueNoSet(Player1) 
+END 
+
+    /* Outdoor */ 
+    
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    AreaType(OUTDOOR) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",6) 
+        StartDialogueNoSet(Player1) 
+END 
+
+    /* Elsewhere */ 
+    
+IF 
+    InParty(Myself) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Global("B!GavPCWantsIt","LOCALS",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    !AreaCheck("AR4500") 
+    !AreaCheck("AR5003") 
+    !AreaCheck("AR5501") 
+    !AreaType(OUTDOOR) 
+    !AreaType(DUNGEON) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        SetGlobal("B!GavPCWantsIt","LOCALS",7) 
+        StartDialogueNoSet(Player1) 
+END 
+
+*/

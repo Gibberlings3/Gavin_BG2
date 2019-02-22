@@ -1,0 +1,30 @@
+
+// b!tob_edwin.baf 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    HPPercentLT(Myself,95) 
+    HPPercentGT(Myself,30) 
+    Global("B!GavEdwinToB1","GLOBAL",0) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavEdwinToB1","GLOBAL",1) 
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavEdwinToB1","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")  
+END 

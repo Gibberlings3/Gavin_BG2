@@ -1,0 +1,1288 @@
+
+// b!re_reactions.baf 
+
+IF 
+    InParty(Myself)                                   // Weathermistress Ada - Gavin won't like the PC sleeping with her 
+    Global("RE_AdaSex","GLOBAL",1) 
+    Global("B!GavREAda","LOCALS",0) 
+    !AreaCheck("AR0904") 
+    !AreaCheck("AR0900") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREAda","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Weathermistress Ada - Gavin won't like the PC sleeping with her 
+    Global("RE_AdaSex","GLOBAL",1) 
+    Global("B!GavREAda","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        AreaCheck("AR0904") 
+        AreaCheck("AR0900") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREAda","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Weathermistress Ada - Gavin won't like the PC sleeping with her 
+    Global("B!GavREAda","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Anishai 
+    Global("RE_AnishaiSex","GLOBAL",1) 
+    Global("B!GavREAnishai","LOCALS",0) 
+    !AreaCheck("AR0303") 
+    !AreaCheck("AR0304") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Gender(Player1,FEMALE) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREAnishai","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Anishai 
+    Global("RE_AnishaiSex","GLOBAL",1) 
+    Global("B!GavREAnishai","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+    OR(2) 
+        AreaCheck("AR0303") 
+        AreaCheck("AR0304") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREAnishai","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Anishai 
+    Global("B!GavREAnishai","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Aran 
+    Global("RE_AranFlirt","GLOBAL",1) 
+    Global("B!GavREAran","LOCALS",0) 
+    !AreaCheck("AR0307") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Gender(Player1,FEMALE) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREAran","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Aran 
+    Global("RE_AranFlirt","GLOBAL",1) 
+    Global("B!GavREAran","LOCALS",0) 
+    AreaCheck("AR0307") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREAran","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Aran 
+    Global("B!GavREAran","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Bjornin 
+    Global("RE_BjorninFlirt","GLOBAL",1) 
+    Global("B!GavREBjornin","LOCALS",0) 
+    !AreaCheck("AR0903") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Gender(Player1,FEMALE) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREBjornin","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Bjornin 
+    Global("RE_BjorninFlirt","GLOBAL",1) 
+    Global("B!GavREBjornin","LOCALS",0) 
+    AreaCheck("AR0903") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREBjornin","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Bjornin 
+    Global("B!GavREBjornin","LOCALS",1) 
+    AreaCheck("AR0903") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Bodhi - Gavin won't like the PC sleeping with Bodhi 
+    Global("RE_BodhiFlirt","GLOBAL",1) 
+    Global("B!GavREBodhi","LOCALS",0) 
+    !AreaCheck("AR0801") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREBodhi","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Bodhi - Gavin won't like the PC sleeping with Bodhi 
+    Global("RE_BodhiFlirt","GLOBAL",1) 
+    Global("B!GavREBodhi","LOCALS",0) 
+    AreaCheck("AR0801") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREBodhi","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Bodhi - Gavin won't like the PC sleeping with Bodhi 
+    Global("B!GavREBodhi","LOCALS",1) 
+    !AreaCheck("AR0801") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Chanelle 
+    Global("RE_ChanelleFlirt","GLOBAL",1) 
+    Global("B!GavREChanelle","LOCALS",0) 
+    !AreaCheck("AR1307") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    Gender(Player1,FEMALE) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREChanelle","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Chanelle 
+    Global("RE_ChanelleFlirt","GLOBAL",1) 
+    Global("B!GavREChanelle","LOCALS",0) 
+    AreaCheck("AR1307") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREChanelle","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Chanelle 
+    Global("B!GavREChanelle","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Coran 
+    Global("RE_CoranSex","GLOBAL",1) 
+    Global("B!GavRECoran","LOCALS",0) 
+    !AreaCheck("AR2600") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRECoran","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Coran 
+    Global("RE_CoranSex","GLOBAL",1) 
+    Global("B!GavRECoran","LOCALS",0) 
+    AreaCheck("AR2600") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRECoran","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Coran 
+    Global("B!GavRECoran","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Desharik 
+    Global("RE_DesharikFlirt","GLOBAL",1) 
+    Global("B!GavREDesharik","LOCALS",0) 
+    !AreaCheck("AR1601") 
+    !AreaCheck("AR1515") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREDesharik","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Desharik 
+    Global("RE_DesharikFlirt","GLOBAL",1) 
+    Global("B!GavREDesharik","LOCALS",0) 
+    OR(2) 
+        AreaCheck("AR1601") 
+        AreaCheck("AR1515") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREDesharik","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Desharik 
+    Global("B!GavREDesharik","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Edwin - a pain because this can happen anywhere 'outdoors' - include 'easy out' 
+    Global("RE_EdwinSex","GLOBAL",1) 
+    Global("B!GavREEdwin","LOCALS",0) 
+    !AreaCheck("AR1100") 
+    !AreaCheck("AR1200") 
+    !AreaCheck("AR1300") 
+    !AreaCheck("AR1304") 
+    !AreaCheck("AR1400") 
+    !AreaCheck("AR1404") 
+    !AreaCheck("AR1500") 
+    !AreaCheck("AR1600") 
+    !AreaCheck("AR1700") 
+    !AreaCheck("AR1800") 
+    !AreaCheck("AR1900") 
+    !AreaCheck("AR2000") 
+    !AreaCheck("AR2500") 
+    !AreaCheck("AR2600") 
+    !AreaCheck("AR2700") 
+    !AreaCheck("AR2800") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREEdwin","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Edwin - a pain because this can happen anywhere 'outdoors' - include 'easy out' 
+    Global("RE_EdwinSex","GLOBAL",1) 
+    Global("B!GavREEdwin","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+    OR(16) 
+        AreaCheck("AR1100") 
+        AreaCheck("AR1200") 
+        AreaCheck("AR1300") 
+        AreaCheck("AR1304") 
+        AreaCheck("AR1400") 
+        AreaCheck("AR1404") 
+        AreaCheck("AR1500") 
+        AreaCheck("AR1600") 
+        AreaCheck("AR1700") 
+        AreaCheck("AR1800") 
+        AreaCheck("AR1900") 
+        AreaCheck("AR2000") 
+        AreaCheck("AR2500") 
+        AreaCheck("AR2600") 
+        AreaCheck("AR2700") 
+        AreaCheck("AR2800") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREEdwin","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Edwin - a pain because this can happen anywhere 'outdoors' - include 'easy out' 
+    Global("B!GavREEdwin","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Eldoth 
+    Global("RE_EldothFlirt","GLOBAL",1) 
+    Global("B!GavREEldoth","LOCALS",0) 
+    !AreaCheck("AR0709") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREEldoth","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Eldoth 
+    Global("RE_EldothFlirt","GLOBAL",1) 
+    Global("B!GavREEldoth","LOCALS",0) 
+    AreaCheck("AR0709") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREEldoth","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Eldoth 
+    Global("B!GavREEldoth","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Gaelan Bayle 
+    Global("RE_GaelanSex","GLOBAL",1) 
+    Global("B!GavREGaelan","LOCALS",0) 
+    !AreaCheck("AR0311") 
+    !AreaCheck("AR0400") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREGaelan","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Gaelan Bayle 
+    Global("RE_GaelanSex","GLOBAL",1) 
+    Global("B!GavREGaelan","LOCALS",0) 
+    OR(2) 
+        AreaCheck("AR0311") 
+        AreaCheck("AR0400") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREGaelan","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Gaelan Bayle 
+    Global("B!GavREGaelan","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Garren Windspear 
+    Global("RE_GarrenFlirt","GLOBAL",1) 
+    Global("B!GavREGarren","LOCALS",0) 
+    !AreaCheck("AR1204") 
+    !AreaCheck("AR1200") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREGarren","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Garren Windspear 
+    Global("RE_GarrenFlirt","GLOBAL",1) 
+    Global("B!GavREGarren","LOCALS",0) 
+    OR(2) 
+        AreaCheck("AR1204") 
+        AreaCheck("AR1200") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREGarren","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Garren Windspear 
+    Global("B!GavREGarren","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Hendak 
+    Global("RE_HendakSex","GLOBAL",1) 
+    Global("B!GavREHendak","LOCALS",0) 
+    !AreaCheck("AR0406") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREHendak","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Hendak 
+    Global("RE_HendakSex","GLOBAL",1) 
+    Global("B!GavREHendak","LOCALS",0) 
+    AreaCheck("AR0406") 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREHendak","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Hendak 
+    Global("B!GavREHendak","LOCALS",1) 
+    AreaCheck("AR0406") 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Jarlaxle 
+    Global("RE_JarlaxleFlirt","GLOBAL",1) 
+    Global("B!GavREJarlaxle","LOCALS",0) 
+    !AreaCheck("AR2208") 
+    !AreaCheck("AR2200") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREJarlaxle","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Jarlaxle 
+    Global("RE_JarlaxleFlirt","GLOBAL",1) 
+    Global("B!GavREJarlaxle","LOCALS",0) 
+    OR(2) 
+        AreaCheck("AR2208") 
+        AreaCheck("AR2200") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREJarlaxle","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Jarlaxle 
+    Global("RE_JarlaxleFlirt","GLOBAL",1) 
+    Global("B!GavREJarlaxle","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Laran 
+    Global("RE_LaranFlirt","GLOBAL",1) 
+    Global("B!GavRELaran","LOCALS",0) 
+    !AreaCheck("AR0704") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRELaran","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Laran 
+    Global("RE_LaranFlirt","GLOBAL",1) 
+    Global("B!GavRELaran","LOCALS",0) 
+    AreaCheck("AR0704") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRELaran","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Laran 
+    Global("B!GavRELaran","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Logan 
+    Global("RE_LoganFlirt","GLOBAL",1) 
+    Global("B!GavRELogan","LOCALS",0) 
+    !AreaCheck("AR2007") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRELogan","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Logan 
+    Global("RE_LoganFlirt","GLOBAL",1) 
+    Global("B!GavRELogan","LOCALS",0) 
+    AreaCheck("AR2007") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRELogan","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Logan 
+    Global("B!GavRELogan","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Mekrath 
+    Global("RE_MekrathFlirt","GLOBAL",1) 
+    Global("B!GavREMekrath","LOCALS",0) 
+    !AreaCheck("AR0705") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREMekrath","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Mekrath 
+    Global("RE_MekrathFlirt","GLOBAL",1) 
+    Global("B!GavREMekrath","LOCALS",0) 
+    AreaCheck("AR0705") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREMekrath","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Mekrath 
+    Global("B!GavREMekrath","LOCALS",1) 
+    !AreaCheck("AR0705") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Noober 
+    Global("RE_NooberFlirt","GLOBAL",1) 
+    Global("B!GavRENoober","LOCALS",0) 
+    !AreaCheck("AR0513") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRENoober","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Noober 
+    Global("RE_NooberFlirt","GLOBAL",1) 
+    Global("B!GavRENoober","LOCALS",0) 
+    AreaCheck("AR0513") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRENoober","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Noober 
+    Global("B!GavRENoober","LOCALS",1) 
+    AreaCheck("AR0513") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Renal 
+    Global("RE_RenalFlirt","GLOBAL",1) 
+    Global("B!GavRERenalFlirt","LOCALS",0) 
+    !AreaCheck("AR0306") 
+    !AreaCheck("AR0305") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERenalFlirt","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Renal 
+    Global("RE_RenalFlirt","GLOBAL",1) 
+    Global("B!GavRERenalFlirt","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        AreaCheck("AR0306") 
+        AreaCheck("AR0305") 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERenalFlirt","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Renal 
+    Global("B!GavRERenalFlirt","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Renal 
+    Global("RE_RenalSex","GLOBAL",1) 
+    Global("B!GavRERenal","LOCALS",0) 
+    !AreaCheck("AR0021")       // Crooked Crane, 1st floor
+    !AreaCheck("AR0313")       // Sea's Bounty, 1st floor 
+    !AreaCheck("AR0406")       // Copper Coronet 
+    !AreaCheck("AR0509")       // Five Flagons, 1st floor 
+    !AreaCheck("AR0513")       // Delosar's, 1st floor 
+    !AreaCheck("AR0522")       // Five Flagons, 1st floor (stronghold) 
+    !AreaCheck("AR0704")       // Mithrest Inn 
+    !AreaCheck("AR0709")       // Den of the Seven Vales 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERenal","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Renal 
+    Global("RE_RenalSex","GLOBAL",1) 
+    Global("B!GavRERenal","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+    OR(8) 
+        AreaCheck("AR0021")       // Crooked Crane, 1st floor
+        AreaCheck("AR0313")       // Sea's Bounty, 1st floor 
+        AreaCheck("AR0406")       // Copper Coronet 
+        AreaCheck("AR0509")       // Five Flagons, 1st floor 
+        AreaCheck("AR0513")       // Delosar's, 1st floor 
+        AreaCheck("AR0522")       // Five Flagons, 1st floor (stronghold) 
+        AreaCheck("AR0704")       // Mithrest Inn 
+        AreaCheck("AR0709")       // Den of the Seven Vales 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERenal","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Renal 
+    Global("B!GavRERenal","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald 
+    Global("RE_RibaldFlirt","GLOBAL",1) 
+    Global("B!GavRERibaldFlirt","LOCALS",0) 
+    !AreaCheck("AR0702") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERibaldFlirt","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald 
+    Global("RE_RibaldFlirt","GLOBAL",1) 
+    Global("B!GavRERibaldFlirt","LOCALS",0) 
+    AreaCheck("AR0702") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERibaldFlirt","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald 
+    Global("B!GavRERibaldFlirt","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald Sex 
+    Global("RE_RibaldSex","GLOBAL",1) 
+    Global("B!GavRERibald","LOCALS",0) 
+    !AreaCheck("AR0702") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERibald","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald Sex 
+    Global("RE_RibaldSex","GLOBAL",1) 
+    Global("B!GavRERibald","LOCALS",0) 
+    AreaCheck("AR0702") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERibald","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald Sex 
+    Global("B!GavRERibald","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald RA2 
+    Global("RE_RibaldRomanceActive","GLOBAL",2) 
+    Global("B!GavRERibaldRA2","GLOBAL",0) 
+    AreaCheck("AR0702") 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRERibaldRA2","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Ribald RA2 
+    Global("RE_RibaldRomanceActive","GLOBAL",2) 
+    Global("B!GavRERibaldRA2","GLOBAL",1) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Saemon Havarian 
+    Global("RE_SaemonSex","GLOBAL",1) 
+    Global("B!GavRESaemon","LOCALS",0) 
+    !Global("Chapter","GLOBAL",%bg2_chapter_4%)  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRESaemon","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Saemon Havarian 
+    Global("RE_SaemonSex","GLOBAL",1) 
+    Global("B!GavRESaemon","LOCALS",0) 
+    Global("Chapter","GLOBAL",%bg2_chapter_4%)  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRESaemon","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Saemon Havarian 
+    Global("B!GavRESaemon","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Solaufein 
+    Global("RE_SolaufeinFlirt","GLOBAL",1) 
+    Global("B!GavRESolaufein","LOCALS",0) 
+    !Global("Chapter","GLOBAL",%bg2_chapter_5%)  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRESolaufein","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Solaufein 
+    Global("RE_SolaufeinFlirt","GLOBAL",1) 
+    Global("B!GavRESolaufein","LOCALS",0) 
+    Global("Chapter","GLOBAL",%bg2_chapter_5%)  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRESolaufein","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Solaufein 
+    Global("B!GavRESolaufein","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself)                                   // Talak 
+    Global("RE_TalakFlirt","GLOBAL",1) 
+    Global("B!GavRETalak","LOCALS",0) 
+    !Global("Chapter","GLOBAL",%bg2_chapter_5%)  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRETalak","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Talak 
+    Global("RE_TalakFlirt","GLOBAL",1) 
+    Global("B!GavRETalak","LOCALS",0) 
+    Global("Chapter","GLOBAL",%bg2_chapter_5%)  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRETalak","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself)                                   // Talak 
+    Global("B!GavRETalak","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+// Valygar - as vague as it's written, the only way to back this out is to not start it at all. So comment will happen if the PC wears the necklace
+// HasItemEquiped("RE_valm",Player1) 
+
+IF 
+    InParty(Myself)  
+    HasItemEquiped("RE_Valam",Player1) 
+    Global("B!GavREValygar","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    See(Player1) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREValygar","LOCALS",1) 
+END 
+    
+IF 
+    InParty(Myself) 
+    Global("B!GavREValygar","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    See(Player1) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+   
+IF 
+    InParty(Myself)                                   // Cernd 
+    Global("RE_CerndFlirt","GLOBAL",1) 
+    Global("B!GavRECernd","LOCALS",0) 
+    !AreaCheck("AR1900") 
+    !AreaCheck("AR1901")   
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRECernd","LOCALS",9) 
+END 
+   
+IF 
+    InParty(Myself)                                   // Cernd 
+    Global("RE_CerndFlirt","GLOBAL",1) 
+    Global("B!GavRECernd","LOCALS",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        AreaCheck("AR1900")   
+        AreaCheck("AR1901")   
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRECernd","LOCALS",1) 
+END 
+ 
+IF 
+    InParty(Myself)                                   // Cernd 
+    Global("B!GavRECernd","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+/* Cumulative Romance Reactions */ 
+
+IF 
+    InParty(Myself)                                                  // Was unfaithful twice
+    Global("B!GavCuckold","GLOBAL",2) 
+    Global("B!GavRE2","LOCALS",0) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobalTimer("B!GavCuckoldT","GLOBAL",ONE_DAY) 
+        SetGlobal("B!GavPissed","GLOBAL",1) 
+        SetGlobal("B!GavRE2","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    GlobalTimerExpired("B!GavCuckoldT","GLOBAL") 
+    Global("B!GavRE2","LOCALS",1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavPissed","GLOBAL",0) 
+        SetGlobal("B!GavRE2","LOCALS",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavRE2","LOCALS",2) 
+    CombatCounter(0)
+    See(Player1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+IF 
+    InParty(Myself)                                                  // Was unfaithful three times 
+    Global("B!GavCuckold","GLOBAL",3) 
+    Global("B!GavRE3","LOCALS",0) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobalTimer("B!GavCuckoldT","GLOBAL",TWO_DAYS) 
+        SetGlobal("B!GavPissed","GLOBAL",1) 
+        SetGlobal("B!GavRE3","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    GlobalTimerExpired("B!GavCuckoldT","GLOBAL") 
+    Global("B!GavRE3","LOCALS",1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavPissed","GLOBAL",0) 
+        SetGlobal("B!GavRE3","LOCALS",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavRE3","LOCALS",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0)
+    See(Player1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+IF 
+    InParty(Myself)                                                  // Was unfaithful four times 
+    Global("B!GavCuckold","GLOBAL",4) 
+    Global("B!GavRE4","LOCALS",0) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobalTimer("B!GavCuckoldT","GLOBAL",ONE_DAY) 
+        SetGlobal("B!GavPissed","GLOBAL",1) 
+        SetGlobal("B!GavRE4","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    GlobalTimerExpired("B!GavCuckoldT","GLOBAL") 
+    Global("B!GavRE4","LOCALS",1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavPissed","GLOBAL",0) 
+        SetGlobal("B!GavRE4","LOCALS",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavRE4","LOCALS",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0)
+    See(Player1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+     
+  
+IF 
+    InParty(Myself)                                                  // Was unfaithful five times 
+    Global("B!GavCuckold","GLOBAL",5) 
+    Global("B!GavRE5","LOCALS",0) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobalTimer("B!GavCuckoldT","GLOBAL",ONE_DAY) 
+        SetGlobal("B!GavPissed","GLOBAL",1) 
+        SetGlobal("B!GavRE5","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    GlobalTimerExpired("B!GavCuckoldT","GLOBAL") 
+    Global("B!GavRE5","LOCALS",1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavPissed","GLOBAL",0) 
+        SetGlobal("B!GavRE5","LOCALS",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavRE5","LOCALS",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0)
+    See(Player1) 
+    Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* ToB */ 
+/*
+IF 
+    InParty(Myself)                                   // Cambion 
+    Global("RE_CambionFlirt","GLOBAL",1) 
+    Global("B!GavRECambion","LOCALS",0) 
+    Gender(Player1,FEMALE) 
+    !AreaCheck("AR3007") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRECambion","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Cyric 
+    Global("RE_CyricSex","GLOBAL",1) 
+    Global("B!GavRECyric","LOCALS",0) 
+    Gender(Player1,FEMALE) 
+    !AreaCheck("AR4500") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRECyric","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Laran 
+    Global("RE_LaranSexToB","GLOBAL",1) 
+    Global("B!GavRELaranToB","LOCALS",0) 
+    !AreaCheck("AR5003") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRELaranToB","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Viekang 
+    Global("RE_ViekangFlirt","GLOBAL",1) 
+    Global("B!GavREViekang","LOCALS",0) 
+    !AreaCheck("AR5003")  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavREViekang","LOCALS",9) 
+END 
+
+IF 
+    InParty(Myself)                                   // Sarevok 
+    Global("RE_SarevokSex","GLOBAL",1) 
+    Global("B!GavRESarevok","LOCALS",0) 
+    !AreaCheck("AR5003")  
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRESarevok","LOCALS",9) 
+END 
+*/

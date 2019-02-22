@@ -1,0 +1,13 @@
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        Rest() 
+        ActionOverride(Player2,Rest()) 
+        ActionOverride(Player3,Rest()) 
+        ActionOverride(Player4,Rest()) 
+        ActionOverride(Player5,Rest()) 
+        ActionOverride(Player6,Rest()) 
+        StartCutScene("b!three2") 
+END 

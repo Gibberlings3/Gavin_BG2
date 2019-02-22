@@ -1,0 +1,56 @@
+
+// b!ar0319 - spawns Lanie if Gavin was sent to the temple alone, atmosphere NPC spawns 
+
+IF 
+    Global("B!GavUnraisable","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+          ActionOverride("b!lanie",DestroySelf()) 
+          SetGlobal("B!GavUnraisable","GLOBAL",2) 
+END 
+
+IF 
+    GlobalGT("B!GavNoGoToTemple","GLOBAL",3) 
+    Global("B!GavAloneLanieSpawns","AR0319",0) 
+THEN 
+    RESPONSE #100 
+        CreateCreature("b!lanie",[0.0],0) 
+        ActionOverride("b!lanie",MoveBetweenAreas("AR0319",[399.450],2)) 
+        SetGlobal("B!GavAloneLanieSpawns","AR0319",1) 
+END 
+
+IF 
+    Global("B!GavNPC1Spawns","GLOBAL",0) 
+THEN 
+    RESPONSE #100 
+        CreateCreature("b!ogkid1",[0.0],0) 
+        ActionOverride("b!ogkid1",MoveBetweenAreas("AR0319",[313.419],4)) 
+        SetGlobal("B!GavNPC1Spawns","GLOBAL",1) 
+END 
+
+IF 
+    Global("B!GavNPC2Spawns","GLOBAL",0) 
+THEN 
+    RESPONSE #100 
+        CreateCreature("b!ogkid2",[0.0],0) 
+        ActionOverride("b!ogkid2",MoveBetweenAreas("AR0319",[263.455],4)) 
+        SetGlobal("B!GavNPC2Spawns","GLOBAL",1) 
+END
+
+IF 
+    Global("B!GavNPC3Spawns","GLOBAL",0) 
+THEN 
+    RESPONSE #100 
+        CreateCreature("b!ogkid3",[0.0],0) 
+        ActionOverride("b!ogkid3",MoveBetweenAreas("AR0319",[652.279],8)) 
+        SetGlobal("B!GavNPC3Spawns","GLOBAL",1) 
+END
+
+
+IF
+  Global("B!Herb03Spawn","AR0300",0)
+THEN
+  RESPONSE #100
+     CreateCreature("b!herb03",[2859.2456],0)                   // Goody Vera 
+     SetGlobal("B!Herb03Spawn","AR0300",1)
+END

@@ -1,0 +1,920 @@
+
+// b!gav25s.baf - Gavin's ToB override script 
+/* Summoned */ 
+/* String-fixer */ 
+/* Negating Interjections */ 
+/* Interjections */ 
+    /* Chinchilla */ 
+    /* Marlowe, Mala, and Vangoethe */ 
+    /* Dragon Staircase */ 
+    /* Sendai's Enclave */ 
+    /* Spectator Beholder */ 
+
+///* TALKS */ 
+/* Talk 1 - Sarevok has soul */ 
+/* Challenge 1 */ 
+/* Yaga-Shura's House */ 
+/* Challenge 2 */ 
+/* Jamais Tomblethen dead */ 
+/* Amkethran - Is this place haunted or is it just me? */ 
+/* Portents and Dreams  - Gavin dreams of Amaunator */ 
+/* Challenge 5 */ 
+
+///* ROMANCE TALKS */ 
+/* Hey, babe... */ 
+/* Morning after */ 
+/* Yaga-Shura's Heart */ 
+/* After Challenge 3: Reclaim Innocence */ 
+
+///* IMOEN ROMANCE */ 
+/* Set timer */ 
+///* BANTERS */ 
+/* Cernd - Gavin's lost */ 
+/* Haer'Dalis - Sand flies */ 
+/* Minsc - Minsc wounded */ 
+
+/* Summoned */ 
+
+IF 
+    Global("B!Gavin2Summoned","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* String-fixer */ 
+IF 
+    HotKey(K)  
+THEN 
+    RESPONSE #100        
+        SetName(@4) 
+        SetPlayerSound(Myself,@6,MORALE) 
+        SetPlayerSound(Myself,@7,HAPPY) 
+        SetPlayerSound(Myself,@8,UNHAPPY_ANNOYED) 
+        SetPlayerSound(Myself,@9,UNHAPPY_SERIOUS) 
+        SetPlayerSound(Myself,@10,UNHAPPY_BREAKING_POINT)
+        SetPlayerSound(Myself,@11,LEADER)
+        SetPlayerSound(Myself,@12,TIRED) 
+        SetPlayerSound(Myself,@13,BORED) 
+        SetPlayerSound(Myself,@14,BATTLE_CRY1) 
+        SetPlayerSound(Myself,@15,BATTLE_CRY2) 
+        SetPlayerSound(Myself,@16,BATTLE_CRY3) 
+        SetPlayerSound(Myself,@17,BATTLE_CRY4) 
+        SetPlayerSound(Myself,@18,DAMAGE) 
+        SetPlayerSound(Myself,@19,DYING) 
+        SetPlayerSound(Myself,@20,HURT) 
+        SetPlayerSound(Myself,@21,AREA_FOREST) 
+        SetPlayerSound(Myself,@22,AREA_CITY) 
+        SetPlayerSound(Myself,@23,AREA_DUNGEON) 
+        SetPlayerSound(Myself,@24,AREA_DAY) 
+        SetPlayerSound(Myself,@25,AREA_NIGHT) 
+        SetPlayerSound(Myself,@26,SELECT_COMMON1) 
+        SetPlayerSound(Myself,@27,SELECT_COMMON2) 
+        SetPlayerSound(Myself,@28,SELECT_COMMON3) 
+        SetPlayerSound(Myself,@29,SELECT_COMMON4) 
+        SetPlayerSound(Myself,@30,SELECT_COMMON5) 
+        SetPlayerSound(Myself,@31,SELECT_COMMON6) 
+        SetPlayerSound(Myself,@32,SELECT_ACTION1) 
+        SetPlayerSound(Myself,@33,SELECT_ACTION2) 
+        SetPlayerSound(Myself,@34,SELECT_ACTION3) 
+        SetPlayerSound(Myself,@35,SELECT_ACTION4) 
+        SetPlayerSound(Myself,@36,SELECT_ACTION5) 
+        SetPlayerSound(Myself,@37,SELECT_ACTION6) 
+        SetPlayerSound(Myself,@38,SELECT_ACTION7) 
+        SetPlayerSound(Myself,@39,SELECT_RARE1) 
+        SetPlayerSound(Myself,@40,SELECT_RARE2) 
+        SetPlayerSound(Myself,@41,CRITICAL_HIT) 
+        SetPlayerSound(Myself,@42,CRITICAL_MISS) 
+        SetPlayerSound(Myself,@44,INVENTORY_FULL) 
+        SetPlayerSound(Myself,@45,PICKED_POCKET) 
+        SetPlayerSound(Myself,@46,HIDDEN_IN_SHADOWS) 
+        SetPlayerSound(Myself,@47,SPELL_DISRUPTED) 
+        SetPlayerSound(Myself,@48,SET_A_TRAP)  
+END 
+
+/* Negating Interjections */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25SarevokAlive","GLOBAL",0) 
+    GlobalGT("SarevokAlive","GLOBAL",0) 
+    !AreaCheck("AR4500") 
+    GlobalGT("SarevokAlive","GLOBAL",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!Gav25SarevokAlive","GLOBAL",9) 
+END 
+
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25Chinchilla","LOCALS",0) 
+    Dead("ysgp04") 
+    !AreaCheck("AR5200") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!Gav25Chinchilla","LOCALS",9) 
+END 
+
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25Spectator","GLOBAL",0) 
+    GlobalGT("SendaiCutScene3","GLOBAL",0) 
+    !AreaCheck("AR6106")
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!Gav25Spectator","GLOBAL",9) 
+END 
+
+/* Interjections */ 
+
+    /* Chinchilla */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25Chinchilla","LOCALS",0) 
+    Dead("ysgp04") 
+    AreaCheck("AR5200")
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!Gav25Chinchilla","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25Chinchilla","LOCALS",1) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+    /* Marlowe, Mala, and Vangoethe */ 
+
+IF 
+    InParty(Myself) 
+    Global("bgavmarlowe17","GLOBAL",1) 
+    !AreaCheck("AR5507")
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("bgavmarlowe17","GLOBAL",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("gbavmarlowe17","GLOBAL",2) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+    /* Dragon Staircase */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavAR3024","GLOBAL",0) 
+    AreaCheck("AR3024")
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAR3024","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavAR3024","GLOBAL",1) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+    /* Sendai's Enclave */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavAR6101","GLOBAL",0) 
+    AreaCheck("AR6101")
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAR6101","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavAR6101","GLOBAL",1) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+    /* Spectator Beholder */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25Spectator","GLOBAL",0) 
+    GlobalGT("SendaiCutScene3","GLOBAL",0) 
+    AreaCheck("AR6106")
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!Gav25Spectator","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25Spectator","GLOBAL",1) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+
+///* TALKS */ 
+/* Talk 1 - Sarevok has soul */ 
+/* SarevokAlive > 0, if Imoen gives soul ImoenGiveSoul > 0 */ 
+/* dialogue in b!tob_talks.d */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25SarevokAlive","GLOBAL",0) 
+    GlobalGT("SarevokAlive","GLOBAL",0) 
+    !Global("ImoenGiveSoul","GLOBAL",2) 
+    AreaCheck("AR4500")
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!Gav25SarevokAlive","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!Gav25SarevokAlive","GLOBAL",1) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+/* Challenge 1 */ 
+
+IF 
+    InParty(Myself) 
+    Global("GavePocketPlane","GLOBAL",1) 
+    AreaCheck("AR4500") 
+    Global("B!GavToBc1","GLOBAL",0) 
+    CombatCounter(0) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBc1","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBc1","GLOBAL",1) 
+    CombatCounter(0) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s1") 
+        StartDialogueNoSet(Player1)  
+END 
+
+
+/* Yaga-Shura's House */ 
+/* dialogue in b!tob_talks.d */ 
+
+IF 
+    InParty(Myself) 
+    AreaCheck("AR5204") 
+    Global("B!GavAR5204","LOCALS",0) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAR5204","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    !AreaCheck("AR5204") 
+    !AreaCheck("AR5201") 
+    Global("B!GavAR5204","LOCALS",1) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    See(Player1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAR5204","LOCALS",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavAR5204","LOCALS",2) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    See(Player1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s1") 
+        StartDialogueNoSet(Player1)  
+END 
+
+/* Challenge 2 */ 
+/* dialogue in b!tob_talks.d */ 
+
+IF 
+    GlobalGT("BeginChallenge2","GLOBAL",2)
+    Global("B!GavToBc2","GLOBAL",0)
+    InParty(Myself)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See(Player1)
+    CombatCounter(0)
+    !See([ENEMY])
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBc2","GLOBAL",1) 
+END
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBc2","GLOBAL",1) 
+    CombatCounter(0) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+/* Jamais Tomblethen dead */ 
+/* dialogue in b!tob_talks.d */ 
+IF 
+    InParty(Myself) 
+    Global("B!GavToBOasis","GLOBAL",0) 
+    Dead("amtgen01") 
+    AreaCheck("AR6300") 
+    GlobalGT("TethyrBattleStart","GLOBAL",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBOasis","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBOasis","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+    See(Player1) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Amkethran - Is this place haunted or is it just me? */ 
+/* dialogue in b!tob_talks.d */ 
+
+IF 
+    InParty(Myself) 
+    AreaCheck("AR5500") 
+    Global("B!GavToBAmkethran","GLOBAL",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See(Player1)
+    CombatCounter(0)
+    !See([ENEMY])
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBAmkethran","GLOBAL",1) 
+END
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBAmkethran","GLOBAL",1) 
+    CombatCounter(0) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+/* Portents and Dreams  - Gavin dreams of Amaunator */ 
+/* dialogue in b!tob_talks.d */
+IF 
+    InParty(Myself) 
+    Global("B!GavToBAmkethran","GLOBAL",2) 
+    Global("B!GavToBAmaunator","LOCALS",0) 
+    PartyRested() 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBAmaunator","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBAmaunator","LOCALS",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Challenge 5 */ 
+/* dialogue in b!tob_talks.d */ 
+
+IF 
+    InParty(Myself) 
+    Global("ChallengesDone","GLOBAL",1) 
+    PartyRested() 
+    Global("B!GavToBc5","GLOBAL",0) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See(Player1)
+    CombatCounter(0)
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBc5","GLOBAL",1)
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBc5","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See(Player1)
+    CombatCounter(0)
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1) 
+END 
+
+
+///* ROMANCE TALKS */ 
+/* Hey, babe... */ 
+/* dialogue in b!tob_romance.d */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBLT","GLOBAL",0) 
+    AreaCheck("AR4500") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1)     
+    !Global("B!GavRA","GLOBAL",0) //this is for RA = 1,2,3,4
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavToBLTTime","GLOBAL",60) 
+        SetGlobal("B!GavToBLT","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    RealGlobalTimerExpired("B!GavToBLTTime","GLOBAL") 
+    Global("B!GavToBLT","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBLT","GLOBAL",2) 
+END 
+    
+IF 
+    InParty(Myself) 
+    Global("B!GavToBLT","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Morning after */ 
+/* dialogue in b!tob_romance.d */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBLT","GLOBAL",5) 
+    Global("B!GavToBMorning","GLOBAL",0) 
+    Global("B!GavToBSex","GLOBAL",1) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBMorning","GLOBAL",1) 
+END 
+    
+IF 
+    InParty(Myself) 
+    Global("B!GavToBMorning","GLOBAL",1) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_sl") 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* Yaga-Shura's Heart */ 
+/* dialogue in b!tob_romance.d */ 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavYagaHeart","LOCALS",0) 
+    PartyHasItem("hgheart2") 
+    AreaCheck("AR5204") 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavYagaHeart","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    Global("B!GavYagaHeart","LOCALS",1) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    See(Player1) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        PlaySong(0) 
+        PlaySound("bgav_s1") 
+        StartDialogueNoSet(Player1) 
+END 
+
+/* After Challenge 3: Reclaim Innocence */ 
+/* dialogue in b!tob_romance.d */ 
+
+IF 
+    InParty(Myself) 
+    GlobalGT("BeginChallenge3","GLOBAL",2) 
+    Global("B!GavToBc3","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See(Player1)
+    CombatCounter(0)
+    !See([ENEMY])
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavToBc3","GLOBAL",1) 
+END
+
+IF 
+    InParty(Myself) 
+    Global("B!GavToBc3","GLOBAL",1) 
+    Global("B!GavRA","GLOBAL",2) 
+    CombatCounter(0) 
+    See(Player1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+///* IMOEN ROMANCE */ 
+/* Set timer */ 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImoenRA","GLOBAL",0) 
+    !Global("B!GavNoBG1","GLOBAL",1) 
+    Gender(Player1,MALE) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImoenRA","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImToB","GLOBAL",0) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImToBTime","GLOBAL",1800) 
+        SetGlobal("B!GavImToB","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImToBNight","GLOBAL",0) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobalTimer("B!GavImToBNightT","GLOBAL",TWO_DAYS) 
+        SetGlobal("B!GavImToBNight","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    RealGlobalTimerExpired("B!GavImToBTime","GLOBAL") 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    OR(4) 
+        Global("B!GavImToB","GLOBAL",5) 
+        Global("B!GavImToB","GLOBAL",9) 
+        Global("B!GavImToB","GLOBAL",13) 
+        Global("B!GavImToB","GLOBAL",15) 
+THEN 
+    RESPONSE #100 
+        IncrementGlobal("B!GavImToB","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    OR(4) 
+        Global("B!GavImToB","GLOBAL",6) 
+        Global("B!GavImToB","GLOBAL",10) 
+        Global("B!GavImToB","GLOBAL",14) 
+        Global("B!GavImToB","GLOBAL",16) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("Imoen2")  
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    RealGlobalTimerExpired("B!GavImTime","GLOBAL") 
+    Global("B!GavImAmkethran","GLOBAL",4) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImAmkethran","GLOBAL",5) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImAmkethran","GLOBAL",5) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    RealGlobalTimerExpired("B!GavImTime","GLOBAL") 
+    Global("B!GavImAmkethran","GLOBAL",6) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImAmkethran","GLOBAL",7) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImAmkethran","GLOBAL",7) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("Imoen2")  
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    AreaCheck("AR5501") 
+    Global("B!GavImAmkethranInn","GLOBAL",0) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImAmkethranInnT","GLOBAL",10) 
+        SetGlobal("B!GavImAmkethranInn","GLOBAL",1)   
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    RealGlobalTimerExpired("B!GavImAmkethranInnT","GLOBAL") 
+    Global("B!GavImAmkethranInn","GLOBAL",1) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImAmkethranInn","GLOBAL",2)   
+END 
+
+///* BANTERS */ 
+/* Cernd - Gavin's lost */ 
+
+IF 
+    InParty("Cernd") 
+    InParty(Myself) 
+    Global("B!GavCerndToB1","GLOBAL",0) 
+    !StateCheck("Cernd",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("Cernd") 
+    CombatCounter(0) 
+    OR(2) 
+        AreaCheck("AR6300") 
+        AreaCheck("AR6100") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCerndToB1","GLOBAL",1) 
+END 
+
+IF 
+    InParty("Cernd") 
+    InParty(Myself) 
+    Global("B!GavCerndToB1","GLOBAL",1) 
+    !StateCheck("Cernd",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("Cernd") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("Cernd")  
+END 
+
+/* Haer'Dalis - Sand flies */ 
+
+IF 
+    InParty("HaerDalis") 
+    InParty(Myself) 
+    Global("B!GavHaerDalisToB2","GLOBAL",0) 
+    !StateCheck("HaerDalis",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("HaerDalis") 
+    CombatCounter(0) 
+    OR(6) 
+        AreaCheck("AR5200") 
+        AreaCheck("AR5500") 
+        AreaCheck("AR6000") 
+        AreaCheck("AR6100") 
+        AreaCheck("AR6300") 
+        AreaCheck("AR6400") 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavHaerDalisToB2","GLOBAL",1) 
+END 
+
+IF 
+    InParty("HaerDalis") 
+    InParty(Myself) 
+    Global("B!GavHaerDalisToB2","GLOBAL",1) 
+    !StateCheck("HaerDalis",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("HaerDalis") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("HaerDalis") 
+END 
+
+/* Minsc - Minsc wounded */ 
+
+IF 
+    InParty("Minsc") 
+    InParty(Myself) 
+    HPPercentLT("Minsc",50) 
+    Global("B!GavMinscToB3","GLOBAL",0) 
+    !StateCheck("Minsc",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("Minsc") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavMinscToB3","GLOBAL",1) 
+END 
+
+IF 
+    InParty("Minsc") 
+    InParty(Myself) 
+    Global("B!GavMinscToB3","GLOBAL",1) 
+    !StateCheck("Minsc",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("Minsc") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("Minsc") 
+END 

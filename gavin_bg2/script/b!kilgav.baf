@@ -1,0 +1,10 @@
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        ActionOverride("Anomen",Kill("B!Gavin2")) 
+        ActionOverride("Anomen",StartDialogueNoSet(Player1)) 
+END 
+        

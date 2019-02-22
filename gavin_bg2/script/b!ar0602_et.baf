@@ -1,0 +1,14 @@
+
+// b!ar0602_et.baf - EXTEND_TOP ar0602.bcs (puts the ring inside the chest) 
+
+IF 
+    Global("B!GavRingPlaced","GLOBAL",0) 
+    Gender(Player1,FEMALE) 
+THEN 
+    RESPONSE #100 
+        ActionOverride("Picture1",CreateItem("B!PCRING",0,0,0))
+        SetGlobal("B!GavRingPlaced","GLOBAL",1) 
+        Continue() 
+END 
+
+

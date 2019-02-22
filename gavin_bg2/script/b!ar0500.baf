@@ -1,0 +1,11 @@
+
+// b!ar0500.bcs - spawns Master Siman 
+
+IF
+  Global("B!Herb04Spawn","AR0500",0)
+THEN
+  RESPONSE #100
+     CreateCreature("b!herb04",[2733.2030],0)                   // Master Siman 
+     SetGlobal("B!Herb04Spawn","AR0500",1) 
+     Continue() 
+END

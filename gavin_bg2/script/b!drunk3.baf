@@ -1,0 +1,22 @@
+
+// b!drunk3.baf - Gets both Gavin and the PC out of prison 
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        Wait(1)
+        FadeToColor([20.0],0)
+        Wait(1)
+        CloseDoor("DOOR10") 
+        ActionOverride("B!PRSGRD",DestroySelf())
+        Wait(1)
+        RestorePartyLocations()
+        MultiPlayerSync()
+        Wait(1)
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        ActionOverride("B!Gavin2",StartDialogueNoSet(Player1)) 
+END 

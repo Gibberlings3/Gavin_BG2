@@ -1,0 +1,11 @@
+
+// b!amket1.baf - Spawn Aleto 
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        CreateCreatureObjectOffset("b!gabard","Imoen2",[-10.-10]) 
+        ActionOverride("b!gabard",StartDialogueNoSet("Imoen2")) 
+END 

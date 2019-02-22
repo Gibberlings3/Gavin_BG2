@@ -1,0 +1,20 @@
+
+// b!ar5501.baf - Amkethran Inn events 
+
+IF 
+    Exists("B!Gavin2") 
+    Exists("Imoen2") 
+    Global("B!GavImAmkethran","GLOBAL",0) 
+    Global("B!GavImAmkethranInn","GLOBAL",2) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImAmkethranInn","GLOBAL",3) 
+        SetGlobal("B!GavImAmkethran","GLOBAL",1) 
+        ClearAllActions() 
+        StartCutSceneMode() 
+        StartCutScene("b!amket1") 
+        Continue() 
+END 

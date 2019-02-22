@@ -1,0 +1,27 @@
+
+IF 
+    Global("B!GavLERedeem","GLOBAL",1) 
+    Alignment(Player1,MASK_EVIL) 
+THEN 
+    RESPONSE #100 
+        ActionOverride(Player1,ChangeAlignment(Myself,LAWFUL_NEUTRAL)) 
+        SetGlobal("B!GavLERedeem","GLOBAL",2) 
+END 
+
+IF 
+    Global("B!GavNERedeem","GLOBAL",1) 
+    Alignment(Player1,MASK_EVIL) 
+THEN 
+    RESPONSE #100 
+        ActionOverride(Player1,ChangeAlignment(Myself,NEUTRAL)) 
+        SetGlobal("B!GavNERedeem","GLOBAL",2) 
+END 
+
+IF 
+    Global("B!GavCERedeem","GLOBAL",1) 
+    Alignment(Player1,MASK_EVIL) 
+THEN  
+    RESPONSE #100 
+        ActionOverride(Player1,ChangeAlignment(Myself,CHAOTIC_NEUTRAL)) 
+        SetGlobal("B!GavCERedeem","GLOBAL",2) 
+END 

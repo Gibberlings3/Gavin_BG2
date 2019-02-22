@@ -1,0 +1,29 @@
+
+// b!tob_anomen.baf - Anomen's ToB script additions 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    TimeOfDay(DUSK) 
+    Global("B!GavAnomenToB1","GLOBAL",0) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN  
+    RESPONSE #100 
+        SetGlobal("B!GavAnomenToB1","GLOBAL",1) 
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavAnomenToB1","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN  
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")  
+END 

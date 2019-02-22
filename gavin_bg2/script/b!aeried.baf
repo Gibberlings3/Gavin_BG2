@@ -1,0 +1,19 @@
+
+// b!aeried.baf - EXTEND_TOP aeried.bcs 
+
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  RealGlobalTimerExpired("B!GavAerT","GLOBAL")
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  Global("B!GavAerConflict","GLOBAL",1)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    SetGlobal("B!GavAerConflict","GLOBAL",2)
+    StartDialogueNoSet("B!Gavin2") 
+END

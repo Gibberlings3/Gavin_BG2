@@ -1,0 +1,21 @@
+
+// b!drunk1.baf - Gavin and the PC go to jail 
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        LeaveAreaLUAPanic("AR1005","",[556.732],3)
+        LeaveAreaLUA("AR1005","",[556.732],3)
+        ActionOverride("B!Gavin2",MoveBetweenAreas("AR1005",[510.760],11)) 
+        Wait(1) 
+        MultiPlayerSync()
+        Explore()
+        Wait(1)
+        FadeFromColor([20.0],0)
+        StartMovie("RESTDUNG")
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        ActionOverride("B!Gavin2",StartDialogueNoSet(Player1))
+END

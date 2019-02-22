@@ -1,0 +1,42 @@
+
+// b!ar0400.baf - Gavin's spawns (scales for PC level) 
+
+IF
+  Global("B!Gavin2Spawn","GLOBAL",0)
+  Global("B!GavJoinedOnce","GLOBAL",0)
+THEN
+  RESPONSE #100
+     CreateCreature("B!GAV08",[0.0],0)                   // Gavin
+     SetGlobal("B!Gavin2Spawn","GLOBAL",1)
+     Continue() 
+END
+
+IF 
+  Global("B!GavMove","GLOBAL",0) 
+  Global("B!Gavin2Spawn","GLOBAL",1) 
+THEN 
+  RESPONSE #100 
+    ActionOverride("B!Gavin2",MoveBetweenAreas("AR0408",[317.364],2) 
+    SetGlobal("B!Gavin2Spawn","GLOBAL",2) 
+    Continue() 
+END 
+
+IF 
+  Exists(Player1) 
+  InParty("B!Gavin2") 
+  Gender(Player1,MALE) 
+  !Global("B!GavNoBG1","GLOBAL",1) 
+  Global("B!GavImoenRA","GLOBAL",0) 
+THEN 
+  RESPONSE #100 
+    SetGlobal("B!GavImoenRA","GLOBAL",1) 
+END 
+
+IF
+  Global("B!Herb02Spawn","AR0400",0)
+THEN
+  RESPONSE #100
+     CreateCreature("b!herb02",[2005.2117],7)                   // Goody Clara
+     SetGlobal("B!Herb02Spawn","AR0400",1)
+     Continue() 
+END

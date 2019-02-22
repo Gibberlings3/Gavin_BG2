@@ -1,0 +1,29 @@
+
+// b!tob_mazzy.baf 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    AreaCheck("AR6101") 
+    Global("B!GavMazzyToB1","GLOBAL",0) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavMazzyToB1","GLOBAL",1) 
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavMazzyToB1","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2") 
+END 

@@ -1,0 +1,542 @@
+(Friendly, goodnatured greeting) ~Lathander's blessings upon you!~ [BGAV_00]
+(Morale failure, so frightened) ~Um, regroup?~ [BGAV_01]
+(Proud) ~The gods will smile on our actions. We are surely on the right path.~ [BGAV_02]
+(Anxious) ~We must do better.~ [BGAV_03]
+(Annoyed) ~We cannot go on like this! I cannot condone our actions.~ [BGAV_04]
+(Resolute) ~This must end. I can no longer be party to such deeds.~ [BGAV_05]
+(Upon becoming leader. Reluctant and with premonitions of disaster.) ~Remember, you asked for this.~ [BGAV_06]
+(Yawning) ~I need to rest. I'm no good to All like this.~ [BGAV_07]
+(Finding something to do while bored) ~If we're going to stand around and look at the scenery, I'm going to get out my sketchbook.~ [BGAV_08]
+(battlecry) ~In Lathander's name!~ [BGAV_09]
+(battlecry) ~By all that is good, I will crush you!~ [BGAV_10]
+(battlecry) ~To battle!~ [BGAV_11]
+(battlecry) ~Fall before the might of Lathander!~ [BGAV_12]
+(sustained damage) ~Hey, I felt that!~ [BGAV_13]
+(dying) ~It's as good a time as any.~ [BGAV_14]
+(gravely wounded) ~This healer needs some help, here!~ [BGAV_15]
+(Annoyingly chipper) ~All this fresh air really makes me feel alive.~ [BGAV_16]
+(Saddened) ~So many opportunities to help, but so many people who need it.~ [BGAV_17]
+(trying to convince himself) ~There's nothing between me and the open sky but a lot of rock and dirt.~ [BGAV_18]
+(Yup, it was all him. Planetary rotation had nothing to do with it. Again, non-morning people should want to strangle him) ~Daylight! Behold the majesty of Lathander!~ [BGAV_19]
+(placid) ~At night, the world rests and is renewed.~ [BGAV_20]
+(general selection sound, helpful rather than sarcastic) ~Your wish?~ [BGAV_21]
+(general selection sound, amused) ~Yes?~ [BGAV_22]
+(general selection sound, distracted) ~Hmm?~ [BGAV_23]
+(general selection sound, helpful rather than sarcastic) ~How may I help you?~ [BGAV_24]
+(general selection sound, helpful rather than sarcastic) ~Your request?~ [BGAV_25]
+(general selection sound, distracted) ~What was it that you wanted?~ [BGAV_26]
+(confirmation) ~As you wish.~ [BGAV_27]
+(confirmation) ~I will do as you say.~ [BGAV_28]
+(confirmation) ~At your command.~ [BGAV_29]
+(confirmation) ~All right.~ [BGAV_30]
+(confirmation) ~Yes.~ [BGAV_31]
+(confirmation) ~As you see fit.~ [BGAV_32]
+(confirmation) ~Consider it done.~ [BGAV_33]
+(not *too* cowardly on this line) ~As long as it doesn't involve spiders.~ [BGAV_34]
+(annoyed) ~Is this really necessary?~ [BGAV_35]
+(triumphant) ~One for Lathander!~ [BGAV_36]
+(oops!) ~Damn my clumsiness!~ [BGAV_37]
+(frustrated) ~This is getting us nowhere!~ [BGAV_38]
+~Sorry, but there's no room for anything else.~ [BGAV_39]
+(annoyed) ~Was that really necessary?~ [BGAV_40]
+ ~I am hidden.~ [BGAV_41]
+(annoyed) ~Stop that! You've broken my concentration.~ [BGAV_42]
+ ~Let's hope this gets the right target, shall we?~ [BGAV_43]
+
+~Excuse me, but have you seen -~ [bgav100]
+
+(hopeful)
+~Hello again.~ [bgav101] 
+
+(companionable)
+~It's been a long time since we sat beside the fire together. How are you holding up?~ [bgav102] 
+
+(companionable)
+~It's good to sit beside the fire with travel companions again, but you've been through a lot, I hear. Anything you want to talk about?~ [bgav103]
+
+(neutral, not acccusatory)
+~Where do we go from here?~ [bgav104] 
+
+(concerned)
+~Did you ever find out why you were abducted?~ [bgav105] 
+
+(disappointed)
+~When I left the Sword Coast behind me, I had hoped that I traveled to a more enlightened place, but instead, I find just as much prejudice here as I did in Baldur's Gate... or even more.~ [bgav106] 
+
+(neutral - just a question)
+~What do you believe?~ [bgav107] 
+
+(about to state his last wishes)
+~I've got something I need to talk to you about, and I doubt it's going to be a comfortable conversation for either of us.~ [bgav108] 
+
+(still haunted by something he's seen)
+~Have you ever seen something you've wanted to forget, but couldn't?~ [bgav109] 
+
+(just a question, no deep meaning)
+~Do you ever think about the friends you left behind?~ [bgav110] 
+
+(concerned, but not worried)
+~How are you holding up?~ [bgav111] 
+
+(annoyed and generally pissy)
+~Where in the nine hells is my shaving mirror?~ [bgav112] 
+
+(repentant, but not groveling)
+~I need to apologize for my outburst earlier.~ [bgav113] 
+
+(neutral, neither approval nor disapproval) 
+~You're hardly the same person you were, when I first joined your company.~ [bgav114] 
+
+(cheerful)
+~So, where are we off to now?~ [bgav115] 
+
+(conversational) (BER-e-gost) 
+~Do you remember Beregost?~ [bgav116] 
+
+(frustrated)
+~It's no use. I've just read this journal entry four times, and I still don't remember what in the nine hells I just read.~ [bgav117] 
+
+(like he's planning a vacation)
+~So, what's the first thing you're going to do when you finally get a chance to put your feet up and relax?~ [bgav118] 
+
+(mostly made up his mind, but still a bit undecided) (ath-KAT-la)
+~When this is all over, I think that maybe I'll settle in Athkatla.~ [bgav119] 
+
+(he's proposing marriage) 
+~We have become close, in the time we've spent together, and in you, I sense a kindred spirit. How I ever knew happiness before I met you, I do not know, but I do know that I have found it now.~ [bgav120] 
+
+(he's trying to admit that he was wrong) 
+~I've been thinking... maybe it wasn't you.~ [bgav121] 
+
+(impressed) 
+~Your very own playhouse! You must be excited.~ [bgav122] 
+~You're a fully-fledged cleric of this temple now! It's a great honor, but it's a lot of responsibility, too.~ [bgav123] 
+~You're the Druid of the Grove! It's a great honor, but it's a lot of responsibility, too.~ [bgav124] 
+~Your own keep! It's a great honor, but it's a lot of responsibility, too.~ [bgav125] 
+~Your own apprentices! It's a great honor, but it's a lot of responsibility, too.~ [bgav126] 
+~You're a fully-fledged paladin of the Order now! It's a great honor, but it's a lot of responsibility, too.~ [bgav127] 
+~You're a fully-fledged Ranger-Protector! It's a great honor, but it's a lot of responsibility, too.~ [bgav128] 
+
+(quietly, terrified himself)
+~It is important that you do as I say and remain absolutely still.~ [bgav129] 
+
+(disappointed) (ath-KAT-la)
+~Well, now I've seen every part of Athkatla, and I've got to say I'm not impressed.~ [bgav130] 
+
+(pleased with himself)
+~Alright, the rabbit looks brown enough. Some water and a couple of bay leaves, and it's stew.~ [bgav131] 
+
+(hopeful) 
+~Hey, how about a drink to wash down some of this trail dust?~ [bgav132] 
+
+(quietly, a bit hungover) 
+~Are you awake?~ [bgav133] 
+
+(apologetic) 
+~For what it's worth, I'm sorry about what happened.~ [bgav134] 
+
+(cheerful)
+~It's my turn to cook tonight, so I'm taking requests. What will it be?~ [bgav135] 
+
+(no pressure)
+~Well, the day is done, and it's time to go to our bedrolls. Do you want me to come with you?~ [bgav136] 
+
+(hopeful)
+~I'm starting to feel a little sleepy, how about you?~ [bgav137] 
+
+(a bit optimistic)
+~Alone, at last.~ [bgav138] 
+
+(quietly)
+~Is this where we're going to camp?~ [bgav139] 
+
+(bringing up a delicate subject)
+~There's something we need to talk about, now that things between us have... changed.~ [bgav140] 
+
+(confused) 
+~I... I'm here. Why am I here?~ [bgav141] 
+
+(concerned)
+~You're pretty banged up, there! Can I take a look at that?~ [bgav142] 
+
+(puzzled and concerned) (IM-o-wen) 
+~Where's Imoen?~ [bgav143] 
+
+(calm, professional)
+~Well, here we are. I brought my sketchbook, if you're still interested in that drawing.~ [bgav144] 
+~Are you still interested in doing that drawing? I brought paper and charcoal.~ [bgav145] 
+
+(glowing)
+~Good morning, love. Did you sleep well?~ [bgav146] 
+
+(baffled and disturbed)
+~I've just had the strangest dream.~ [bgav147] 
+
+(breaking a long silence)
+~May we speak?~ [bgav148] 
+
+(astonished in a bad way) 
+~I don't believe what I just saw. Do you believe what you just saw?~ [bgav149] 
+
+(comforting)(YON) (LIS-sa)
+~Jan, I saw what happened between you and Lissa. I'm sorry.~ [bgav150] 
+
+(doesn't really want to hear the answer)
+~What happened?~ [bgav151] 
+
+(a bit pleased - he always liked Garrick) (GAR-rick)
+~Who would have thought we'd run into Garrick here, of all places?~ [bgav152] 
+
+(disturbed)
+~That was... interesting. I really hope you don't ask to do anything like that again... ever.~ [bgav153] 
+~That was... the most humiliating thing I've ever endured.~ [bgav154] 
+
+(disappointed and a bit suspicious - PC has just dumped Imoen at Spellhold and is now trying to re-recruit Gavin)
+~So, here you are.~ [bgav155] 
+
+(disgusted with a PC who just stole from his temple)
+~Is it done?~ [bgav156] 
+
+(rather mortified)
+~Hello. Have you paid my fine?~ [bgav157] 
+
+(cheerful)
+~Shall we resume our travels?~ [bgav158] 
+
+(gently, talking to a child) (LANE-ee)
+~It's almost time, Lanie.~ [bgav159] 
+
+(stern) (mir-RAN-da) 
+~So this journey, Miranda? How long will you be gone?~ [bgav160] 
+
+(neutral)
+~Do you want me to leave?~ [bgav161] 
+
+(cheerful)
+~You return. Do you want me to travel with you again?~ [bgav162] 
+
+(embarrassed)
+~That was... well, it was. And now, it's over.~ [bgav163] 
+
+(conversational, about to ask a favor) (ill-MAH-ter) (LANE-ee)
+~When I was in the temple of Ilmater, they gave me some advice about finding Lanie, and I'd like to follow up on it.~ [bgav164] 
+
+(apologetic)
+~I don't mean to impose, but you said we'd go to the Temple District to see about getting that divination spell.~ [bgav165] 
+
+(impatient and a bit resigned) (la-THAN-der)
+~It's been four days, and we haven't been to the Temple of Lathander yet. Do we go now or do I go alone?~ [bgav166] 
+
+(slightly embarrassed) (LANE-ee) 
+~About that whole... incident... before, with Lanie. Did you want to talk about it?~ [bgav167] 
+
+(cheerful)
+~Well, here we are, back at base.~ [bgav168] 
+
+(unsure) (AN-o-men)
+~I think I need to talk to you. It's about Anomen.~ [bgav169] 
+
+(resigned)
+~I need to speak with you, and it won't wait.~ [bgav170] 
+
+(firm) 
+~Leave me alone.~ [bgav171] 
+
+(firm, but not angry)
+~Do not speak to me.~ [bgav172] 
+
+(concerned, not accusatory)
+~That's twice now that you've been unfaithful to me. Aren't I giving you what you need?~ [bgav173] 
+
+(concerned, a bit grieved, and a lot confused)
+~You have to know how unhappy I've been over the last couple of days. We need to talk and we need to do it now.~ [bgav174] 
+
+(stern) (la-THAN-drite)
+~Once is an accident. Twice is me giving you the benefit of a doubt. Three times is me being a good Lathandrite and forgiving you no matter how hard it was. But this is four times that you've been unfaithful to me. I'm not a fool, and I won't let you treat me like one any longer. We're done.~ [bgav175] 
+
+(sad and resigned)
+~It breaks my heart, but I'm going to have to let you go. Love cannot exist where there is no trust, and you have proven to me time and again that I'm not going to be able to trust you. It's over. I am sorry.~ [bgav176] 
+
+(conversational) (QUAIL, like the bird) 
+~[GAVIN] Quayle means a lot to you, doesn't he?~ [bgav200] 
+
+(on discovering that his tunic was on backward)
+~[GAVIN] Ah, yes. So I do. No wonder it felt funny.~ [bgav201] 
+
+(conversational)
+~[GAVIN] I wonder why people find ogres so funny.~ [bgav202] 
+
+~[GAVIN] Ah, you're up already. Not often I meet someone who rises as early as I do.~ [bgav203] 
+
+~[GAVIN] I agree.~ [bgav204] 
+
+~[GAVIN] Writing a letter to my parents. I haven't written to them in months.~ [bgav205] 
+
+(AIR-ee)
+~[GAVIN] I shouldn't have blown up at you, Aerie. It isn't easy to say it, but I'm sorry.~ [bgav206] 
+
+~[GAVIN]You jest. No one has ever been able to recognize a tune I'm humming.~ [bgav207] 
+
+(AN-o-men)
+~[GAVIN] I walked out on our last conversation in anger, Anomen. Maybe I should tell you why I reacted the way I did.~ [bgav208] 
+
+(embarrassed)(AN-o-men)
+~[GAVIN] Sorry, Anomen, I was only... startled.~ [bgav209] 
+
+(as if explaining something to a simpleton)(AN-o-men)
+~[GAVIN] I'm not a coward, Anomen, I just don't like spiders.~ [bgav210] 
+
+(appreciative) (la-THAN-der)
+~[GAVIN] Lathander's golden pinky, that woman is pretty.~ [bgav211] 
+
+(calmly) (AN-o-men)
+~[GAVIN] Anomen, about last night...~ [bgav212] 
+
+(sincerely) (AN-o-men)
+~[GAVIN] Anomen, I owe you an apology. I had no idea...~ [bgav213] 
+
+(disapproving)
+~[GAVIN] I'll never understand how you can just leave your son in the hands of strangers like that.~ [bgav214] 
+
+(vague disapproval) (SERND) 
+~[GAVIN] Cernd, did you ever say why you left your wife?~ [bgav215] 
+
+(doesn't feel like talking to Cernd)
+~[GAVIN] You do not approve of my decisions, I do not approve of yours. So yes, you might say that.~ [bgav216]
+
+(skeptical)
+~[GAVIN] I don't see a lot of waterfalls around, and I don't think I've ever seen a cave with a vaulted ceiling.~ [bgav217] 
+
+(insufferably optimistic) 
+~[GAVIN] We're getting closer. I know it.~ [bgav218] 
+
+(just got hit with a staff)
+~[GAVIN] Oof. Watch where you're swinging that staff, Edwin.~ [bgav219] 
+
+(grumpy)
+~[GAVIN] I'm not your servant, wizard.~ [bgav220] 
+
+(suspicious)
+~[GAVIN] Since when are we "good friends," wizard?~ [bgav221] 
+
+(vaguely irritated)
+~[GAVIN] You said something, Edwin?~ [bgav222] 
+
+(conversational) 
+~[GAVIN] Er... no, it's just me, stirring the porridge. I must have been humming to myself.~ [bgav223] 
+
+(doesn't like Haer'Dalis all that much)
+~[GAVIN] Have you ever noticed how every plane is better in some way than the one you're currently on?~ [bgav224] 
+
+(philosophical mood)
+~[GAVIN] Haer'Dalis, I've been wondering. What gods do they worship, out among the planes?~ [bgav225] 
+
+(stern) (HAIR da-LEES)
+~[GAVIN] You should not toy with her, Haer'Dalis.~ [bgav226] 
+
+(friendly, concerned) (IM-o-wen)
+~You're awfully quiet, Imoen. What's wrong... apart from the obvious.~ [bgav227] 
+
+(tired, and disgusted with himself for being such a slug)
+~Ugh. I can barely move.~ [bgav228] 
+
+(pleased, approves)
+~You've made some recent changes in your profession, I hear.~ [bgav229] 
+
+(friendly) (IM-o-wen)
+~It's a pleasure to finally meet you, Imoen.~ [bgav230] 
+~It's good to have you back, Imoen.~ [bgav231]
+
+(sincere) (ja-HEER-ah)
+~Jaheira, I'm sorry I hurt you, before. I should never have said something so tactless, regardless of how uncomfortable I was.~ [bgav232] 
+
+(gently) (ja-HEER-ah) 
+~Jaheira, I'm sorry for your loss.~ [bgav233] 
+
+(snappy comeback)
+~[GAVIN]At that moment? I believe I was thinking I'd better not let myself be killed like that.~ [bgav234] 
+
+(tentatively, broaching a sensitive subject) (ja-HEER-ah)
+~Jaheira, not long ago, you and I had a conversation about how grief might make us do things we might later regret.~ [bgav235] 
+
+(conversationally)
+~[GAVIN] Turnips are very good for you, you know.~ [bgav236] 
+
+(panicky)
+~[GAVIN] Aiyeee!!~ [bgav237] 
+
+(skeptical)
+~[GAVIN] I can't say I like that comparison.~ [bgav238] 
+
+(conversationally) (YON)
+~[GAVIN] Jan, what's that thing you've got around your neck?~ [bgav239] 
+
+(leading into a banter about reminiscences)
+~Listen! Do you recognize that sound?~ [bgav240] 
+
+(conversationally) (KEL-dorn)
+~[GAVIN] That's quite a scar you have there, Keldorn.~ [bgav241] 
+
+(friendly) (KOR-gan)
+~[GAVIN] Korgan, my good dwarf, pass that bottle down.~ [bgav242] 
+
+(calling out a warning) (KOR-gan)
+~[GAVIN] Watch it, Korgan, that ground is slick.~ [bgav243] 
+
+(helpful) (MAZ-ee)
+~[GAVIN] Can I get that for you, Mazzy?~ [bgav244] 
+
+(conversationally)
+~[GAVIN] Are you going to eat that?~ [bgav245] 
+
+(normal conversation, not serious)
+~[GAVIN] Minsc... can I ask you something, man to man?~ [bgav246] 
+
+(making conversation) (NAHL-ee-ah)
+~[GAVIN] Nalia, your aunt... was she your mother's sister?~ [bgav247] 
+
+(curious) (NAHL-ee-ah) (EYE-zay-ah)
+~[GAVIN] Nalia, who made the match between you and Isaea?~ [bgav248] 
+
+(making conversation) (EYE-zay-ah)
+~[GAVIN] Too bad you didn't like Isaea. His father seems like a good sort.~ [bgav249] 
+
+(making conversation)
+~[GAVIN] I never really understood why people use the phrase 'arranged marriage.' If you think about it, aren't all marriages arranged?~ [bgav250]
+
+(small talk) (VAL-e-gar)
+~Valygar, do you ever wonder 'what if'?~ [bgav251] 
+
+(feeling philosophical) (VAL-e-gar)
+~Here's a 'what if' for you, Valygar.~ [bgav252] 
+
+(making conversation) (vie-CONE-ee-ah)
+~What brought you this far south, Viconia?~ [bgav253] 
+
+(vaguely irritated) (vie-CONE-ee-ah)
+~Viconia, you take little enough pleasure in life on the surface. I sometimes wonder why you stay.~ [bgav254] 
+
+(curious) (yoh-SHEE-moh)
+~[GAVIN] Just a moment, Yoshimo. Did I catch a flash of pale metal by your neck?~ [bgav255] 
+
+(curious) (yoh-SHEE-moh) 
+~[GAVIN] Where did you get that trinket, Yoshimo?~ [bgav256] 
+
+~Here, you dropped something.~ [bgav301] 
+
+~How much water do we have left?~ [bgav302] 
+
+~Should we be going this way? I thought we needed to head east.~ [bgav303] 
+
+(ugh, mosquitos)
+~Ugh, I'm being eaten alive!~ [bgav304] 
+
+(indignant) 
+~Hey! What do you think you're doing, scrubbing the cooking pot out with my shirt?~ [bgav305] 
+
+(klutz) 
+~Woops! Sorry, Jaheira!~ [bgav306] 
+
+~What in the nine hells was in that horrible *thing* you had me eat?~ [bgav307] 
+
+(anxious) 
+~I feel like we're waiting for something, but I don't know what.~ [bgav308] 
+
+~Who knew we'd end up here, eh, Mazzy?~ [bgav309] 
+
+~Easy, Minsc, we'll have you patched up and back on your feet in no time.~ [bgav310] 
+
+~It's peaceful out here, quiet.~ [bgav311] 
+
+(summoned to the Pocket Plane, a little confused) 
+~Ah, there you are. And here I am. Where are we?~ [bgav400] 
+
+(not the most original line in the history of forever, but don't worry, the next one is worse) 
+~Do you want me to go?~ [bgav401] 
+
+~Do you want me back?~ [bgav402] 
+
+(PC just gave Sarevok a piece of his/her soul) 
+~I realize that this may not be the best time to talk, but what you just did...~ [bgav403] 
+
+(GAH-vid) 
+~Gavid used some words in connection with you that I just don't understand.~ [bgav404] 
+
+(releaved to be leaving a giant's house) 
+~I'm glad to be out of there. Never have I felt so... small.~ [bgav405] 
+
+~Well, that was invigorating! Never thought I'd find myself fighting you.~ [bgav406] 
+
+(bewildered, overwhelmed, horrified) 
+~What's this? I recognize... ~ [bgav407] 
+
+~Civilization! At last! It isn't the most inviting city I've ever seen, but I bet they have ale!~ [bgav408] 
+
+(approaching something he'd rather not talk about) 
+~With everything you've got on your mind, I hate bringing this up, but I've been worried lately.~ [bgav409] 
+
+(final, getting ready to say goodbye - neutral tone, though, as the PC might be an evil bastard or a devoted lover) 
+~So, this is it.~ [bgav410] 
+
+(eye-REN-i-cuss) 
+~With Irenicus dead, I thought we might finally have a chance at a normal life. It looks like I was wrong.~ [bgav411] 
+
+~Time for bed? Don't leave without a goodnight kiss.~ [bgav412] 
+
+~Good morning, love.~ [bgav413] 
+
+(awed) 
+~It's odd to think that such a small thing could have so much power.~ [bgav414] 
+
+(worried) 
+~Can you sleep?~ [bgav415] 
+
+~Are you all right, <CHARNAME>? For a few moments there, you looked like you were in another world.~ [bgav416] 
+
+(concerned) 
+~Let's move away from the others, love. There's... something I need to talk to you about.~ [bgav417] 
+
+("So, how 'bout those Mets" kind of voice) 
+~Some day, wasn't it?~ [bgav418] 
+
+~If it gets any hotter, I think I'll change my religion.~ [bgav419] 
+
+(about to give a silly little gift) 
+~I have something for you.~ [bgav420] 
+
+(waking someone up, so not too loud) 
+~Imoen! What's wrong?~ [bgav421] 
+
+~Imoen, why are you holding my hand?~ [bgav422] 
+
+(frustrated) 
+~Damn, it's no use. Imoen, you're just standing there, can you reach it for me?~ [bgav423] 
+
+(drunk and unhappy) 
+~Hullo.~ [bgav424] 
+
+(about to ask if he can date the male PC's sister) 
+~We need to talk... about Imoen.~ [bgav425] 
+
+(resigned, but not melodramatically so) 
+~Imoen, can we talk?~ [bgav426] 
+
+~I couldn't do it.~ [bgav427] 
+
+New lines: 
+(bewildered, just arrived in hell) 
+~What place is this? And that odd lurch...~ [bgav501] 
+
+(loyal, making the best of a bad situation)
+~When I said I'd follow you to the hells and back, I never expected to be taken so literally! Well, here we are, so let's see what we can do about getting out.~ [bgav502] 
+~I always knew I'd follow you to the hells and back, so now it's time to put that oath to the test. We're here and we're together. We *will* find a way.~ [bgav503] 
+
+(resolute, telling Irenicus to piss off)
+~Your evil ends here, fiend! Light shall overcome the darkness and you shall perish!~ [bgav503] 
+
+(getting ready to say goodbye to a friend) 
+~I don't envy you this choice. To become a god... I don't even know whose blessings to invoke upon you.~ [bgav504] 
+
+(trying - and failing - to be brave about the fact that his lover may very well become a god in the next five minutes) 
+~We knew this hour would come, my love. I... my heart breaks at the thought of losing you, but you must...~ [bgav505] 
+~Must I say it?~ [bgav506] 

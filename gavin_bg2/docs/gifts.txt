@@ -1,0 +1,258 @@
+
+Gifts:
+
+Aerie: Rose Garland 
+
+The enchantment that keeps the roses in this circlet fresh is unknown, but the passage of time has no effect on it and its beauty never fades. Whatever the enchantment is, however, it also bestows some regenerative powers to the wearer, as well as providing a modest AC bonus.
+
+STATISTICS
+
+While Equiped:
+  Regenerate 1 HP every 10 seconds 
+  AC Bonus: 1 
+  
+Not Usable By:
+  Wizard Slayer
+
+-----------------
+
+Anomen: Helm of Loyalty 
+
+Legend has it that King Haedrak III bestowed this heavy helmet on an unnamed foot soldier as a reward for performing a feat of exceptional loyalty. History declines to record the exact nature of this service, however. Regardless, the helmet offers protection against enchantments that would otherwise ensnare the wearer.
+
+STATISTICS
+
+While Equiped: 
+  Immunity to Charm 
+  Protection from Critical Hits
+  
+Not Usable By: 
+  Mage 
+  Thief
+
+------------------------
+
+Cernd: Wolf Totem 
+
+The origins of this carved-bone amulet are unknown. It bestows an AC bonus of 1 upon the wearer and improves THACO by 1.
+
+STATISTICS 
+
+While Equiped: 
+  AC Bonus +1
+  THACO Bonus +1
+
+-------------------
+
+Edwin: Thayvian Circlet 
+
+This ornate circlet is said to have been the property of Methoth Ankhalab, a legendary master of the Thayvian Academy. How it came to be in the hands of a gnome peddler is unknown. 
+
+STATISTICS
+
+While Equiped: 
+  AC Bonus +1
+  Saving Throw Bonus +1 
+
+-----------------------
+
+Gavin: Dawnbringer Medallion 
+
+This medallion is a holy symbol of Lathander. It has been imbued with additional enchantments that make it more valuable to a cleric of that faith.
+
+STATISTICS
+
+While Equipped:
+ Magic Resistance: +5%
+ Vocalize
+ Decrease Spell Casting Speed by 1
+ Immunity to Level Drain
+
+Usable By:
+ Cleric
+
+---------------------
+
+Haer'Dalis: Winella's Token 
+
+
+Winella of Silverymoon was never counted among the beauties of the court... until she began to wear these flowers pinned to her gown. By the time of her tragic death by poison, she was reported to have received no less than 87 separate marriage proposals. Though the identity of her assassin was never proven beyond all doubt, it was rumored to have been Mielana of the Emerald Orbs, a rival.
+
+STATISTICS 
+
+While Equiped: 
+  Charism Bonus +2 
+
+
+-----------------------
+
+Imoen: Clove Pink 
+
+This jeweled brooch is shaped like the flower of the same name. It grants one additional mage spell for levels 1 through 5.
+
+STATISTICS 
+
+While Equiped: 
+  Addional Mage Spells
+  Level 1 
+  Level 2 
+  Level 3
+  Level 4 
+  Level 5
+  
+Usable By:
+  Mage
+----------------------------
+
+Jaheira: Symbol of Silvanus 
+
+This leaf-shaped medallion is the holy symbol of Silvanus. It offers +20% to all elemental resistances.
+
+STATISTICS
+
+While Equiped: 
+  +20% fire resistance 
+  +20% cold resistance 
+  +20% electrical resistance 
+  +20% acid resistance 
+  
+Usable By: 
+  Druids
+
+--------------------
+
+Jan: Ring of Judicious Retreat 
+
+The wearer of this ring is immune to any effects that would prevent a stealthy getaway, however the wearer is also immune to haste and slow spells.
+
+STATISTICS
+
+While Equiped:
+  Free Action
+  
+Not Usable By: 
+  Wizard Slayers 
+  
+--------------------------------
+
+Keldorn: Swift in Duty 
+
+The speedy execution of one's duty is one of the hallmarks of a paladin's role, however not all are up to the task without magical assistance. To this end, Sir Roderick of Cormyr commissioned this holy symbol of Torm.
+
+STATISTICS 
+
+While Equiped: 
+  Dexterity set to 18
+  
+Usable By: 
+  Paladin
+  
+---------------------------
+
+Korgan: Iron Horn of Narfell
+
+This engraved horn bears the tribal markings of the Narfel. Merely wearing it bestows a bonus to constitution.
+
+STATISTICS
+
+While Equiped: 
+  Constitution Bonus +2 
+ 
+Usable By:
+  Fighter
+  
+-------------------------------
+
+Mazzy: Holy Symbol of Avoreen 
+
+This amulet bears the emblem of Avoreen, the halfling god of valor. Its two crossed shortswords are worked in silver and gold, and it bears signs of magical enchantment. It grants the wearer complete immunity to poison and a modest combat bonus.
+
+STATISTICS 
+
+While Equiped:
+  Immunity to Poison
+  THACO Bonus +1 
+    
+Usable by:
+  Halfling Fighters
+   
+---------------------------
+
+Minsc: Buckle of Girding
+
+This intricate golden belt buckle bears obvious signs of enchantment. It bestows a bonus to all saving throws and conveys an additional bonus to maximum HP.
+
+STATISTICS
+
+While Equiped:
+  Saving Throw Bonus +1 
+  +5 Bonus to Maximum HP
+  
+Usable By:
+  Ranger
+------------------------
+
+Nalia: Halruuan Component Pouch
+
+This handy spell component pouch and silk belt was made to the specifications of the most demanding mages in Halruua, or so Master Grolim claims. Not only does wearing this convenient accessory permit the memorization of one extra first through fifth level spell per level, it is stylish, too!    
+
+STATISTICS 
+
+While Equiped: 
+  Addional Mage Spells
+  Level 1 
+  Level 2 
+  Level 3
+  Level 4 
+  Level 5
+  
+Usable By:
+  Mage
+  
+------------------------------------------
+
+Valygar: Traveler's Smock
+
+This well-worn woolen garment is a boon to wanderers everywhere. It shields the wearer from all sorts of elemental damage.
+
+STATISTICS
+
+While Equiped: 
+  +20% fire resistance 
+  +20% cold resistance 
+  +20% electrical resistance 
+  +20% acid resistance 
+  
+Usable By: 
+  Ranger
+  
+----------------
+
+Viconia: Nightcloak Medallion 
+
+This medallion is a holy symbol of Shar. It has been imbued with additional enchantments that make it more valuable to a cleric of that faith.
+
+STATISTICS
+
+While Equiped:
+ Magic Resistance: +5%
+ Vocalize
+ Decrease Spell Casting Speed by 1
+ Immunity to Level Drain
+
+Usable By:
+ Cleric
+ 
+-----------------
+
+Yoshimo: Shadow Signet
+
+It is no longer possible to determing the symbol this ancient ring once bore, but its enchantment remains undimmed by the passage of time. It grants the wearer a bonus to lockpicking ability.
+
+STATISTICS
+
+While Equiped: 
+  Lockpicking Bonus +25% 
+
+Usable By:
+  Thief

@@ -1,0 +1,121 @@
+
+/* Romance Kills */ 
+
+IF 
+    Global("AnomenRomanceActive","GLOBAL",2) 
+    Global("B!GavRA","GLOBAL",1) 
+    Global("B!GavAnoRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavAnoRomCheck","LOCALS",1) 
+END 
+
+IF 
+    Global("EdwinRomanceActive","GLOBAL",2) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavEdRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavEdRomCheck","LOCALS",1) 
+END 
+
+/* Dorn */
+
+IF 
+    Global("DornRomanceActive","GLOBAL",2)  
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavDornRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavDornRomCheck","LOCALS",1) 
+END 
+
+/* Hexxat */
+
+IF 
+    Global("HexxatRomanceActive","GLOBAL",2) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavHexxatRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavHexxatRomCheck","LOCALS",1) 
+END 
+
+/* Rasaad */
+
+IF 
+    Global("RasaadRomanceActive","GLOBAL",2) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavRasaadRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavRasaadRomCheck","LOCALS",1) 
+END 
+
+
+
+IF 
+    Global("B!GavCheater","GLOBAL",1) 
+    !Global("B!GavRE5","LOCALS",3) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRA","GLOBAL",3) 
+        SetGlobal("B!GavRomBreak","GLOBAL",1) 
+        SetGlobal("B!GavCheater","GLOBAL",2) 
+END 
+
+IF 
+    Global("B!GavCheater","GLOBAL",1) 
+    Global("B!GavRE5","LOCALS",3) 
+    OR(2) 
+        Global("B!GavRA","GLOBAL",1) 
+        Global("B!GavRA","GLOBAL",2) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRA","GLOBAL",3) 
+        SetGlobal("B!GavRomBreak","GLOBAL",2) 
+        SetGlobal("B!GavCheater","GLOBAL",2) 
+END 
+
+IF 
+    Global("B!GavCheater","GLOBAL",1) 
+    Global("B!GavRA","GLOBAL",4) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRA","GLOBAL",3) 
+        SetGlobal("B!GavRomBreak","GLOBAL",2) 
+        SetGlobal("B!GavCheater","GLOBAL",2) 
+END 
+
+IF 
+    Global("B!GavAnoKill","GLOBAL",1) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("AnomenRomanceActive","GLOBAL",3) 
+        SetGlobal("B!GavAnoKill","GLOBAL",2) 
+END 
+
+IF 
+    Global("B!GavEdKill","GLOBAL",1) 
+    !Global("EdwinRomanceActive","GLOBAL",3) 
+    !Global("EdwinRomanceActive","GLOBAL",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("EdwinRomanceActive","GLOBAL",3) 
+        SetGlobal("B!GavEdKill","GLOBAL",2) 
+END 
+      

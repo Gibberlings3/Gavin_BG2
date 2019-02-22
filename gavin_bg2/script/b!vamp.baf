@@ -1,0 +1,34 @@
+
+// b!vamp.baf this is Gavin's script in the Graveyard, when he is first abducted
+
+IF
+	Global("B!CleanseVampire","AR1401",2)
+	Global("B!GavVampire","GLOBAL",3)
+	AreaCheck("AR1401")
+THEN
+	RESPONSE #100
+		SetGlobal("B!GavVampire","GLOBAL",4)
+		DialogInterrupt(TRUE)
+		ChangeAIScript("b!gavs",OVERRIDE)
+END
+
+IF
+	Global("B!GavVampire","GLOBAL",1)
+	Global("B!GavRomanceVampire","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("B!GavRomanceVampire","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("B!GavVampire","GLOBAL",1)
+	Global("B!GavRomanceVampire","GLOBAL",1)
+	Global("B!GavVampireTeleport","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("B!GavVampireTeleport","GLOBAL",1)
+		CreateVisualEffectObject("SPDIMNDR",Myself)
+		Wait(2)
+		DestroySelf()
+END

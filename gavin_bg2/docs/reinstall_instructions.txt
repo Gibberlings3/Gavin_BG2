@@ -1,0 +1,16 @@
+
+[b]Instructions for reinstalling Gavin[/b]
+
+We're all going to be reinstalling this mod repeatedly over the next few weeks, so it's important to follow these steps to reinstall the mod safely. No one wants to have to start a new game because the strings are scrambled.
+
+[list=1][*][b]Before you even download the new version[/b] of Gavin, open up your weidu.log. You will find it in your game directory. You can use any text editor, including Notepad. You may need to right-click on it and choose "Open with".
+[*]Print out your weidu.log if necessary to make sure you reinstall the mods in the same order.
+[*]Locate the last mod on your installation. It will be at the end of your weidu.log. Uninstall that mod.
+[*]Repeat for each mod until you reach Gavin. For example, if I've got Crossmod BanterPack installed after Gavin, I would uninstall Crossmod Banter Pack.
+[*]Uninstall Gavin.
+[*]Delete the folder "gavin_bg2"
+[*]Download the newest version.
+[*]Follow normal installation procedure for Gavin.
+[*]Reinstall your other mods in the same order. In the example above, after I had installed Gavin, I would install the Crossmod Banter Pack.[/list]
+
+This will enable us all to keep our installations as clean as possible throughout the testing process.

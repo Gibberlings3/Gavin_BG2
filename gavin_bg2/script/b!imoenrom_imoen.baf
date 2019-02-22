@@ -1,0 +1,137 @@
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImRomTalk","GLOBAL",3) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    AreaCheck("AR1600") 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",4) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImRomTalk","GLOBAL",6) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    AreaCheck("AR2100") 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",7) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImRomTalk","GLOBAL",9) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    AreaCheck("AR2200") 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",10) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImRomTalk","GLOBAL",12) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+    OR(7)
+        AreaCheck("AR0020") 
+        AreaCheck("AR0300") 
+        AreaCheck("AR0400") 
+        AreaCheck("AR0500") 
+        AreaCheck("AR0700") 
+        AreaCheck("AR0900") 
+        AreaCheck("AR1000") 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",13) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImRomTalk","GLOBAL",18) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+    OR(3)
+        AreaCheck("AR0300") 
+        AreaCheck("AR0500") 
+        AreaCheck("AR0700") 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",19) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    RealGlobalTimerExpired("B!GavImT","GLOBAL") 
+    Global("B!GavImRomTalk","GLOBAL",19) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+    OR(5) 
+        Global("B!GavImRomTalk","GLOBAL",4) 
+        Global("B!GavImRomTalk","GLOBAL",7) 
+        Global("B!GavImRomTalk","GLOBAL",10) 
+        Global("B!GavImRomTalk","GLOBAL",13) 
+        Global("B!GavImRomTalk","GLOBAL",19) 
+THEN 
+    RESPONSE #100 
+        IncrementGlobal("B!GavImRomTalk","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    See("B!Gavin2")
+    OR(5) 
+        Global("B!GavImRomTalk","GLOBAL",5) 
+        Global("B!GavImRomTalk","GLOBAL",8) 
+        Global("B!GavImRomTalk","GLOBAL",11) 
+        Global("B!GavImRomTalk","GLOBAL",14) 
+        Global("B!GavImRomTalk","GLOBAL",20) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")  
+END 

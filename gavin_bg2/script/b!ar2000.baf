@@ -1,0 +1,11 @@
+
+// b!ar2000.baf - Spawns Goody Marli 
+
+IF
+  Global("B!Herb05Spawn","AR2000",0)
+THEN
+  RESPONSE #100
+     CreateCreature("b!herb05",[494.2288],0)                   // Goody Marli 
+     SetGlobal("B!Herb05Spawn","AR2000",1) 
+     Continue() 
+END

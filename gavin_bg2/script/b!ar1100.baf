@@ -1,0 +1,11 @@
+
+// b!ar1100.baf - Spawns Master Uric 
+
+IF
+  Global("B!Herb06Spawn","AR1100",0)
+THEN
+  RESPONSE #100
+     CreateCreature("b!herb06",[3472.3028],12)                   // Master Uric 
+     SetGlobal("B!Herb06Spawn","AR1100",1) 
+     Continue() 
+END

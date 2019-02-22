@@ -1,0 +1,67 @@
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImRomTalk","GLOBAL",0) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    Global("B!GavImoIntroOld","GLOBAL",3) 
+    AreaCheck("AR1513") 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImRomTalk","GLOBAL",15) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    Dead("c6bodhi") 
+    AreaCheck("AR0800") 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+THEN 
+    RESPONSE #100 
+        RealSetGlobalTimer("B!GavImT","GLOBAL",300) 
+        SetGlobal("B!GavImRomTalk","GLOBAL",16) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    RealGlobalTimerExpired("B!GavImT","GLOBAL") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    OR(2) 
+    Global("B!GavImRomTalk","GLOBAL",1) 
+    Global("B!GavImRomTalk","GLOBAL",16) 
+THEN 
+    RESPONSE #100 
+        IncrementGlobal("B!GavImRomTalk","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Imoen2") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    CombatCounter(0)
+    !See([ENEMY])
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+    !StateCheck("Imoen2",CD_STATE_NOTVALID) 
+    OR(2) 
+        Global("B!GavImRomTalk","GLOBAL",2) 
+        Global("B!GavImRomTalk","GLOBAL",17) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("Imoen2")  
+END 

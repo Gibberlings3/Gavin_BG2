@@ -1,0 +1,63 @@
+
+/* Romance Kills */ 
+
+IF 
+    Global("AnomenRomanceActive","GLOBAL",2) 
+    Global("B!GavRA","GLOBAL",1) 
+    Global("B!GavAnoRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavAnoRomCheck","LOCALS",1) 
+END 
+
+IF 
+    Global("EdwinRomanceActive","GLOBAL",2) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavEdRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavEdRomCheck","LOCALS",1) 
+END 
+
+
+/* Dorn */
+
+IF 
+    Global("DornRomanceActive","GLOBAL",2)  
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavDornRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavDornRomCheck","LOCALS",1) 
+END 
+
+/* Hexxat */
+
+IF 
+    Global("HexxatRomanceActive","GLOBAL",2) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavHexxatRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavHexxatRomCheck","LOCALS",1) 
+END 
+
+/* Rasaad */
+
+IF 
+    Global("RasaadRomanceActive","GLOBAL",2) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    Global("B!GavRasaadRomCheck","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavCheater","GLOBAL",1) 
+        SetGlobal("B!GavRasaadRomCheck","LOCALS",1) 
+END 

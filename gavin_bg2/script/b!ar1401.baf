@@ -1,0 +1,11 @@
+
+IF 
+    Exists("B!Gavin2") 
+    GlobalGT("B!GavVampire","GLOBAL",2) 
+    GlobalLT("B!GavVampire","GLOBAL",10) 
+    Global("B!GavApproach","AR1401",0) 
+THEN 
+    RESPONSE #100 
+        ActionOverride("B!Gavin2",StartDialogue("b!gavp",Player1)) 
+        SetGlobal("B!GavApproach","AR1401",1) 
+END 

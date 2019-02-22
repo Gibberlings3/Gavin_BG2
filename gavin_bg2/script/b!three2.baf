@@ -1,0 +1,17 @@
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        Wait(1)
+        ActionOverride("b!masyrd",DestroySelf()) 
+        Activate("dadrow21") 
+        Wait(1)
+        RestorePartyLocations()
+        MultiPlayerSync()
+        Wait(1)
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        ActionOverride("B!Gavin2",StartDialogueNoSet(Player1))
+END

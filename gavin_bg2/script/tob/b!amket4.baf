@@ -1,0 +1,17 @@
+
+// b!amket4.baf - Gavin leaves  
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        ActionOverride("B!Gavin2",SetLeavePartyDialogueFile()) 
+        ActionOverride("B!Gavin2",ChangeAIScript("",DEFAULT)) 
+        ActionOverride("B!Gavin2",LeaveParty()) 
+        ActionOverride("B!Gavin2",Deactivate(Myself)) 
+        Wait(1) 
+        FadeFromColor([20.0],0) 
+        ActionOverride("Imoen2",StartDialogueNoSet(Player1)) 
+END 
+        

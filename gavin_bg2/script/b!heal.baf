@@ -1,0 +1,99 @@
+
+/* b!heal.baf - auto-heal script */ 
+
+/* 
+IF
+    HPPercentLT(Player1,50)
+    HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)     
+    // If I'm already casting another spell, don't interrupt that    
+    ActionListEmpty()    
+    InParty(Myself)     
+    !StateCheck(Myself,CD_STATE_NOTVALID)     
+    // redundant vs. other Invisibility checks:    
+    // ensure that Gavin will not go to CHARNAME if he's a screen away    
+    See(Player1)    
+    // various forms of Invisibility    
+    !StateCheck(Player1,STATE_INVISIBLE)    
+    !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY)    
+    !CheckStatGT(Player1,0,SANCTUARY)    
+    // SCSII uses SPELLFAILUREMAGE for priests    
+    // I include them both to be 110% sure of it    
+    CheckStatLT(Myself,50,SPELLFAILUREPRIEST)    
+    CheckStatLT(Myself,50,SPELLFAILUREMAGE)    
+    !Global("B!GavNoHeal","GLOBAL",1) 
+THEN     
+    RESPONSE #100        
+        Spell(Player1,CLERIC_CURE_CRITICAL_WOUNDS) 
+END 
+*/ 
+IF 
+    InParty(Myself) 
+    Global("B!GavHealInstalled","LOCALS",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavHealInstalled","LOCALS",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    HPPercentLT(Player1,50) 
+    HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS) 
+    ActionListEmpty() 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See(Player1) 
+    !StateCheck(Player1,STATE_INVISIBLE) 
+    !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY) 
+    !CheckStatGT(Player1,0,SANCTUARY) 
+    !Global("B!GavNoHeal","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        Spell(Player1,CLERIC_CURE_CRITICAL_WOUNDS) 
+END 
+
+IF 
+    InParty(Myself) 
+    HPPercentLT(Player1,50) 
+    HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS) 
+    ActionListEmpty() 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See(Player1) 
+    !StateCheck(Player1,STATE_INVISIBLE) 
+    !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY) 
+    !CheckStatGT(Player1,0,SANCTUARY) 
+    !Global("B!GavNoHeal","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        Spell(Player1,CLERIC_CURE_SERIOUS_WOUNDS) 
+END 
+
+IF 
+    InParty(Myself) 
+    HPPercentLT(Player1,50) 
+    HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS) 
+    ActionListEmpty() 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See(Player1) 
+    !StateCheck(Player1,STATE_INVISIBLE) 
+    !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY) 
+    !CheckStatGT(Player1,0,SANCTUARY) 
+    !Global("B!GavNoHeal","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        Spell(Player1,CLERIC_CURE_MEDIUM_WOUNDS) 
+END 
+
+IF 
+    InParty(Myself) 
+    HPPercentLT(Player1,50) 
+    HaveSpell(CLERIC_CURE_LIGHT_WOUNDS) 
+    ActionListEmpty() 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See(Player1) 
+    !StateCheck(Player1,STATE_INVISIBLE) 
+    !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY) 
+    !CheckStatGT(Player1,0,SANCTUARY) 
+    !Global("B!GavNoHeal","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        Spell(Player1,CLERIC_CURE_LIGHT_WOUNDS) 
+END 

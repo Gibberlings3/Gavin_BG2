@@ -1,0 +1,19 @@
+
+// b!ar0809.baf, gets extended to AR0809.bcs
+IF
+	Global("B!GavVampire","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("B!GavVampire","GLOBAL",2)
+		CreateCreature("B!GaVAMP",[1473.332],2) //you can make this on the fly by copying vamped-out Anomen in the tp2
+END
+
+IF
+	Dead("B!GaVAMP")
+	Global("B!GavVampire","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("B!GavVampire","GLOBAL",3)
+		ActionOverride("B!GaVAMP",DropInventory())
+		ActionOverride("B!GaVAMP",DestroySelf())
+END

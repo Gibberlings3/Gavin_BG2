@@ -1,0 +1,70 @@
+
+IF 
+    InParty(Myself) 
+    InParty("Anomen") 
+    RealGlobalTimerExpired("B!GavAnoT","GLOBAL") 
+    Global("B!GavAnoConflict","GLOBAL",1) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    !StateCheck("Anomen",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAnoConflict","GLOBAL",2) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Anomen") 
+    Global("B!GavAnoConflict","GLOBAL",2) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    !StateCheck("Anomen",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Anomen") 
+    RealGlobalTimerExpired("B!GavAnoT","GLOBAL") 
+    Global("B!GavAnoConflict","GLOBAL",4) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    !StateCheck("Anomen",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavAnoConflict","GLOBAL",5) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("Anomen") 
+    Global("B!GavAnoConflict","GLOBAL",5) 
+    !Global("AnomenRomanceActive","GLOBAL",0) 
+    !Global("AnomenRomanceActive","GLOBAL",3) 
+    !Global("B!GavRA","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",3) 
+    !StateCheck("Anomen",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    !See([ENEMY]) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet(Player1)  
+END 

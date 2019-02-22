@@ -1,0 +1,33 @@
+
+// b!bocut.baf, changes Gavin into a vampire
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("B!Gavin2")
+		Wait(1)
+		CreateCreatureObjectEffect("VAMPAMB","SPFLESHS","B!Gavin2")
+		SetGlobal("B!GavVampire","GLOBAL",1)
+		Wait(1)
+		CreateVisualEffectObject("SPDISPMA",Myself)
+		DropInventory()
+		SetLeavePartyDialogFile()
+		ChangeAIScript("B!VAMP",OVERRIDE)
+		ChangeAIScript("",DEFAULT)
+		DialogInterrupt(FALSE)
+		LeaveParty()
+		Wait(2)
+		EndCutSceneMode()
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("bodhiamb")
+		DialogInterrupt(FALSE)
+		CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+		CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+		CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+		CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+END

@@ -1,0 +1,239 @@
+
+// b!ar6200.baf - extend onto ar6200.bcs for epilogues
+
+/* 99900 b!gavep0 - not a god, romanced, no kids */ 
+/* 99901 b!gavep1 - not a god, romanced, only Lanie */ 
+/* 99902 b!gavep2 - not a god, romanced, Lanie and one other child (girl, determined randomly), child conceived in the Pocket Plane */ 
+/* 99903 b!gavep3 - not a god, romanced, Lanie and one other child (girl, determined randomly), child conceived later */  
+/* 99904 b!gavep4 - not a god, romanced, Lanie and one other child (boy, determined randomly), child conceived in the Pocket Plane */  
+/* 99905 b!gavep5 - not a god, romanced, Lanie and one other child (boy, determined randomly), child conceived later */  
+/* 99906 b!gavep6 - not a god, romanced, big family (which winds up being 2 kids, one of each gender), first conceived in the Pocket Plane */ 
+/* 99907 b!gavep7 - not a god, romanced, big family (which winds up being 2 kids, one of each gender), both conceived later */  
+/* 99908 b!gavep8 - not a god, not romanced (or RA=3) */  
+/* 99909 b!gavep9 - romanced Imoen (doesn't matter if PC became a god or not) */  
+/* 99910 b!gavepa - god, romanced, no kids */  
+/* 99911 b!gavepb - god, romanced, conceived a child in the Pocket Plane, gave child to Gavin to raise */  
+/* 99912 b!gavepc - god, romanced, conceived a child in the Pocket Plane, will raise the child in the Outer Planes */  
+/* 99913 b!gavepd - god, not romanced */  
+
+
+/* 99900 b!gavep0 - not a god, romanced, no kids */ 
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavChildren","GLOBAL",0) 
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP0") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99901 b!gavep1 - not a god, romanced, only Lanie */ 
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavChildren","GLOBAL",1) 
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP1") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99902 b!gavep2 - not a god, romanced, Lanie and one other child (girl, determined randomly), child conceived in the Pocket Plane */ 
+/* 99904 b!gavep4 - not a god, romanced, Lanie and one other child (boy, determined randomly), child conceived in the Pocket Plane */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavChildren","GLOBAL",2) 
+    Global("B!GavPCPregnant","GLOBAL",1) 
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #50 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP2") 
+        SmallWait(1) 
+        Continue() 
+    RESPONSE #50 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP4") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99903 b!gavep3 - not a god, romanced, Lanie and one other child (girl, determined randomly), child conceived later */  
+/* 99905 b!gavep5 - not a god, romanced, Lanie and one other child (boy, determined randomly), child conceived later */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavChildren","GLOBAL",2) 
+    !Global("B!GavPCPregnant","GLOBAL",1) 
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #50 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP3") 
+        SmallWait(1) 
+        Continue() 
+    RESPONSE #50 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP5") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99906 b!gavep6 - not a god, romanced, big family (which winds up being 2 kids, one of each gender), first conceived in the Pocket Plane */ 
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavChildren","GLOBAL",3) 
+    Global("B!GavPCPregnant","GLOBAL",1) 
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP6") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99907 b!gavep7 - not a god, romanced, big family (which winds up being 2 kids, one of each gender), both conceived later */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavChildren","GLOBAL",3) 
+    !Global("B!GavPCPregnant","GLOBAL",1) 
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP7") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99908 b!gavep8 - not a god, not romanced (or RA=3) */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",2) 
+    !Global("B!GavImoenRA","GLOBAL",2)
+    !Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP8") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99909 b!gavep9 - romanced Imoen (doesn't matter if PC became a god or not) */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavImoenRA","GLOBAL",2)
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEP9") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99910 b!gavepa - god, romanced, no kids */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    !Global("B!GavPCPregnant","GLOBAL",1)
+    Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEPA") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99911 b!gavepb - god, romanced, conceived a child in the Pocket Plane, gave child to Gavin to raise */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavPCPregnant","GLOBAL",1) 
+    Global("B!GavPCGaveChild","GLOBAL",1) 
+    Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEPB") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99912 b!gavepc - god, romanced, conceived a child in the Pocket Plane, will raise the child in the Outer Planes */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    Global("B!GavRA","GLOBAL",2) 
+    Global("B!GavPCPregnant","GLOBAL",1) 
+    !Global("B!GavPCGaveChild","GLOBAL",1) 
+    Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEPC") 
+        SmallWait(1) 
+        Continue() 
+END 
+
+/* 99913 b!gavepd - god, not romanced */  
+
+IF 
+    Global("StartEndBios","AR6200",1) 
+    InParty("B!Gavin2") 
+    Global("B!GavBio","GLOBAL",0) 
+    !Global("B!GavRA","GLOBAL",2) 
+    !Global("B!GavImoenRA","GLOBAL",2)
+    Global("PlayerChoseEssence","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBio","GLOBAL",1) 
+        TextScreen("B!GAVEPD") 
+        SmallWait(1) 
+        Continue() 
+END 

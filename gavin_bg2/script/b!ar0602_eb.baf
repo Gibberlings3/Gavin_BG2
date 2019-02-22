@@ -1,0 +1,25 @@
+
+// b!ar0602_eb.baf - EXTEND_BOTTOM ar0602.bcs (starts the Player1 internal dialogue about ring) 
+
+IF 
+//    HasItem("B!PCRING",Player1) 
+    PartyHasItem("B!PCRING") 
+    Global("B!GavRingPlaced","GLOBAL",1) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !See([ENEMY]) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavRingPlaced","GLOBAL",2)
+END 
+
+IF 
+    HasItem("B!PCRING",Player1) 
+    Global("B!GavRingPlaced","GLOBAL",2) 
+    !StateCheck(Player1,CD_STATE_NOTVALID) 
+    !See([ENEMY]) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        ActionOverride(Player1,StartDialog("player1",Player1))
+END 

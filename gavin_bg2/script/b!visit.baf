@@ -1,0 +1,16 @@
+
+// b!visit.baf - cutscene visit 
+
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        FadeToColor([20.0],0)
+        Wait(3)
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        ActionOverride("b!lanie",StartDialogueNoSet("b!gavin2"))
+END 

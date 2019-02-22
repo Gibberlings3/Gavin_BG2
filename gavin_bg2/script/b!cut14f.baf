@@ -1,0 +1,22 @@
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        StorePartyLocations()
+        FadeToColor([20.0],0)
+        Wait(1)
+        LeaveAreaLUAPanic("b!wood","",[519.271],0)
+        LeaveAreaLUA("b!wood","",[519.271],0)
+        ActionOverride("b!gavin2",LeaveAreaLUA("b!wood","",[550.302],0))
+        FaceObject("b!gavin2") 
+        ActionOverride("b!gavin2",FaceObject(Player1) 
+        MultiPlayerSync()
+        Explore()
+        Wait(1)
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        ActionOverride("b!gavin2",StartDialogueNoSet(Player1))
+END

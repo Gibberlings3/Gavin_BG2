@@ -1,0 +1,14 @@
+
+// b!ar1000.baf - Makes floater talk 4 possible 
+
+IF 
+    Exists("B!Gavin2") 
+    Global("B!GavBender","GLOBAL",0) 
+    OR(2) 
+        GlobalGT("ViconiaDeath","AR1000",0) 
+        GlobalGT("ViconiaFree","AR1000",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavBender","GLOBAL",1) 
+        Continue() 
+END 

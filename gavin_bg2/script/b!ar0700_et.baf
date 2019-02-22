@@ -1,0 +1,9 @@
+
+IF 
+    Global("B!GrolimSpawn","AR0700",0) 
+THEN 
+    RESPONSE #100 
+        CreateCreature("b!gift",[2164.1397],13) 
+        SetGlobal("B!GrolimSpawn","AR0700",1) 
+        Continue() 
+END 

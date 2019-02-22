@@ -1,0 +1,11 @@
+
+// b!lanies.baf - moves Lanie to the temple of Oghma 
+
+IF 
+    GlobalGT("B!GavNoGoToTemple","GLOBAL",3) 
+    Global("B!GavAloneLanieSpawns","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        MoveBetweenAreas("AR0319",[399.450],2) 
+        SetGlobal("B!GavAloneLanieSpawns","GLOBAL",2) 
+END 

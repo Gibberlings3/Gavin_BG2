@@ -1,0 +1,137 @@
+
+// b!tob_imoen.baf 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavImAmkethran","GLOBAL",12) 
+    PartyRested()  
+    Global("B!GavImoenRA","GLOBAL",2) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImAmkethran","GLOBAL",13)  
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavImAmkethran","GLOBAL",13) 
+    Global("B!GavImoenRA","GLOBAL",2) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")   
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    HPPercentLT("B!Gavin2",60) 
+    Global("B!GavImoen2ToB2","GLOBAL",0) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImoen2ToB2","GLOBAL",1) 
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavImoen2ToB2","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2") 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImToBNight","GLOBAL",3) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")  
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavImAmkethran","GLOBAL",8) 
+    AreaCheck("AR5501")  
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavImAmkethran","GLOBAL",9)  
+END 
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    Global("B!GavImAmkethran","GLOBAL",9) 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")   
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    RealGlobalTimerExpired("B!GavImToBTime","GLOBAL") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    OR(5) 
+        Global("B!GavImToB","GLOBAL",1) 
+        Global("B!GavImToB","GLOBAL",3) 
+        Global("B!GavImToB","GLOBAL",7) 
+        Global("B!GavImToB","GLOBAL",11) 
+        Global("B!GavImToB","GLOBAL",17) 
+THEN 
+    RESPONSE #100 
+        IncrementGlobal("B!GavImToB","GLOBAL",1) 
+END 
+
+IF 
+    InParty(Myself) 
+    InParty("B!Gavin2") 
+    Global("B!GavImoenRA","GLOBAL",1) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    CombatCounter(0) 
+    OR(5) 
+        Global("B!GavImToB","GLOBAL",2) 
+        Global("B!GavImToB","GLOBAL",4) 
+        Global("B!GavImToB","GLOBAL",8) 
+        Global("B!GavImToB","GLOBAL",12) 
+        Global("B!GavImToB","GLOBAL",18) 
+THEN 
+    RESPONSE #100 
+        StartDialogueNoSet("B!Gavin2")  
+END 

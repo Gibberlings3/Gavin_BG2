@@ -1,0 +1,74 @@
+
+// b!aerie.baf - EXTEND_TOP aerie.bcs 
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  GlobalLT("B!GavAer3","GLOBAL",0)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+  OR(9) 
+    Global("BGavSLAVER4","GLOBAL",1) 
+    Global("B!GavCCSlaves","GLOBAL",1) 
+    Global("BGavCOPGREET","GLOBAL",1) 
+    Global("BGavLEHTIN18","GLOBAL",1) 
+    Global("BGavHENDAK1","GLOBAL",1) 
+    Global("BGavHENDAK18","GLOBAL",1) 
+    Global("BGavHENDAK37","GLOBAL",1) 
+    Global("BGavHAEGAN0","GLOBAL",1) 
+    Global("BGavSLAVERM","GLOBAL",1) 
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("B!GavAerT","GLOBAL",300)
+    SetGlobal("B!GavAer3","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  RealGlobalTimerExpired("B!GavAerT","GLOBAL")
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  Global("B!GavAer3","GLOBAL",1)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    SetGlobal("B!GavAer3","GLOBAL",2)
+END
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  Global("B!GavAer3","GLOBAL",2)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    StartDialogueNoSet("B!Gavin2")
+END
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  GlobalLT("B!GavAerConflict","GLOBAL",0)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+  Global("B!GavAer1","GLOBAL",1) 
+  Global("B!GavAer2","GLOBAL",1) 
+  Global("B!GavAer3","GLOBAL",1) 
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("B!GavAerT","GLOBAL",600)
+    SetGlobal("B!GavAerConflict","GLOBAL",1)
+END

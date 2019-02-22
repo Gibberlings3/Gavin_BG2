@@ -1,0 +1,11 @@
+
+// b!ar0700.baf - spawns Goody Nell 
+
+IF 
+    Global("B!GoodyNellSpawn","AR0700",0) 
+THEN 
+    RESPONSE #100 
+        CreateCreature("b!herb01",[3509.135],0) 
+        SetGlobal("B!GoodyNellSpawn","AR0700",1) 
+        Continue() 
+END 

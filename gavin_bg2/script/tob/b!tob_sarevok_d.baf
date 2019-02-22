@@ -1,0 +1,17 @@
+
+// b!tob_sarevok_d.baf - goes on dream script!
+
+IF 
+    InParty("B!Gavin2") 
+    InParty(Myself) 
+    AreaType(OUTDOOR) 
+    Global("B!GavSarevokToB1","GLOBAL",0) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    !StateCheck(Myself,CD_STATE_NOTVALID) 
+    See("B!Gavin2") 
+    CombatCounter(0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavSarevokToB1","GLOBAL",1) 
+        StartDialogueNoSet("B!Gavin2") 
+END 

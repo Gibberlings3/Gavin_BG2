@@ -1,0 +1,17 @@
+
+// b!amket2.baf - gets rid of Imoen and Aleto 
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutSceneId(Player1) 
+        FadeToColor([20.0],0) 
+        Deactivate("Imoen2") 
+        Wait(1)  
+        ActionOverride("b!gabard",DestroySelf()) 
+        Wait(1) 
+        FadeFromColor([20.0],0) 
+        ActionOverride("B!Gavin2",StartDialogueNoSet(Player1)) 
+END 
+        

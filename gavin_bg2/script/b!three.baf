@@ -1,0 +1,24 @@
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        StorePartyLocations()
+        Wait(1)
+        FadeToColor([20.0],0)
+        Wait(1)
+        LeaveAreaLUAPanic("AR2203","",[631.653],0)
+        LeaveAreaLUA("AR2203","",[631.653],0) 
+        ActionOverride("B!Gavin2",MoveBetweenAreas("AR2203",[673.649],3) 
+        Wait(1) 
+        Deactivate("dadrow21") 
+        CreateCreature("b!masyrd",[661.700],6) 
+        MultiPlayerSync()
+        Explore()
+        Wait(2)
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        ActionOverride("b!masyrd",StartDialogueNoSet(Player1))
+END

@@ -1,0 +1,36 @@
+
+/* Minsc - Drunken banter */ 
+
+IF  
+   CheckStatGT("B!Gavin2",40,INTOXICATION)
+   InParty(Myself)
+   InParty("B!Gavin2") 
+   InMyArea("B!Gavin2") 
+   Global("B!GavMinDrunk","GLOBAL",0)
+   RealGlobalTimerExpired("B!GavDrunkT","GLOBAL") 
+   CombatCounter(0)
+   !See([ENEMY])
+   !Global("B!GavHush","GLOBAL",1)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+   See("B!Gavin2")
+THEN
+   RESPONSE #100  
+      SetGlobal("B!GavMinDrunk","GLOBAL",1)
+END
+
+IF  
+   InParty(Myself)
+   InParty("B!Gavin2") 
+   InMyArea("B!Gavin2") 
+   Global("B!GavMinDrunk","GLOBAL",1)
+   CombatCounter(0)
+   !See([ENEMY])
+   !Global("B!GavHush","GLOBAL",1)
+   !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+   !StateCheck(Myself,CD_STATE_NOTVALID)
+   See("B!Gavin2")
+THEN
+   RESPONSE #100  
+      StartDialogueNoSet("B!Gavin2") 
+END

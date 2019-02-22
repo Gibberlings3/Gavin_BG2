@@ -1,0 +1,10 @@
+
+// b!crafting.baf - EXTEND_BOTTOM baldur.bcs spawns invisible crafter 
+
+IF 
+    Global("B!Crafting","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        CreateCreatureObject("b!mortar",Player1,0,0,0) 
+        SetGlobal("B!Crafting","GLOBAL",2) 
+END 

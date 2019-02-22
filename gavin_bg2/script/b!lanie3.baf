@@ -1,0 +1,22 @@
+
+// b!lanie3.baf - PC didn't hear all of the encounter, returns party to their starting locations
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        Wait(1)
+        FadeToColor([20.0],0)
+        Wait(2) 
+        ActionOverride("B!Gavin2",MoveBetweenAreas("AR0319",[370.471],9)) 
+        ActionOverride("B!Lanie",MoveBetweenAreas("AR0319",[399.450],2)) 
+        ActionOverride("B!CLMOM",MoveBetweenAreas("AR0319",[405.491],7))
+        RestorePartyLocations()
+        MultiPlayerSync()
+        Wait(2)
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(1)
+        EndCutSceneMode()
+END

@@ -1,0 +1,43 @@
+
+// b!lanie1.baf - cutscene encounter with Miranda and Lanie in the Temple District 
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100 
+        CutsceneId(Player1) 
+        StorePartyLocations()
+        Wait(1)
+        FadeToColor([20.0],0)
+        Wait(1)
+        Explore()
+        SmallWait(4)
+        LeaveAreaLUAPanic("AR0900","",[2493.2778],8)
+        LeaveAreaLUA("AR0900","",[2493.2778],8)
+        ActionOverride(Player2,MoveBetweenAreas("AR0900",[2530.2753],8)
+        ActionOverride(Player3,MoveBetweenAreas("AR0900",[2536.2803],8)
+        ActionOverride(Player4,MoveBetweenAreas("AR0900",[2576.2768],8)
+        ActionOverride(Player5,MoveBetweenAreas("AR0900",[2578.2825],8)
+        ActionOverride(Player6,MoveBetweenAreas("AR0900",[2614.2796],8)
+        ActionOverride("clmom",DestroySelf())
+        ActionOverride("cldad",DestroySelf())
+        ActionOverride("lanie",DestroySelf())
+        CreateCreature("b!clmom",[2475.2725],6) 
+        CreateCreature("b!lanie",[2432.2728],7) 
+        CreateCreature("b!cldad",[2409.2686],0)
+        CreateCreature("b!clkni",[2263.2978],10) 
+        Wait(1) 
+        FaceObject("b!clmom") 
+        ActionOverride(Player2,FaceObject("b!clmom")) 
+        ActionOverride(Player3,FaceObject("b!clmom")) 
+        ActionOverride(Player4,FaceObject("b!clmom")) 
+        ActionOverride(Player5,FaceObject("b!clmom")) 
+        ActionOverride(Player6,FaceObject("b!clmom")) 
+        MultiPlayerSync()
+        Wait(1)
+        Explore() 
+        FadeFromColor([20.0],0)
+        MoveViewObject(Player1,INSTANT)
+        Wait(3)
+        ActionOverride("b!clmom",StartDialogueNoSet("b!cldad")
+END 

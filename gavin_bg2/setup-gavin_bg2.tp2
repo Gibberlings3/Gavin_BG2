@@ -1,0 +1,1437 @@
+/* Known Issues:
+EET: summoning at the fate spirit will not give the Gavin that was left standing in SoA, plus Gavin is always summonable (like in original ToB), independent on whether he joined the group in SoA */
+
+
+
+BACKUP ~gavin_bg2/backup~ 
+AUTHOR ~http://gibberlings3.net/forums/index.php?showforum=128~ //berelinde@gmail.com
+
+VERSION ~23~  //180628 packed by jastey
+
+README ~gavin_bg2/readme-gavin_bg2.html~ 
+
+// setup-gavin_bg2.tp2
+
+
+/* prep tras for sound references */
+
+
+AUTO_TRA ~gavin_bg2/languages/%s~
+
+ALWAYS
+
+  ACTION_IF GAME_IS ~eet~ BEGIN
+    OUTER_SET bg2_chapter = 12
+  END ELSE BEGIN
+    OUTER_SET bg2_chapter = 0
+  END
+  OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+    OUTER_SET bg2_chapter = bg2_chapter + 1
+    OUTER_SPRINT name_source ~bg2_chapter_%i%~
+    OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+  END
+
+
+
+///////////////////////////////////////////
+/* all following actions are only processed ONCE for the whole mod, independent of un- and reinstalling of single components */
+
+  ACTION_IF !FILE_EXISTS ~gavin_bg2/backup/gavinbg2reinstall.mrk~ BEGIN
+
+
+    APPEND ~STATE.IDS~
+      ~0x80101FEF CD_STATE_NOTVALID~
+    UNLESS ~CD_STATE_NOTVALID~ 
+
+    ACTION_IF (GAME_IS ~bgt tob bg2~ AND NOT FILE_EXISTS_IN_GAME ~cdbehbla.pro~) //makes sure the fixpack isn't already installed
+
+    THEN BEGIN
+
+      COPY_EXISTING ~aerie.BCS~ ~override~
+      DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~AreaType(0)~ ~AreaType(OUTDOOR)~
+      COMPILE_BAF_TO_BCS
+      BUT_ONLY_IF_IT_CHANGES
+
+
+      COPY_EXISTING ~anomen.BCS~ ~override~
+      DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~SetGlobal("AnomenIsNotKnight","GLOBAL",1)~
+      ~SetGlobal("AnomenIsNotKnight","GLOBAL",1)
+      ChangeAlignment("Anomen",CHAOTIC_NEUTRAL)~
+      REPLACE_TEXTUALLY ~"TALKEDTOCOR","GLOBAL"~ ~"TALKEDCOR","GLOBAL"~
+      COMPILE_BAF_TO_BCS 
+      BUT_ONLY_IF_IT_CHANGES
+
+      EXTEND_TOP ~anomen.bcs~ ~gavin_bg2/lib/anomen.baf~
+
+      COPY_EXISTING ~jaheira.BCS~ ~override~
+      DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~GlobalLT("DerminSpawn","GLOBAL",5)~
+      ~  GlobalLT("DerminSpawn","GLOBAL",5)
+        !InParty(Myself)
+      THEN
+        RESPONSE #100
+          RealSetGlobalTimer("JaheiraRomance","GLOBAL",3600)
+          SetGlobal("DerminSpawn","GLOBAL",5)
+          SetGlobalTimer("DerminAppear","GLOBAL",17280)
+          StartDialogueNoSet([PC])
+      END
+
+      IF
+        False()~
+      REPLACE_TEXTUALLY ~\bSetGlobalTimer("TerminselAppear","GLOBAL",FIVE_DAYS)~
+                      ~RealSetGlobalTimer("TerminselAppear","GLOBAL",3600)~ // originally 36000 seems to be more than random.
+      COMPILE_BAF_TO_BCS 
+      BUT_ONLY_IF_IT_CHANGES
+
+
+      COPY_EXISTING ~viconia.BCS~ ~override~
+      DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~Global("LoveTalk","LOCALS",71)~ ~False()~
+      COMPILE_BAF_TO_BCS
+      BUT_ONLY_IF_IT_CHANGES
+
+
+// alter missing areatype check to match banter trigger
+      COPY_EXISTING ~aerie.bcs~   ~override~
+              ~anomen.bcs~  ~override~
+              ~minsc.bcs~   ~override~
+              ~nalia.bcs~   ~override~
+              ~yoshimo.bcs~ ~override~
+      DECOMPILE_BCS_TO_BAF
+      REPLACE_TEXTUALLY ~AreaType(0)~ ~AreaType(OUTDOOR)~ // for Minsc Umar Hills reminder, Nalia-Edwina banter
+      COMPILE_BAF_TO_BCS
+      BUT_ONLY_IF_IT_CHANGES
+
+
+
+      ACTION_IF FILE_EXISTS_IN_GAME ~saradush.mve~ THEN BEGIN
+        COPY_EXISTING ~interdia.2da~ ~override~
+        SET_2DA_ENTRY 17 1 2 ~BIMOEN2~ // fixes ToB version
+        BUT_ONLY_IF_IT_CHANGES
+      END ELSE BEGIN
+        APPEND ~interdia.2da~ ~IMOEN       BIMOEN2~ // fixes SoA version
+        UNLESS ~BIMOEN2~
+      END
+    END
+
+    ACTION_IF NOT FILE_EXISTS_IN_GAME ~bimoen2.dlg~ THEN BEGIN
+      COMPILE ~gavin_bg2/lib/b!bimoen2.d~
+    END
+
+    ACTION_IF GAME_IS ~bgt bg2 tob~ THEN BEGIN
+      INCLUDE ~gavin_bg2/lib/b!ids.tph~
+      INCLUDE ~gavin_bg2/lib/b!times.tph~
+    END
+
+
+/* Handling of correctly formatted tra-files!! ---------------------- */
+
+ 
+//ACTION_DEFINE_ARRAY fl#noconvert BEGIN setup-gavin_bg2.tra END
+
+    ACTION_DEFINE_ARRAY fl#reload BEGIN game-gavin_bg2.tp2 game-ee-gavin_bg2.tra 
+journal-gavin_bg2.tra END
+
+     LAF HANDLE_CHARSETS
+      INT_VAR
+       infer_charset = 1
+      STR_VAR
+       tra_path = EVAL ~gavin_bg2/languages~
+       noconvert_array = fl#noconvert
+       reload_array = fl#reload
+     END
+
+    COPY ~gavin_bg2/install/B!component.xx~ ~gavin_bg2/backup/gavinbg2reinstall.mrk~
+
+ END //ACTION_IF !FILE_EXISTS gavinbg2reinstall.mrk
+
+END //ALWAYS
+
+LANGUAGE ~English~ ~english~ ~gavin_bg2/languages/english/setup-gavin_bg2.tra~ 
+~gavin_bg2/languages/english/game-gavin_bg2.tra~ 
+~gavin_bg2/languages/english/journal-gavin_bg2.tra~
+
+
+
+BEGIN @127 
+
+/* Setup for BGT compatibility */ 
+
+ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin.cre~ THEN BEGIN 
+    EXTEND_TOP ~ar0602.bcs~ ~gavin_bg2/script/b!getting_rid_of_gavin.baf~ 
+END 
+
+/* ADD_JOURNAL */
+
+/* The Final Battle with Bodhi. */
+ADD_JOURNAL EXISTING TITLE (#74337) @10000 @10001 @10002 USING ~gavin_bg2/languages/%LANGUAGE%/journal-gavin_bg2.tra~
+
+ADD_JOURNAL TITLE (@10014) @10003 @10004 USING ~gavin_bg2/languages/%LANGUAGE%/journal-gavin_bg2.tra~
+
+ADD_JOURNAL TITLE (@10015) @10006 @10007 @10008 USING ~gavin_bg2/languages/%LANGUAGE%/journal-gavin_bg2.tra~
+
+ADD_JOURNAL TITLE (@10016) @10011 @10012 @10013 USING ~gavin_bg2/languages/%LANGUAGE%/journal-gavin_bg2.tra~
+
+ADD_JOURNAL @10005 @10009 @10010 USING ~gavin_bg2/languages/%LANGUAGE%/journal-gavin_bg2.tra~
+
+
+/* Areas, Audio, and Music */ 
+
+COPY ~gavin_bg2/areas/b!aley~       ~override~
+COPY ~gavin_bg2/areas/b!wood~       ~override~ 
+
+
+LAF HANDLE_AUDIO
+  STR_VAR
+    audio_path = ~gavin_bg2/audio/english~
+    oggdec_path = ~gavin_bg2/audio~
+END
+
+
+/* Items */ 
+
+COPY ~gavin_bg2/items/bam~ ~override~ 
+COPY ~gavin_bg2/items/eff~ ~override~
+
+COPY ~gavin_bg2/items/b!gavrng.itm~ ~override~
+  SAY NAME1 @64
+  SAY NAME2 @64
+  SAY UNIDENTIFIED_DESC @65
+  SAY DESC @65
+  
+COPY ~gavin_bg2/items/b!pcring.itm~ ~override~
+  SAY NAME1 @111
+  SAY NAME2 @111
+  SAY UNIDENTIFIED_DESC @112
+  SAY DESC @113
+
+COPY ~gavin_bg2/items/b!hand.itm~  ~override~
+  SAY NAME1 @114
+  SAY NAME2 @114
+  SAY UNIDENTIFIED_DESC @115
+  SAY DESC @115
+
+COPY ~gavin_bg2/items/b!gavbod.itm~ ~override~ 
+    SAY NAME1 @172 
+    SAY NAME2 @172 
+    SAY UNIDENTIFIED_DESC @173 
+    SAY DESC @173 
+    WRITE_ASCII 0x3a ~ib!gavbd~   #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+    WRITE_ASCII 0x58 ~cmiscbm~   #8  //carried icon 
+    
+COPY ~gavin_bg2/items/b!vouch.itm~ ~override~ 
+    SAY NAME1 @180 
+    SAY NAME2 @180 
+    SAY UNIDENTIFIED_DESC @181 
+    SAY DESC @181 
+
+COPY ~gavin_bg2/items/b!sketch.itm~ ~override~ 
+    SAY NAME1 @196 
+    SAY NAME2 @196 
+    SAY UNIDENTIFIED_DESC @197 
+    SAY DESC @197 
+
+
+COPY ~gavin_bg2/items/b!sketch.itm~ ~override/b!pcpic.itm~ 
+    SAY NAME1 @211 
+    SAY NAME2 @211 
+    SAY UNIDENTIFIED_DESC @212 
+    SAY DESC @212 
+
+
+COPY ~gavin_bg2/items/b!sketch.itm~ ~override/b!pcnud.itm~ 
+    SAY NAME1 @213 
+    SAY NAME2 @213 
+    SAY UNIDENTIFIED_DESC @214 
+    SAY DESC @214 
+
+
+COPY ~gavin_bg2/items/b!sketch.itm~ ~override/b!gvnud.itm~ 
+    SAY NAME1 @215 
+    SAY NAME2 @215 
+    SAY UNIDENTIFIED_DESC @216 
+    SAY DESC @216 
+
+COPY ~gavin_bg2/items/b!minmac.itm~ ~override~ 
+
+APPEND ~ITEMDIAL.2da~ 
+~b!mortar    4978  b!mortrd~
+UNLESS ~b!mortar~
+
+COPY ~gavin_bg2/herbalist/bam~ ~override~ 
+COPY ~gavin_bg2/herbalist/eff~ ~override~ 
+COPY ~gavin_bg2/herbalist/itm/b!mortar.itm~ ~override~ 
+    SAY NAME1 @128 
+    SAY NAME2 @128 
+    SAY UNIDENTIFIED_DESC @129 
+    SAY DESC @129 
+    WRITE_ASCII 0x3a ~ib!mort~     #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+    WRITE_ASCII 0x58 ~cb!mort~   #8  //carried icon 
+ 
+COPY ~gavin_bg2/herbalist/itm/b!cassil.itm~ ~override~ 
+    SAY NAME1 @130 
+    SAY NAME2 @130 
+    SAY UNIDENTIFIED_DESC @131 
+    SAY DESC @131 
+    WRITE_ASCII 0x3a ~ib!casil~     #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+    WRITE_ASCII 0x58 ~cb!casil~   #8  //carried icon 
+
+COPY ~gavin_bg2/herbalist/itm/b!apple.itm~ ~override~ 
+    SAY NAME1 @132 
+    SAY NAME2 @132 
+    SAY UNIDENTIFIED_DESC @133 
+    SAY DESC @133 
+    WRITE_ASCII 0x3a ~ib!apple~   #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+
+COPY ~gavin_bg2/herbalist/itm/b!nutmeg.itm~ ~override~ 
+    SAY NAME1 @134 
+    SAY NAME2 @134 
+    SAY UNIDENTIFIED_DESC @135 
+    SAY DESC @135 
+    WRITE_ASCII 0x3a ~ib!nutmg~  #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+    WRITE_ASCII 0x58 ~cmisc16~   #8  //carried icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!ginger.itm~ ~override~ 
+    SAY NAME1 @136 
+    SAY NAME2 @136 
+    SAY UNIDENTIFIED_DESC @137 
+    SAY DESC @137 
+    WRITE_ASCII 0x3a ~ib!gingr~    #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+    
+COPY ~gavin_bg2/herbalist/itm/b!honey.itm~ ~override~ 
+    SAY NAME1 @138 
+    SAY NAME2 @138 
+    SAY UNIDENTIFIED_DESC @139 
+    SAY DESC @139 
+    WRITE_ASCII 0x3a ~ib!honey~   #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gsack01~   #8  //ground icon
+    
+COPY ~gavin_bg2/herbalist/itm/b!spirit.itm~ ~override~ 
+    SAY NAME1 @140 
+    SAY NAME2 @140 
+    SAY UNIDENTIFIED_DESC @141 
+    SAY DESC @141 
+    WRITE_ASCII 0x3a ~ib!spirt~     #8  //inventory icon 
+    WRITE_ASCII 0x44 ~gpotn01~   #8  //ground icon
+
+COPY ~gavin_bg2/herbalist/itm/b!bottle.itm~ ~override~ 
+    SAY NAME1 @142 
+    SAY NAME2 @142 
+    SAY UNIDENTIFIED_DESC @143 
+    SAY DESC @143 
+    WRITE_ASCII 0x3a ~ib!botl~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!potn1.itm~ ~override~ 
+    SAY NAME1 @144 
+    SAY NAME2 @144 
+    SAY UNIDENTIFIED_DESC @145 
+    SAY DESC @145 
+    WRITE_ASCII 0x3a ~ib!pot1~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!dkbery.itm~ ~override~ 
+    SAY NAME1 @146 
+    SAY NAME2 @146 
+    SAY UNIDENTIFIED_DESC @147 
+    SAY DESC @147 
+    WRITE_ASCII 0x3a ~ib!dkbry~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!felsul.itm~ ~override~ 
+    SAY NAME1 @148 
+    SAY NAME2 @148 
+    SAY UNIDENTIFIED_DESC @149 
+    SAY DESC @149 
+    WRITE_ASCII 0x3a ~ib!felsl~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!ffoil.itm~ ~override~ 
+    SAY NAME1 @150 
+    SAY NAME2 @150 
+    SAY UNIDENTIFIED_DESC @151 
+    SAY DESC @151 
+    WRITE_ASCII 0x3a ~ib!ffoil~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!mule.itm~ ~override~ 
+    SAY NAME1 @152 
+    SAY NAME2 @152 
+    SAY UNIDENTIFIED_DESC @153 
+    SAY DESC @153 
+    WRITE_ASCII 0x3a ~ib!mule~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!silsap.itm~ ~override~ 
+    SAY NAME1 @154 
+    SAY NAME2 @154 
+    SAY UNIDENTIFIED_DESC @155 
+    SAY DESC @155 
+    WRITE_ASCII 0x3a ~ib!silsp~  #8  //inventory icon     
+
+COPY ~gavin_bg2/herbalist/itm/b!potn2.itm~ ~override~ 
+    SAY NAME1 @156 
+    SAY NAME2 @156 
+    SAY UNIDENTIFIED_DESC @157 
+    SAY DESC @157 
+    WRITE_ASCII 0x3a ~ib!brmol~  #8  //inventory icon     
+    
+COPY ~gavin_bg2/herbalist/itm/b!brmold.itm~ ~override~ 
+    SAY NAME1 @158 
+    SAY NAME2 @158 
+    SAY UNIDENTIFIED_DESC @159 
+    SAY DESC @159 
+    WRITE_ASCII 0x3a ~ib!brmld~  #8  //inventory icon     
+    
+COPY ~gavin_bg2/herbalist/itm/b!algae.itm~ ~override~ 
+    SAY NAME1 @160 
+    SAY NAME2 @160 
+    SAY UNIDENTIFIED_DESC @161 
+    SAY DESC @161 
+    WRITE_ASCII 0x3a ~ib!algae~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!lime.itm~ ~override~ 
+    SAY NAME1 @162 
+    SAY NAME2 @162 
+    SAY UNIDENTIFIED_DESC @163 
+    SAY DESC @163 
+    WRITE_ASCII 0x3a ~ib!lime~  #8  //inventory icon 
+
+COPY ~gavin_bg2/herbalist/itm/b!whitl.itm~ ~override~ 
+    SAY NAME1 @164 
+    SAY NAME2 @164 
+    SAY UNIDENTIFIED_DESC @165 
+    SAY DESC @165 
+    WRITE_ASCII 0x3a ~ib!whitl~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!cotblm.itm~ ~override~ 
+    SAY NAME1 @166 
+    SAY NAME2 @166 
+    SAY UNIDENTIFIED_DESC @167 
+    SAY DESC @167 
+    WRITE_ASCII 0x3a ~ib!cotbm~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!potn3.itm~ ~override~ 
+    SAY NAME1 @168 
+    SAY NAME2 @168 
+    SAY UNIDENTIFIED_DESC @169 
+    SAY DESC @169 
+    WRITE_ASCII 0x3a ~ib!pot3~  #8  //inventory icon 
+
+COPY ~gavin_bg2/herbalist/itm/b!prkly.itm~ ~override~ 
+    SAY NAME1 @174 
+    SAY NAME2 @174 
+    SAY UNIDENTIFIED_DESC @175 
+    SAY DESC @175 
+    WRITE_ASCII 0x3a ~ib!prkly~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!sens.itm~ ~override~ 
+    SAY NAME1 @176 
+    SAY NAME2 @176 
+    SAY UNIDENTIFIED_DESC @177 
+    SAY DESC @177 
+    WRITE_ASCII 0x3a ~ib!sens~  #8  //inventory icon 
+    
+         
+COPY ~gavin_bg2/herbalist/itm/b!potbag.sto~ ~override~ 
+    SAY NAME2 @170 
+
+COPY ~gavin_bg2/herbalist/itm/b!potbag.itm~ ~override~ 
+    SAY NAME1 @170 
+    SAY NAME2 @170 
+    SAY UNIDENTIFIED_DESC @171 
+    SAY DESC @171 
+    WRITE_ASCII 0x3a ~ib!potbg~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!potbg1.sto~ ~override~ 
+    SAY NAME2 @170 
+
+COPY ~gavin_bg2/herbalist/itm/b!potbg1.itm~ ~override~ 
+    SAY NAME1 @170 
+    SAY NAME2 @170 
+    SAY UNIDENTIFIED_DESC @171 
+    SAY DESC @171 
+    WRITE_ASCII 0x3a ~ib!potb1~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!potbg2.sto~ ~override~ 
+    SAY NAME2 @170 
+
+COPY ~gavin_bg2/herbalist/itm/b!potbg2.itm~ ~override~ 
+    SAY NAME1 @170 
+    SAY NAME2 @170 
+    SAY UNIDENTIFIED_DESC @171 
+    SAY DESC @171 
+    WRITE_ASCII 0x3a ~ib!potb2~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!potbg3.sto~ ~override~ 
+    SAY NAME2 @170 
+
+COPY ~gavin_bg2/herbalist/itm/b!potbg3.itm~ ~override~ 
+    SAY NAME1 @170 
+    SAY NAME2 @170 
+    SAY UNIDENTIFIED_DESC @171 
+    SAY DESC @171 
+    WRITE_ASCII 0x3a ~ib!potb3~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/itm/b!potbg4.sto~ ~override~ 
+    SAY NAME2 @170 
+
+COPY ~gavin_bg2/herbalist/itm/b!potbg4.itm~ ~override~ 
+    SAY NAME1 @170 
+    SAY NAME2 @170 
+    SAY UNIDENTIFIED_DESC @171 
+    SAY DESC @171 
+    WRITE_ASCII 0x3a ~ib!potb4~  #8  //inventory icon 
+    
+COPY ~gavin_bg2/herbalist/sto/b!herb01.sto~ ~override~ 
+  SAY NAME2 @178 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn1~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!ffoil~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!potn2~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn3~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!sens~   #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!potbag~ #0 #0 #0 ~IDENTIFIED~ #1 
+
+COPY_EXISTING ~shop01.cre~ ~override/b!herb01.cre~ 
+  SAY NAME1 @193
+  SAY NAME2 @193
+  WRITE_ASCII 0x2cc ~b!herb01~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb01~ #32 // assign DV 
+
+COPY ~gavin_bg2/herbalist/sto/b!herb02.sto~ ~override~ 
+  SAY NAME2 @199 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+
+COPY ~gavin_bg2/herbalist/b!herb02.cre~ ~override/b!herb02.cre~ 
+  SAY NAME1 @198
+  SAY NAME2 @198
+  WRITE_ASCII 0x2cc ~b!herb02~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb02~ #32 // assign DV 
+
+COPY ~gavin_bg2/herbalist/sto/b!herb03.sto~ ~override~ 
+  SAY NAME2 @201 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn1~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!ffoil~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!potn2~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn3~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!sens~   #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!potbg1~ #0 #0 #0 ~IDENTIFIED~ #1 
+
+COPY ~gavin_bg2/herbalist/b!herb02.cre~ ~override/b!herb03.cre~ 
+  SAY NAME1 @200
+  SAY NAME2 @200
+  WRITE_ASCII 0x2cc ~b!herb03~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb03~ #32 // assign DV 
+
+COPY ~gavin_bg2/herbalist/sto/b!herb04.sto~ ~override~ 
+  SAY NAME2 @203 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn1~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!ffoil~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!potn2~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn3~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!sens~   #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!potbg2~ #0 #0 #0 ~IDENTIFIED~ #1 
+
+COPY ~gavin_bg2/herbalist/b!herb04.cre~ ~override/b!herb04.cre~ 
+  SAY NAME1 @202
+  SAY NAME2 @202
+  WRITE_ASCII 0x2cc ~b!herb04~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb04~ #32 // assign DV 
+
+COPY ~gavin_bg2/herbalist/sto/b!herb01.sto~ ~override/b!herb05.sto~ 
+  SAY NAME2 @205 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn1~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!ffoil~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!potn2~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn3~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!sens~   #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!potbg3~ #0 #0 #0 ~IDENTIFIED~ #1 
+
+COPY ~gavin_bg2/herbalist/b!herb02.cre~ ~override/b!herb05.cre~ 
+  SAY NAME1 @204
+  SAY NAME2 @204
+  WRITE_ASCII 0x2cc ~b!herb05~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb05~ #32 // assign DV 
+  
+  
+COPY ~gavin_bg2/herbalist/sto/b!herb03.sto~ ~override/b!herb06.sto~ 
+  SAY NAME2 @207 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn1~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!ffoil~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!potn2~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn3~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!sens~   #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!potbg4~ #0 #0 #0 ~IDENTIFIED~ #1 
+
+COPY ~gavin_bg2/herbalist/b!herb06.cre~ ~override/b!herb06.cre~ 
+  SAY NAME1 @206
+  SAY NAME2 @206
+  WRITE_ASCII 0x2cc ~b!herb06~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb06~ #32 // assign DV 
+
+COPY ~gavin_bg2/herbalist/sto/b!herb04.sto~ ~override/b!herb07.sto~ 
+  SAY NAME2 @209 
+  ADD_STORE_ITEM ~b!mortar~ #0 #0 #0 ~IDENTIFIED~ #1 
+  ADD_STORE_ITEM ~b!cassil~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!apple~  #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!nutmeg~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!ginger~ #0 #0 #0 ~IDENTIFIED~ #5  ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!honey~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!spirit~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!bottle~ #0 #0 #0 ~IDENTIFIED~ #20 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn1~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!dkbery~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!felsul~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!ffoil~  #0 #0 #0 ~IDENTIFIED~ #2 
+  ADD_STORE_ITEM ~b!mule~   #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!silsap~ #0 #0 #0 ~IDENTIFIED~ #25 
+  ADD_STORE_ITEM ~b!potn2~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!brmold~ #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!algae~  #0 #0 #0 ~IDENTIFIED~ #10 
+  ADD_STORE_ITEM ~b!lime~   #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!whitl~  #0 #0 #0 ~IDENTIFIED~ #5 
+  ADD_STORE_ITEM ~b!cotblm~ #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!potn3~  #0 #0 #0 ~IDENTIFIED~ #3 
+  ADD_STORE_ITEM ~b!prkly~  #0 #0 #0 ~IDENTIFIED~ #10 ~UNLIMITED~ 
+  ADD_STORE_ITEM ~b!sens~   #0 #0 #0 ~IDENTIFIED~ #5 
+
+COPY ~gavin_bg2/herbalist/b!herb02.cre~ ~override/b!herb07.cre~ 
+  SAY NAME1 @208
+  SAY NAME2 @208
+  WRITE_ASCII 0x2cc ~b!herb07~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!herb07~ #32 // assign DV 
+
+COPY ~gavin_bg2/herbalist/b!mortar.cre~ ~override~
+  SAY NAME1 @128
+  SAY NAME2 @128
+  WRITE_ASCII 0x248 ~b!mortar~   #8  // assign override script
+  WRITE_ASCII 0x2cc ~b!mortar~    #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!mortar~ #32 // assign DV 
+ 
+COMPILE EVALUATED_BUFFER      ~gavin_bg2/herbalist/b!herbalist.d~ 
+COMPILE       ~gavin_bg2/herbalist/b!mortrd.d~ 
+COMPILE       ~gavin_bg2/herbalist/b!mortar.d~ 
+COMPILE       ~gavin_bg2/herbalist/b!mortar.baf~ 
+EXTEND_BOTTOM ~baldur.bcs~ ~gavin_bg2/herbalist/b!crafting.baf~ 
+EXTEND_TOP    ~ar0700.bcs~ ~gavin_bg2/herbalist/b!ar0700.baf~ 
+
+/* Gifts */ 
+
+COPY ~gavin_bg2/items/gifts/b!gift.cre~ ~override~ 
+  SAY NAME1 @300
+  SAY NAME2 @300
+  WRITE_ASCII 0x2cc ~b!gift~ #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!gift~ #32 // assign DV 
+  
+COPY ~gavin_bg2/items/gifts/b!aegf.itm~ ~override~ 
+    SAY NAME1 @301 
+    SAY NAME2 @301
+    SAY UNIDENTIFIED_DESC @302 
+    SAY DESC @302
+ 
+COPY ~gavin_bg2/items/gifts/b!angf.itm~ ~override~ 
+    SAY NAME1 @303
+    SAY NAME2 @303
+    SAY UNIDENTIFIED_DESC @304
+    SAY DESC @304
+ 
+COPY ~gavin_bg2/items/gifts/b!cegf.itm~ ~override~ 
+    SAY NAME1 @305
+    SAY NAME2 @305
+    SAY UNIDENTIFIED_DESC @306
+    SAY DESC @306
+ 
+COPY ~gavin_bg2/items/gifts/b!edgf.itm~ ~override~ 
+    SAY NAME1 @307
+    SAY NAME2 @307
+    SAY UNIDENTIFIED_DESC @308
+    SAY DESC @308
+ 
+COPY ~gavin_bg2/items/gifts/b!gagf.itm~ ~override~ 
+    SAY NAME1 @309
+    SAY NAME2 @309
+    SAY UNIDENTIFIED_DESC @310
+    SAY DESC @310
+ 
+COPY ~gavin_bg2/items/gifts/b!hagf.itm~ ~override~ 
+    SAY NAME1 @311
+    SAY NAME2 @311
+    SAY UNIDENTIFIED_DESC @312
+    SAY DESC @312
+ 
+COPY ~gavin_bg2/items/gifts/b!imgf.itm~ ~override~ 
+    SAY NAME1 @313
+    SAY NAME2 @313
+    SAY UNIDENTIFIED_DESC @314
+    SAY DESC @314
+ 
+COPY ~gavin_bg2/items/gifts/b!jhgf.itm~ ~override~ 
+    SAY NAME1 @315
+    SAY NAME2 @315
+    SAY UNIDENTIFIED_DESC @316
+    SAY DESC @316
+ 
+COPY ~gavin_bg2/items/gifts/b!jngf.itm~ ~override~ 
+    SAY NAME1 @317
+    SAY NAME2 @317
+    SAY UNIDENTIFIED_DESC @318
+    SAY DESC @318
+ 
+COPY ~gavin_bg2/items/gifts/b!kegf.itm~ ~override~ 
+    SAY NAME1 @319
+    SAY NAME2 @319
+    SAY UNIDENTIFIED_DESC @320
+    SAY DESC @320
+ 
+COPY ~gavin_bg2/items/gifts/b!kogf.itm~ ~override~ 
+    SAY NAME1 @321
+    SAY NAME2 @321
+    SAY UNIDENTIFIED_DESC @322
+    SAY DESC @322
+ 
+COPY ~gavin_bg2/items/gifts/b!magf.itm~ ~override~ 
+    SAY NAME1 @323
+    SAY NAME2 @323
+    SAY UNIDENTIFIED_DESC @324
+    SAY DESC @324
+ 
+COPY ~gavin_bg2/items/gifts/b!migf.itm~ ~override~ 
+    SAY NAME1 @325
+    SAY NAME2 @325
+    SAY UNIDENTIFIED_DESC @326
+    SAY DESC @326
+ 
+COPY ~gavin_bg2/items/gifts/b!nagf.itm~ ~override~ 
+    SAY NAME1 @327
+    SAY NAME2 @327
+    SAY UNIDENTIFIED_DESC @328
+    SAY DESC @328
+ 
+COPY ~gavin_bg2/items/gifts/b!vagf.itm~ ~override~ 
+    SAY NAME1 @329
+    SAY NAME2 @329
+    SAY UNIDENTIFIED_DESC @330
+    SAY DESC @330
+ 
+COPY ~gavin_bg2/items/gifts/b!vigf.itm~ ~override~ 
+    SAY NAME1 @331
+    SAY NAME2 @331
+    SAY UNIDENTIFIED_DESC @332
+    SAY DESC @332
+ 
+COPY ~gavin_bg2/items/gifts/b!yogf.itm~ ~override~ 
+    SAY NAME1 @333
+    SAY NAME2 @333
+    SAY UNIDENTIFIED_DESC @334
+    SAY DESC @334
+    
+ 
+COPY ~gavin_bg2/items/b!gavpin.itm~ ~override~ 
+    SAY NAME1 @335
+    SAY NAME2 @335
+    SAY UNIDENTIFIED_DESC @336
+    SAY DESC @336
+EXTEND_TOP ~ar0700.bcs~ ~gavin_bg2/script/b!ar0700_et.baf~  // Spawns Master Grolim 
+
+          
+/* Creatures */ 
+
+/* NPC changes */ 
+
+COPY_EXISTING ~wilmat.cre~ ~override~ 
+    WRITE_ASCII 0x280 ~wilmat~ #8  // assign DV 
+    
+
+//Creature copying and naming
+/* Portrait Assignment */
+//MKDIR ~portraits~
+COPY ~gavin_bg2/creatures/b!gavinl.bmp~ ~override/b!gavinl.bmp~
+COPY ~gavin_bg2/creatures/b!gavinm.bmp~ ~override/b!gavinm.bmp~
+COPY ~gavin_bg2/creatures/b!gavins.bmp~ ~override/b!gavins.bmp~
+
+
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  COPY ~gavin_bg2/creatures/b!gavinl.bmp~ ~override/b!gavinm.bmp~
+  COPY ~gavin_bg2/creatures/b!gavinl.bmp~ ~override/b!gavins.bmp~
+END
+
+
+COPY ~gavin_bg2/creatures/b!gav08.cre~ ~override~
+  ADD_CRE_ITEM ~chan01~   #0 #0 #0 ~IDENTIFIED~ ~ARMOR~
+  ADD_CRE_ITEM ~shld05~   #0 #0 #0 ~IDENTIFIED~ ~SHIELD~
+  ADD_CRE_ITEM ~b!gavrng~ #0 #0 #0 ~IDENTIFIED~ ~LRING~
+  ADD_CRE_ITEM ~hamm01~   #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
+  SAY NAME1 @4
+  SAY NAME2 @4
+  WRITE_ASCII 0x248 ~b!gavs~    #8     // assign override script
+  WRITE_ASCII 0x2cc ~b!gav~     #8     // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!gavin2~ #32  // assign DV 
+  WRITE_ASCII 0x34  ~b!gavins~  #8    // assign small portrait 
+  WRITE_ASCII 0x3c  ~b!gavinm~ #8   // assign medium portrait
+  SAY INITIAL_MEETING @5
+  SAY MORALE @6
+  SAY HAPPY @7
+  SAY UNHAPPY_ANNOYED @8
+  SAY UNHAPPY_SERIOUS @9
+  SAY UNHAPPY_BREAKING @10
+  SAY LEADER @11
+  SAY TIRED @12
+  SAY BORED @13
+  SAY BATTLE_CRY1 @14
+  SAY BATTLE_CRY2 @15
+  SAY BATTLE_CRY3 @16
+  SAY BATTLE_CRY4 @17
+  SAY DAMAGE @18
+  SAY DYING @19
+  SAY HURT @20
+  SAY AREA_FOREST @21
+  SAY AREA_CITY @22
+  SAY AREA_DUNGEON @23
+  SAY AREA_DAY @24
+  SAY AREA_NIGHT @25
+  SAY SELECT_COMMON1 @26
+  SAY SELECT_COMMON2 @27
+  SAY SELECT_COMMON3 @28
+  SAY SELECT_COMMON4 @29
+  SAY SELECT_COMMON5 @30
+  SAY SELECT_COMMON6 @31
+  SAY SELECT_ACTION1 @32
+  SAY SELECT_ACTION2 @33
+  SAY SELECT_ACTION3 @34
+  SAY SELECT_ACTION4 @35
+  SAY SELECT_ACTION5 @36
+  SAY SELECT_ACTION6 @37
+  SAY SELECT_ACTION7 @38
+  SAY SELECT_RARE1 @39
+  SAY SELECT_RARE2 @40
+  SAY CRITICAL_HIT @41
+  SAY CRITICAL_MISS @42
+  SAY TARGET_IMMUNE @43
+  SAY INVENTORY_FULL @44
+  SAY PICKED_POCKET @45
+  SAY HIDDEN_IN_SHADOWS @46
+  SAY SPELL_DISRUPTED @47
+  SAY SET_A_TRAP @48
+  SAY BIO @49
+
+COPY ~gavin_bg2/creatures/b!gav13.cre~ ~override~
+  ADD_CRE_ITEM ~chan01~   #0 #0 #0 ~IDENTIFIED~ ~ARMOR~
+  ADD_CRE_ITEM ~shld05~   #0 #0 #0 ~IDENTIFIED~ ~SHIELD~
+  ADD_CRE_ITEM ~b!gavrng~ #0 #0 #0 ~IDENTIFIED~ ~LRING~
+  ADD_CRE_ITEM ~hamm01~   #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
+  SAY NAME1 @4
+  SAY NAME2 @4
+  WRITE_ASCII 0x248 ~b!gav25s~   #8  // assign override script
+  WRITE_ASCII 0x2cc ~b!gav25~    #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x280 ~b!gavin2~   #32 // assign DV 
+  WRITE_ASCII 0x34  ~b!gavins~    #8  // assign small portrait 
+  WRITE_ASCII 0x3c  ~b!gavinm~   #8  // assign medium portrait
+  SAY INITIAL_MEETING @5
+  SAY MORALE @6
+  SAY HAPPY @7
+  SAY UNHAPPY_ANNOYED @8
+  SAY UNHAPPY_SERIOUS @9
+  SAY UNHAPPY_BREAKING @10
+  SAY LEADER @11
+  SAY TIRED @12
+  SAY BORED @13
+  SAY BATTLE_CRY1 @14
+  SAY BATTLE_CRY2 @15
+  SAY BATTLE_CRY3 @16
+  SAY BATTLE_CRY4 @17
+  SAY DAMAGE @18
+  SAY DYING @19
+  SAY HURT @20
+  SAY AREA_FOREST @21
+  SAY AREA_CITY @22
+  SAY AREA_DUNGEON @23
+  SAY AREA_DAY @24
+  SAY AREA_NIGHT @25
+  SAY SELECT_COMMON1 @26
+  SAY SELECT_COMMON2 @27
+  SAY SELECT_COMMON3 @28
+  SAY SELECT_COMMON4 @29
+  SAY SELECT_COMMON5 @30
+  SAY SELECT_COMMON6 @31
+  SAY SELECT_ACTION1 @32
+  SAY SELECT_ACTION2 @33
+  SAY SELECT_ACTION3 @34
+  SAY SELECT_ACTION4 @35
+  SAY SELECT_ACTION5 @36
+  SAY SELECT_ACTION6 @37
+  SAY SELECT_ACTION7 @38
+  SAY SELECT_RARE1 @39
+  SAY SELECT_RARE2 @40
+  SAY CRITICAL_HIT @41
+  SAY CRITICAL_MISS @42
+  SAY TARGET_IMMUNE @43
+  SAY INVENTORY_FULL @44
+  SAY PICKED_POCKET @45
+  SAY HIDDEN_IN_SHADOWS @46
+  SAY SPELL_DISRUPTED @47
+  SAY SET_A_TRAP @48
+  SAY BIO @49
+
+COPY_EXISTING ~clmom.cre~ ~override~
+  WRITE_ASCII 0x280 ~clmom~ #32 // assign DV
+
+COPY_EXISTING ~cldad.cre~ ~override~
+  WRITE_ASCII 0x280 ~cldad~ #32 // assign DV 
+  
+COPY_EXISTING ~clkid.cre~ ~override~
+  WRITE_ASCII 0x280 ~lanie~ #32 // assign DV
+
+COPY_EXISTING ~clmom.cre~ ~override/b!clmom.cre~
+  WRITE_ASCII 0x280 ~b!clmom~    #32 // assign DV
+  WRITE_ASCII 0x248 ~b!clmoms~   #8  // assign override script
+  WRITE_ASCII 0x2cc ~b!clmom~    #8  // assign pre-joining dialogue file 
+  WRITE_ASCII 0x34  ~b!clmoms~   #8  // assign small portrait 
+  WRITE_BYTE  0x2d 3   // minor color
+  WRITE_BYTE  0x2e 18  // major color
+  WRITE_BYTE  0x2f 12  // skin color
+  WRITE_BYTE  0x30 17  // leather color
+  WRITE_BYTE  0x31 3   // armor color
+  WRITE_BYTE  0x32 3   // hair color
+
+COPY_EXISTING ~cldad.cre~ ~override/b!cldad.cre~
+  WRITE_ASCII 0x280 ~b!cldad~    #32 // assign DV 
+  WRITE_ASCII 0x248 ~b!cldads~   #8  // assign override script
+  WRITE_ASCII 0x2cc ~b!cldad~    #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x34  ~b!cldads~   #8  // assign small portrait 
+  SAY NAME1 @66 
+  SAY NAME2 @66 
+  
+COPY_EXISTING ~clkid.cre~ ~override/b!lanie.cre~
+  WRITE_ASCII 0x280 ~b!lanie~      #32 // assign DV
+  WRITE_ASCII 0x248 ~b!lanies~    #8  // assign override script
+  WRITE_ASCII 0x2cc ~b!lanie~     #8  // assign pre-joining dialogue file
+  WRITE_ASCII 0x258 ~none~       #8  // assign race script
+  WRITE_ASCII 0x34  ~b!lanies~    #8  // assign small portrait 
+  WRITE_BYTE  0x2d 3   // minor color
+  WRITE_BYTE  0x2e 18  // major color
+  WRITE_BYTE  0x2f 13  // skin color
+  WRITE_BYTE  0x30 47  // leather color
+  WRITE_BYTE  0x32 3   // hair color
+
+COPY_EXISTING ~cadril.cre~ ~override/b!clkni.cre~ 
+  SAY NAME1 @117 
+  SAY NAME2 @117 
+  WRITE_ASCII 0x280 ~b!clknight~ #32 // assign DV 
+  WRITE_ASCII 0x2cc ~b!clkni~     #8  // assign pre-joining dialogue file 
+  WRITE_ASCII 0x250 ~none~       #8  // assign class script 
+  
+COPY_EXISTING ~urchin3.cre~ ~override/b!ogkid1.cre~
+  SAY NAME1 @116 
+  SAY NAME2 @116 
+  WRITE_ASCII 0x280 ~b!ogkid1~   #32 // assign DV 
+  WRITE_ASCII 0x2cc ~b!ogkid1~   #8  // assign pre-joining dialogue file 
+  WRITE_ASCII 0x248 ~b!ogkid1~   #8  // assign override script
+
+COPY_EXISTING ~urchin2.cre~ ~override/b!ogkid2.cre~
+  SAY NAME1 @116 
+  SAY NAME2 @116 
+  WRITE_ASCII 0x280 ~b!ogkid2~   #32 // assign DV 
+  WRITE_ASCII 0x2cc ~b!ogkid2~   #8  // assign pre-joining dialogue file 
+  WRITE_ASCII 0x248 ~b!ogkid2~   #8  // assign override script
+
+COPY_EXISTING ~leona.cre~ ~override/b!ogkid3.cre~
+  SAY NAME1 @116 
+  SAY NAME2 @116 
+  WRITE_ASCII 0x280 ~b!ogkid3~   #32 // assign DV 
+  WRITE_ASCII 0x2cc ~b!ogkid3~   #8  // assign pre-joining dialogue file 
+  WRITE_ASCII 0x260 ~none~       #8  // assign general script 
+  WRITE_ASCII 0x248 ~b!ogkid3~   #8  // assign override script
+
+COPY_EXISTING ~prisong1.cre~ ~override/b!prsgrd.cre~
+  SAY NAME1 @179 
+  SAY NAME2 @179 
+  WRITE_ASCII 0x280 ~b!prsgrd~   #32 // assign DV 
+  WRITE_ASCII 0x2cc ~b!prsgrd~   #8  // assign pre-joining dialogue file 
+  WRITE_ASCII 0x248 ~b!prsgrd~   #8  // assign override script 
+  
+COPY_EXISTING ~vampano.cre~ ~override\b!gavamp.cre~
+  SAY NAME1 @4 
+  SAY NAME2 @4 
+  REMOVE_CRE_ITEM ~MISCBM~
+  ADD_CRE_ITEM ~b!gavbod~ #0 #0 #0 ~IDENTIFIED~ ~QITEM1~
+  WRITE_ASCII 0x248 ~b!gavamp~ #8  // Set OVERRIDE script TO b!gavamp.bcs
+  WRITE_ASCII 0x268 ~wdasight~     // Set DEFAULT script to WDASIGHT.bcs
+  WRITE_ASCII 0x280 ~b!gavamp~ // Set DV to b!gavamp
+  WRITE_ASCII 0x2cc ~b!gavamp~ // Set DIALOGUE file to b!gavamp.dlg 
+  
+COPY_EXISTING ~UDDROW23.cre~ ~override/b!masyrd.cre~
+  SAY NAME1 @210 
+  SAY NAME2 @210 
+  WRITE_ASCII 0x248 ~b!masyrd~ #8 // override
+  WRITE_ASCII 0x2cc ~b!masyrd~ #8 // dialogue
+  WRITE_ASCII 0x280 ~b!masyrd~ #32 //DV
+
+  
+//2da appending for dialogues
+APPEND ~pdialog.2da~
+~b!gavin2    b!gavp     b!gavj     b!gavd     b!gav25p     b!gav25j     b!gav25d     b!gav25s~
+UNLESS ~b!gavin2~
+
+APPEND ~interdia.2da~
+~b!gavin2   bb!gav     bb!gav25~
+UNLESS ~b!gavin2~ 
+
+COPY_EXISTING ~bharval.cre~ ~override~
+    WRITE_BYTE 0x234 18    // sets level in first class to 18 
+    BUT_ONLY_IF_IT_CHANGES 
+
+/* Dialogues and scripts */ 
+
+PRINT @902 
+
+PRINT @903 
+
+OUTER_SPRINT ~gavintimer~ @904
+OUTER_WHILE (!(IS_AN_INT ~gavintimer~) OR (~gavintimer~ > 0x6) OR (~gavintimer~ < 0x1)) BEGIN
+  PRINT @905
+  ACTION_READLN ~gavintimer~
+END
+      ACTION_IF ("gavintimer" = 1) THEN BEGIN
+      APPEND ~gtimes.ids~ ~3600 GAV_TIME~
+      PRINT @906
+      END
+      ACTION_IF ("gavintimer" = 2) THEN BEGIN
+      APPEND ~gtimes.ids~ ~2700 GAV_TIME~
+      PRINT @907
+      END
+      ACTION_IF ("gavintimer" = 3) THEN BEGIN
+      APPEND ~gtimes.ids~ ~1800 GAV_TIME~
+      PRINT @908
+      END
+      ACTION_IF ("gavintimer" = 4) THEN BEGIN
+      APPEND ~gtimes.ids~ ~900 GAV_TIME~
+      PRINT @909
+      END
+      ACTION_IF ("gavintimer" = 5) THEN BEGIN
+      APPEND ~gtimes.ids~ ~5400 GAV_TIME~
+      PRINT @910
+      END
+      ACTION_IF ("gavintimer" = 6) THEN BEGIN
+      APPEND ~gtimes.ids~ ~7200 GAV_TIME~
+      PRINT @911
+      END
+
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!gav.d~                     // Gavin's joining dilogue
+COMPILE ~gavin_bg2/dialogue/b!player1.d~                 // Ring dialogue
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!gavin_interjections.d~     // interjections
+COMPILE ~gavin_bg2/dialogue/b!miranda_talks.d~           // Miranda talks 
+COMPILE ~gavin_bg2/dialogue/b!miranda.d~                 // Confrontation with Miranda 
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!gavp.d~                    // Gavin's P file 
+COMPILE ~gavin_bg2/dialogue/bb!gav.d~                    // banters
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!talks.d~   // PC dialogues 
+COMPILE ~gavin_bg2/dialogue/b!gav_morning.d~             // Morning after talks
+COMPILE ~gavin_bg2/dialogue/b!npc.d~                     // atmosphere NPC dialogues 
+COMPILE ~gavin_bg2/dialogue/b!lanie.d~                   // Gavin's visits with Lanie 
+COMPILE ~gavin_bg2/dialogue/b!floaters.d~                // 'floating' LTs 
+COMPILE ~gavin_bg2/dialogue/b!npcrom.d~                  // romance-related NPC dialogue 
+COMPILE ~gavin_bg2/dialogue/b!abduction.d~               // Bodhi abduction dialogue 
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!re_reactions.d~            // Romantic Encounters reactions 
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!npc-init.d~                // NPC-initiated flirts 
+COMPILE ~gavin_bg2/dialogue/b!imoen_rom.d~               // Imoen romance
+COMPILE ~gavin_bg2/dialogue/b!gift.d~                    // Master Grolim's Gift Shop
+
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  COMPILE ~gavin_bg2/dialogue/ee_conflicts.d~ 
+END
+
+COMPILE EVALUATE_BUFFER ~gavin_bg2/dialogue/b!pid.d~  
+  USING ~gavin_bg2/languages/%LANGUAGE%/pid_soa_tob.tra~       // PID - KEEP THIS LAST!
+
+COMPILE EVALUATE_BUFFER ~gavin_bg2/script/b!gavs.baf~  
+  USING ~gavin_bg2/languages/%LANGUAGE%/game-gavin_bg2.tra~    // Gavin's override 
+COMPILE EVALUATE_BUFFER ~gavin_bg2/script/b!gavd.baf~     // Gavin's dream script 
+COMPILE ~gavin_bg2/script/b!lanies.baf~   // Moves Lanie to the Temple of Oghma
+COMPILE ~gavin_bg2/script/b!lanie1.baf~   // Confrontation with Miranda and Lanie 
+COMPILE ~gavin_bg2/script/b!lanie2.baf~   // Gavin and Lanie go to the temple, returns party to starting location
+COMPILE ~gavin_bg2/script/b!lanie3.baf~   // Moves Miranda, Lanie and Gavin to the temple of Oghma if the PC did not witness the whole confrontation 
+COMPILE ~gavin_bg2/script/b!visit.baf~    // Gavin's cutscene visit with Lanie 
+COMPILE ~gavin_bg2/script/b!rest1.baf~    // resting at an inn 
+COMPILE ~gavin_bg2/script/b!rest2.baf~    // resting outdoors 
+COMPILE ~gavin_bg2/script/b!rest3.baf~    // resting in a dungeon 
+COMPILE ~gavin_bg2/script/b!gavstr.baf~
+  USING ~gavin_bg2/languages/%LANGUAGE%/game-gavin_bg2.tra~  // string fixer 
+COMPILE ~gavin_bg2/script/b!rezgav.baf~   // resurrects Gavin 
+COMPILE ~gavin_bg2/script/b!drunk1.baf~   // sends Gavin and PC to prison 
+COMPILE ~gavin_bg2/script/b!drunk2.baf~   // spawns prison guard and opens door 
+COMPILE ~gavin_bg2/script/b!drunk3.baf~   // gets Gavin and the PC both out of prison 
+COMPILE ~gavin_bg2/script/b!drunk4.baf~   // gets the PC out of prison without Gavin 
+COMPILE ~gavin_bg2/script/b!drunk5.baf~   // sends Gavin and the PC to prison 
+COMPILE ~gavin_bg2/script/b!drunk6.baf~   // Gets Gavin out into the prison entrance area  
+COMPILE ~gavin_bg2/script/b!cut14c.baf~   // talk 14, city 
+COMPILE ~gavin_bg2/script/b!cut14e.baf~   // talk 14, end with dialogue 
+COMPILE ~gavin_bg2/script/b!cut14f.baf~   // talk 14, forest 
+COMPILE ~gavin_bg2/script/b!cut14i.baf~   // talk 14, end with rest at inn 
+COMPILE ~gavin_bg2/script/b!cut14r.baf~   // talk 14, end with rest in camp 
+COMPILE ~gavin_bg2/script/b!gavano.baf~   // duel between Gavin and Anomen 
+COMPILE ~gavin_bg2/script/b!bocut.baf~    // Gavin gets abducted by Bodhi 
+COMPILE ~gavin_bg2/script/b!vamp.baf~     // Gavin's script while he's a vampire 
+COMPILE ~gavin_bg2/script/b!gavamp.baf~   // vampire Gavin's fight script 
+COMPILE ~gavin_bg2/script/b!three.baf~    // PC has a threesome in the Lust Chambers 
+COMPILE ~gavin_bg2/script/b!three2.baf~   // ends threesome in the Lust Chambers 
+COMPILE ~gavin_bg2/script/b!three3.baf~   // rests party before ending threesome in the Lust Chambers 
+
+EXTEND_BOTTOM ~ar0203.bcs~   ~gavin_bg2/script/b!ar0203.baf~  
+  USING ~gavin_bg2/languages/%LANGUAGE%/game-gavin_bg2.tra~        // Gavin reacts to empathic manifestation 
+EXTEND_BOTTOM ~ar0300.bcs~   ~gavin_bg2/script/b!ar0319.baf~         // Docks spawns 
+EXTEND_TOP    ~ar0400.bcs~   ~gavin_bg2/script/b!ar0408.baf~         // Gavin spawns, Slums spawns
+EXTEND_TOP    ~ar0500.bcs~   ~gavin_bg2/script/b!ar0500.baf~         // Spawns Master Siman 
+EXTEND_TOP    ~ar0602.bcs~   ~gavin_bg2/script/b!ar0602_et.baf~      // Ring placement
+EXTEND_BOTTOM ~ar0602.bcs~   ~gavin_bg2/script/b!ar0602_eb.baf~      // Starts ring dialogue 
+EXTEND_BOTTOM ~ar0603.bcs~ ~gavin_bg2/script/b!ar0602_eb.baf~ 	     // Starts ring dialogue, too
+EXTEND_BOTTOM ~ar0700.bcs~ ~gavin_bg2/script/b!ar0602_eb.baf~ 	     // Starts ring dialogue in Waukeen's Promenade (for compatibility with Skip Chateau Irenicus)
+EXTEND_BOTTOM ~ar0809.bcs~   ~gavin_bg2/script/b!ar0809.baf~         // Spawns and destroys vamped Gavin 
+EXTEND_TOP    ~ar0900.bcs~   ~gavin_bg2/script/b!ar0900.baf~         // Miranda and Lanie business 
+EXTEND_TOP    ~ar1000.bcs~   ~gavin_bg2/script/b!ar1000.baf~         // enables floater 4 - 'Wine, women, and no song'
+EXTEND_TOP    ~ar1100.bcs~   ~gavin_bg2/script/b!ar1100.baf~         // Spawns Master Uric 
+EXTEND_BOTTOM ~ar1401.bcs~   ~gavin_bg2/script/b!ar1401.baf~         // Gavin talks to the PC after being brought back to life 
+EXTEND_TOP    ~ar1600.bcs~   ~gavin_bg2/script/b!ar1600.baf~         // Spawns Goody Alma 
+EXTEND_TOP    ~ar2000.bcs~   ~gavin_bg2/script/b!ar2000.baf~         // Spawns Goody Marli 
+EXTEND_BOTTOM ~riftcr04.bcs~ ~gavin_bg2/script/b!riftcr04.baf~       // Gavin reacts to empathic manifestation
+EXTEND_TOP    ~aerie.bcs~    ~gavin_bg2/script/b!aerie.baf~          // Aerie starts the banters 
+EXTEND_TOP    ~aeried.bcs~   ~gavin_bg2/script/b!aeried.baf~         // Night banter with Aerie 
+EXTEND_TOP    ~anomen.bcs~   ~gavin_bg2/script/b!anomen.baf~         // Romance conflicts and banters with Anomen 
+EXTEND_TOP    ~edwin.bcs~    ~gavin_bg2/script/b!edwin.baf~          // Banters with Edwin 
+EXTEND_TOP    ~haerdali.bcs~ ~gavin_bg2/script/b!haerdalis.baf~      // Banter with Haer'Dalis 
+EXTEND_TOP    ~jaheira.bcs~  ~gavin_bg2/script/b!jaheira.baf~        // Banter with Jaheira 
+EXTEND_TOP    ~keldorn.bcs~  ~gavin_bg2/script/b!keldorn.baf~ EVALUATE_BUFFER        // Banter with Keldorn 
+EXTEND_TOP    ~mazzy.bcs~    ~gavin_bg2/script/b!mazzy.baf~          // Banter with Mazzy 
+EXTEND_TOP    ~minsc.bcs~    ~gavin_bg2/script/b!minsc.baf~          // Banter with Minsc 
+EXTEND_BOTTOM ~bodhiamb.bcs~ ~gavin_bg2/script/b!bodhia.baf~         // Gets Bodhi out of the Graveyard and deactivates the upper transition area to the crypt 
+EXTEND_BOTTOM ~cleanse.bcs~  ~gavin_bg2/script/b!cleanse.baf~        // Gavin's body and Bodhi's heart placed on ruined Shadow Temple altar 
+
+
+EXTEND_BOTTOM ~VLUVINFO.bcs~ ~gavin_bg2/script/b!vluvinfo.baf~		//Statue gives info about ressurrection after vampire abduction
+
+
+EXTEND_TOP    ~b!gavs.bcs~   ~gavin_bg2/script/b!ano_conflict.baf~    // Romance conflicts with Anomen 
+EXTEND_TOP    ~b!gavs.bcs~   ~gavin_bg2/script/b!re_reactions.baf~   // Romantic Encounters reactions 
+EXTEND_BOTTOM ~b!gavs.bcs~   ~gavin_bg2/script/b!imoenrom_gav.baf~   // Imoen romance (Gavin's script) 
+EXTEND_TOP    ~imoen2.bcs~   ~gavin_bg2/script/b!imoenrom_imoen.baf~ // Imoen romance (Imoen's script) 
+EXTEND_TOP    ~baldur.bcs~   ~gavin_bg2/script/b!baldur.baf~         // Alignment Change
+
+ACTION_IF GAME_IS ~tob bg2ee eet~ THEN BEGIN 
+    COMPILE ~gavin_bg2/script/tob/b!kilgav.baf~   // Anomen kills Gavin 
+END ELSE BEGIN 
+    COMPILE ~gavin_bg2/script/b!kilgav.baf~       // Anomen kills Gavin 
+END 
+
+ACTION_IF GAME_IS ~tob bg2ee eet~ THEN BEGIN 
+    COPY ~gavin_bg2/creatures/b!gabard.cre~ ~override~ 
+      WRITE_ASCII 0x248 ~b!gabard~   #8   // assign override script
+      WRITE_ASCII 0x2cc ~b!gabard~    #8  // assign pre-joining dialogue file
+      WRITE_ASCII 0x280 ~b!gabard~ #32    // assign DV 
+      SAY NAME1 @400 
+      SAY NAME2 @400 
+      
+    COPY ~gavin_bg2/creatures/b!mwlan.cre~ ~override~ 
+      WRITE_ASCII 0x248 ~b!mwlan~ #8    //assign override script
+      WRITE_ASCII 0x2cc ~b!mwlan~ #8    //assign pre-joining dialogue file
+      WRITE_ASCII 0x280 ~b!mwlan~ #32   //assign DV
+      WRITE_ASCII 0x34  ~b!lanies~ #8   // assign small portrait 
+      SAY NAME1 ~Lanie~ 
+      SAY NAME2 ~Lanie~ 
+      
+    COMPILE ~gavin_bg2/script/b!rest4.baf~    // resting in the pocketplane 
+    
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_initdlg.d~                 // Initiates Gavin's ToB dialogues 
+    COMPILE ~gavin_bg2/dialogue/tob/b!gav25.d~                       // Fate Spirit summoning and joining 
+    COMPILE ~gavin_bg2/dialogue/tob/b!gav25p.d~                      // Gavin's kickout and rejoining dialogue
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_interjections.d~           // Gavin's ToB interjections 
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_romance.d~                 // Gavin's ToB romance-only dialogue
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_talks.d~                   // Gavin's ToB talks 
+    COMPILE ~gavin_bg2/dialogue/tob/b!master_wraith.d~               // Master wraith stuff (were you expecting Snoopy?)
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_banter.d~                  // ToB banter 
+    COMPILE ~gavin_bg2/dialogue/tob/b!imoenrom_amkethran.d~          // Imoen romance, Amkethran dialogues 
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_imoenrom.d~                // Imoen romance, pre-Amkethran dialogues 
+/*    COMPILE ~gavin_bg2/dialogue/tob/b!tob_night.d~                 // ToB player-initiated steamy bits
+--taken out, as these are only placeholders */
+    COMPILE ~gavin_bg2/dialogue/tob/b!tob_pid.d~     
+      USING ~gavin_bg2/languages/%LANGUAGE%/pid_soa_tob.tra~         // Gavin's ToB PID 
+    
+    COMPILE ~gavin_bg2/script/tob/b!amket1.baf~                      // Spawn Aleto
+    COMPILE ~gavin_bg2/script/tob/b!amket2.baf~                      // gets rid of Imoen and Aleto 
+    COMPILE ~gavin_bg2/script/tob/b!amket3.baf~                      // rests part and gets Imoen back in group
+    COMPILE ~gavin_bg2/script/tob/b!amket4.baf~                      // Gavin leaves 
+    COMPILE ~gavin_bg2/script/tob/b!amket5.baf~                      // rests party and gets Gavin back in group 
+    COMPILE ~gavin_bg2/script/tob/b!gav25s.baf~    
+  USING ~gavin_bg2/languages/%LANGUAGE%/game-gavin_bg2.tra~                     // Gavin's ToB override script 
+    COMPILE ~gavin_bg2/script/tob/b!gav25d.baf~                      // Gavin's ToB dream script 
+    COMPILE ~gavin_bg2/script/tob/master_wraith/b!gavmw1.baf~        // spawns mw lanie
+    EXTEND_BOTTOM ~cut218g.bcs~ ~gavin_bg2/script/tob/master_wraith/b!gavmw2.baf~ // changes Lanie into another wraith
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+  EXTEND_BOTTOM ~Ar4000.bcs~ ~gavin_bg2/script/tob/gavin_ar4000_eet.baf~   EVALUATE_BUFFER
+END
+
+    EXTEND_TOP ~anom25.bcs~  ~gavin_bg2/script/tob/b!tob_anomen.baf~     // Anomen's ToB material 
+    EXTEND_TOP ~edwi25.bcs~  ~gavin_bg2/script/tob/b!tob_edwin.baf~      // Edwin ToB banters 
+    EXTEND_TOP ~imoe25.bcs~  ~gavin_bg2/script/tob/b!tob_imoen.baf~      // Imoen's ToB material 
+    EXTEND_TOP ~korg25.bcs~  ~gavin_bg2/script/tob/b!tob_korgan.baf~     // Korgan's ToB banters 
+    EXTEND_TOP ~mazz25.bcs~  ~gavin_bg2/script/tob/b!tob_mazzy.baf~      // Mazzy's ToB banters 
+    EXTEND_TOP ~mins25.bcs~  ~gavin_bg2/script/tob/b!tob_minsc.baf~      // Minsc's ToB banters 
+    EXTEND_TOP ~sarev25d.bcs~ ~gavin_bg2/script/tob/b!tob_sarevok_d.baf~ // Sarevok's ToB banters 
+    EXTEND_TOP ~ar6200.bcs~   ~gavin_bg2/script/tob/b!ar6200.baf~        // Epilogues 
+    
+/* Epilogues */ 
+
+COPY ~gavin_bg2/2da/b!gavep0.2da~ ~override~ 
+    REPLACE ~99900~ @99900
+
+COPY ~gavin_bg2/2da/b!gavep1.2da~ ~override~ 
+    REPLACE ~99901~ @99901
+
+COPY ~gavin_bg2/2da/b!gavep2.2da~ ~override~ 
+    REPLACE ~99902~ @99902
+
+COPY ~gavin_bg2/2da/b!gavep3.2da~ ~override~ 
+    REPLACE ~99903~ @99903
+
+COPY ~gavin_bg2/2da/b!gavep4.2da~ ~override~ 
+    REPLACE ~99904~ @99904
+
+COPY ~gavin_bg2/2da/b!gavep5.2da~ ~override~ 
+    REPLACE ~99905~ @99905
+
+COPY ~gavin_bg2/2da/b!gavep6.2da~ ~override~ 
+    REPLACE ~99906~ @99906
+
+COPY ~gavin_bg2/2da/b!gavep7.2da~ ~override~ 
+    REPLACE ~99907~ @99907
+
+COPY ~gavin_bg2/2da/b!gavep8.2da~ ~override~ 
+    REPLACE ~99908~ @99908
+
+COPY ~gavin_bg2/2da/b!gavep9.2da~ ~override~ 
+    REPLACE ~99909~ @99909
+
+COPY ~gavin_bg2/2da/b!gavepa.2da~ ~override~ 
+    REPLACE ~99910~ @99910
+
+COPY ~gavin_bg2/2da/b!gavepb.2da~ ~override~ 
+    REPLACE ~99911~ @99911
+
+COPY ~gavin_bg2/2da/b!gavepc.2da~ ~override~ 
+    REPLACE ~99912~ @99912
+
+COPY ~gavin_bg2/2da/b!gavepd.2da~ ~override~ 
+    REPLACE ~99913~ @99913
+
+    COPY_EXISTING ~ar5501.are~ ~override~    //Amkethran Inn
+      PATCH_IF SOURCE_SIZE > 0x28f BEGIN
+        READ_ASCII 0x94 ~rsc~                //Area script
+        PATCH_IF (~%rsc%~ STRING_EQUAL_CASE ~none~ = 1) OR (~%rsc%~ STRING_EQUAL ~~ = 1) BEGIN
+          WRITE_ASCII 0x94 ~AR5501~ #8
+        END
+      END
+    BUT_ONLY
+    EXTEND_TOP ~ar5501.bcs~  ~gavin_bg2/script/tob/b!ar5501.baf~         // Spawns Aleto 
+END 
+
+
+BEGIN @192 
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+  EXTEND_TOP ~b!gavs.bcs~ ~gavin_bg2/script/b!heal.baf~ 
+
+BEGIN @194 
+  FORCED_SUBCOMPONENT @191  
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+  EXTEND_TOP ~b!gavs.bcs~ ~gavin_bg2/script/b!rom_kill.baf~ 
+BEGIN @195 
+  FORCED_SUBCOMPONENT @191  
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+  EXTEND_TOP ~b!gavs.bcs~ ~gavin_bg2/script/b!rom_nokill.baf~ 
+
+/* BEGIN @182 
+  SUBCOMPONENT @183 
+    COPY ~gavin_bg2/creatures/b!gavinl.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/b!gavinm.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/b!gavinS.bmp~ ~override/b!gavins.bmp~ */ 
+
+/* fortunately, the EE games scale the portraits, so I can just use the large ones for all sizes. */
+
+BEGIN @184 
+  SUBCOMPONENT @183
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+    COPY ~gavin_bg2/creatures/amgavl.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/amgavm.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/amgavs.bmp~ ~override/b!gavins.bmp~
+
+    ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+      COPY ~gavin_bg2/creatures/amgavl.bmp~ ~override/b!gavinm.bmp~
+      COPY ~gavin_bg2/creatures/amgavl.bmp~ ~override/b!gavins.bmp~
+    END
+
+BEGIN @185 
+  SUBCOMPONENT @183
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+    COPY ~gavin_bg2/creatures/b!gavin4l.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/b!gavin4m.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/b!gavin4s.bmp~ ~override/b!gavins.bmp~
+
+    ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+      COPY ~gavin_bg2/creatures/b!gavin4l.bmp~ ~override/b!gavinm.bmp~
+      COPY ~gavin_bg2/creatures/b!gavin4l.bmp~ ~override/b!gavins.bmp~
+    END
+
+BEGIN @186 
+  SUBCOMPONENT @183
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+    COPY ~gavin_bg2/creatures/b!gavin5l.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/b!gavin5m.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/b!gavin5s.bmp~ ~override/b!gavins.bmp~
+
+    ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+      COPY ~gavin_bg2/creatures/b!gavin5l.bmp~ ~override/b!gavinm.bmp~
+      COPY ~gavin_bg2/creatures/b!gavin5l.bmp~ ~override/b!gavins.bmp~
+    END
+
+BEGIN @187 
+  SUBCOMPONENT @183
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+    COPY ~gavin_bg2/creatures/B!Gavin1l.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/B!Gavin1m.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/B!Gavin1s.bmp~ ~override/b!gavins.bmp~
+
+    ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+      COPY ~gavin_bg2/creatures/B!Gavin1l.bmp~ ~override/b!gavinm.bmp~
+      COPY ~gavin_bg2/creatures/B!Gavin1l.bmp~ ~override/b!gavins.bmp~
+    END
+
+BEGIN @188 
+  SUBCOMPONENT @183
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+    COPY ~gavin_bg2/creatures/B!Gavin2l.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/B!Gavin2m.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/B!Gavin2s.bmp~ ~override/b!gavins.bmp~
+
+    ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+      COPY ~gavin_bg2/creatures/B!Gavin2l.bmp~ ~override/b!gavinm.bmp~
+      COPY ~gavin_bg2/creatures/B!Gavin2l.bmp~ ~override/b!gavins.bmp~
+    END
+
+BEGIN @217 
+  SUBCOMPONENT @183
+  REQUIRE_COMPONENT ~setup-gavin_bg2.tp2~ ~0~ @999 
+    COPY ~gavin_bg2/creatures/b_gav1l.bmp~ ~override/b!gavinl.bmp~
+    COPY ~gavin_bg2/creatures/b_gav1m.bmp~ ~override/b!gavinm.bmp~
+    COPY ~gavin_bg2/creatures/b_gav1s.bmp~ ~override/b!gavins.bmp~
+
+    ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+      COPY ~gavin_bg2/creatures/b_gav1l.bmp~ ~override/b!gavinm.bmp~
+      COPY ~gavin_bg2/creatures/b_gav1l.bmp~ ~override/b!gavins.bmp~
+    END
+

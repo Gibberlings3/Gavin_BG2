@@ -1,0 +1,20 @@
+
+// b!cleanse.baf, gets extended on CLEANSE.bcs
+
+IF 
+	Contains("b!gavbod",Myself) // Gavin's body
+	Contains("MISCBP",Myself) // Bodhi's black heart 
+THEN 
+	RESPONSE #100 
+		SetInterrupt(FALSE) 
+		SetGlobal("B!CleanseVampire","AR1401",2) 
+		DestroyItem("b!gavbod") 
+		DestroyItem("MISCBP") 
+		CreateVisualEffect("SPMETSW2",[2592.1701]) 
+		CreateVisualEffect("SPMETSW2",[2645.1742]) 
+		Wait(1) 
+		CreateVisualEffect("SPFLESHS",[2565.1677]) 
+		Wait(1) 
+		MoveGlobal("AR1401","B!Gavin2",[2565.1677]) 
+		SetInterrupt(TRUE) 
+END

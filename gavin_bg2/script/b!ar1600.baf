@@ -1,0 +1,11 @@
+
+// b!ar1600.bcs - Spawns Goody Alma
+
+IF
+  Global("B!Herb07Spawn","AR1600",0)
+THEN
+  RESPONSE #100
+     CreateCreature("b!herb05",[1190.1149],12)                   // Goody Alma  
+     SetGlobal("B!Herb07Spawn","AR1600",1) 
+     Continue() 
+END

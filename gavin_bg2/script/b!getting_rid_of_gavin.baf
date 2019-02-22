@@ -1,0 +1,14 @@
+
+// b!getting_rid_of_gavin.baf
+
+IF 
+    Exists("B!Gavin") 
+    Global("B!GavinExistsInBG2","AR0602",0) 
+THEN 
+    RESPONSE #100 
+        ActionOverride("B!Gavin",LeaveParty()) 
+        ActionOverride("B!Gavin",DestroySelf()) 
+        SetGlobal("B!GavBhaal","GLOBAL",0) 
+        SetGlobal("B!GavinExistsInBG2","AR0602",1) 
+        Continue() 
+END 

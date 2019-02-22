@@ -1,0 +1,31 @@
+/* Gavin was in party upon transition: he is no longer available for summoning */
+
+IF
+	InPartyAllowDead("B!Gavin2")
+	Global("B!Gavin2Summoned","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ActionOverride("B!Gavin2",ChangeAIScript("b!gav25s",OVERRIDE))
+		SetGlobal("B!Gavin2Summoned","GLOBAL",2)
+		Continue()
+END
+
+IF
+  Global("NEWGAME_TOB","GLOBAL",0)
+  Global("B!Gavin2Summoned","GLOBAL",0)
+  !BeenInParty("B!Gavin2")
+THEN
+  RESPONSE #100
+    SetGlobal("B!Gavin2Summoned","GLOBAL",2)
+    Continue()
+END
+
+/* Disable Gavin BG1 Fatespirit entry - always */
+
+IF
+	Global("B!GAVINSummoned","GLOBAL",0)
+THEN 
+    RESPONSE #100 
+	SetGlobal("B!GAVINSummoned","GLOBAL",2) //no Gavin from BG1
+        Continue() 
+END 

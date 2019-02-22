@@ -1,0 +1,73 @@
+
+// b!ar0900.baf - extend bottom ar0900.bcs 
+
+IF 
+    Global("B!GavLanie","GLOBAL",1) 
+    Exists("B!Gavin2") 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    Global("B!GavLanieCutscene","AR0900",0) 
+THEN 
+    RESPONSE #100 
+        SetGlobal("B!GavLanieCutscene","AR0900",1) 
+        ClearAllActions() 
+        StartCutSceneMode() 
+        StartCutScene("b!lanie1") 
+        Continue() 
+END 
+
+IF 
+    GlobalGT("B!GavLanie","GLOBAL",1) 
+    InMyArea("clmom") 
+THEN 
+    RESPONSE #100 
+        ActionOverride("clmom",DestroySelf())  // brought to you by the Dept. of Redundancy Department 
+        Continue() 
+END 
+
+
+IF 
+    GlobalGT("B!GavLanie","GLOBAL",1) 
+    InMyArea("cldad") 
+THEN 
+    RESPONSE #100 
+        ActionOverride("cldad",DestroySelf())  // brought to you by the Dept. of Redundancy Department 
+        Continue() 
+END 
+
+IF 
+    GlobalGT("B!GavLanie","GLOBAL",1) 
+    InMyArea("lanie") 
+THEN 
+    RESPONSE #100 
+        ActionOverride("lanie",DestroySelf())  // brought to you by the Dept. of Redundancy Department 
+        Continue() 
+END 
+
+
+IF 
+    GlobalGT("B!GavNoGoToTemple","GLOBAL",3) 
+    InMyArea("clmom") 
+THEN 
+    RESPONSE #100 
+        ActionOverride("clmom",DestroySelf())  // Gavin dealt with it alone 
+        Continue() 
+END 
+
+
+IF 
+    GlobalGT("B!GavNoGoToTemple","GLOBAL",3) 
+    InMyArea("cldad") 
+THEN 
+    RESPONSE #100 
+        ActionOverride("cldad",DestroySelf())  // Gavin dealt with it alone 
+        Continue() 
+END 
+
+IF 
+    GlobalGT("B!GavNoGoToTemple","GLOBAL",3) 
+    InMyArea("lanie") 
+THEN 
+    RESPONSE #100 
+        ActionOverride("lanie",DestroySelf())  // Gavin dealt with it alone 
+        Continue() 
+END 

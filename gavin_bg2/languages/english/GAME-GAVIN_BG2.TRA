@@ -1,0 +1,506 @@
+/* @0 - @3 used in setup-gavin.tra */
+@4    = ~Gavin~
+@5    = ~Lathander's blessings upon you!~ [BGAV_00]
+@6    = ~Um, regroup?~ [BGAV_01]
+@7    = ~The gods will smile on our actions. We are surely on the right path.~ [BGAV_02]
+@8    = ~We must do better.~ [BGAV_03]
+@9    = ~We cannot go on like this! I cannot condone our actions.~ [BGAV_04]
+@10   = ~This must end. I can no longer be party to such deeds.~ [BGAV_05]
+@11   = ~Remember, you asked for this.~ [BGAV_06]
+@12   = ~I need to rest. I'm no good to All like this.~ [BGAV_07]
+@13   = ~If we're going to stand around and look at the scenery, I'm going to get out my sketchbook.~ [BGAV_08]
+@14   = ~In Lathander's name!~ [BGAV_09]
+@15   = ~By all that is good, I will crush you!~ [BGAV_10]
+@16   = ~To battle!~ [BGAV_11]
+@17   = ~Fall before the might of Lathander!~ [BGAV_12]
+@18   = ~Hey, I felt that!~ [BGAV_13]
+@19   = ~It's as good a time as any.~ [BGAV_14]
+@20   = ~This healer needs some help, here!~ [BGAV_15]
+@21   = ~All this fresh air really makes me feel alive.~ [BGAV_16]
+@22   = ~So many opportunities to help, but so many people who need it.~ [BGAV_17]
+@23   = ~There's nothing between me and the open sky but a lot of rock and dirt.~ [BGAV_18]
+@24   = ~Daylight! Behold the majesty of Lathander!~ [BGAV_19]
+@25   = ~At night, the world rests and is renewed.~ [BGAV_20]
+@26   = ~Your wish?~ [BGAV_21]
+@27   = ~Yes?~ [BGAV_22]
+@28   = ~Hmm?~ [BGAV_23]
+@29   = ~How may I help you?~ [BGAV_24]
+@30   = ~Your request?~ [BGAV_25]
+@31   = ~What was it that you wanted?~ [BGAV_26]
+@32   = ~As you wish.~ [BGAV_27]
+@33   = ~I will do as you say.~ [BGAV_28]
+@34   = ~At your command.~ [BGAV_29]
+@35   = ~All right.~ [BGAV_30]
+@36   = ~Yes.~ [BGAV_31]
+@37   = ~As you see fit.~ [BGAV_32]
+@38   = ~Consider it done.~ [BGAV_33]
+@39   = ~As long as it doesn't involve spiders.~ [BGAV_34]
+@40   = ~Is this really necessary?~ [BGAV_35]
+@41   = ~One for Lathander!~ [BGAV_36]
+@42   = ~Damn my clumsiness!~ [BGAV_37]
+@43   = ~This is getting us nowhere!~ [BGAV_38]
+@44   = ~Sorry, but there's no room for anything else.~ [BGAV_39]
+@45   = ~Was that really necessary?~ [BGAV_40]
+@46   = ~I am hidden.~ [BGAV_41]
+@47   = ~Stop that! You've broken my concentration.~ [BGAV_42]
+@48   = ~Let's hope this gets the right target, shall we?~ [BGAV_43]
+@49   = ~When asked about his past, Gavin tells you that it was fairly unremarkable. He was born to a sailmaker and a midwife in Ulgoth's Beard and has wanted to be a priest of Lathander since he was a boy. After several years of service to the Song of the Morning Temple in Beregost, he finally felt the lure of adventure.~
+@64   = ~Gavin's Ring~
+@65   = ~Gavin's Ring
+
+  This ring was given to Gavin by his sister Reed following his ordination as a Dawnbringer. He is very fond of it, and never removes it.
+
+Gavin claims that Reed inherited it from an eccentric uncle, a mage. The charm that makes it unremovable, however, was hers.~
+
+@66 = ~Talon Thondar~
+
+@111  = ~Engagement Ring~
+@112  = ~This silver ring is set with a glowing purple stone. The inscription inside the band reads 'Here is my heart. It is forever thine.'~
+@113  = ~This silver ring is set with a glowing purple stone. The inscription inside the band reads 'Here is my heart. It is forever thine.'
+
+  STATISTICS:
+
+Armor Class Bonus: 1
+Saving Throw Bonus: 1
+HP Bonus: 5~
+@114  = ~Gavin's Maimed Hand~
+@115  = ~Trust comes with a price. For Gavin, the price was the forefinger of his left hand.~
+@116  = ~Student~ 
+@117  = ~Knight of the Order~ 
+
+/* @127 used in setup-gavin.tra */
+
+@128  = ~Mortar and Pestle~ 
+@129  = ~A mortar is a bowl-shaped vessel made of some hard material in which substances may be ground into a powder or pulp. A pestle is a short rod, usually with a rounded end, that is used to grind substances against the mortar. They range in size from tiny, barely big enough to grind a couple seeds, to immense, capable of holding a sackful of nuts or grain. This set is travel-sized. It can be used to prepare a number of herbal or botanical preparations.
+
+Use: Enables user to create potions, salves, or other herbal preparations
+Weight: 2 
+Usable By: 
+  All~ 
+@130  = ~Cassil Herb~ 
+@131  = ~Cassil herb is a tasteless herb used by males to cause temporary sterility. In addition, it bestows a slight bonus to constitution. Its effects last for 12 hours. 
+
+Use: Causes temporary male sterility 
+Constitution bonus: 1 
+Duration: 12 hours 
+Weight: 0 
+Usable by: 
+  All~ 
+@132  = ~Bitter Apple~ 
+@133  = ~The bitter apple is the fruit of the apple tree which has been infected with bitter mold, which sours the fruit. It is combined with nutmeg, ginger, honey, and grain spirits to make Snakebite, a powerful antidote against poison. 
+
+Use: Component of Snakebite. 
+Weight: 0~ 
+@134  = ~Nutmeg~ 
+@135  = ~Nutmeg is the whole, armotic seed of a Chultan tree. This specimen is still encased in its membrane of orange mace. Combined with bitter apple, ginger, honey, and grain spirits, it makes Snakebite, a powerful antidote against poison.
+
+Use: Component of Snakebite.
+Weight: 0~ 
+@136  = ~Ginger~ 
+@137  = ~Ginger is the root of a reedlike plant native to Chult, but now cultivated throughout the tropics. It is widely used as a spice in foods. Combined with bitter apple, nutmeg, honey, and grain spirits, it makes Snakebite, a powerful antidote against poison. 
+
+Use: Component of Snakebite.
+Weight: 0~ 
+@138  = ~Honey~ 
+@139  = ~Honey is made by bees and used as an all-purpose sweetener. It is used in a number of herbal preparations. 
+
+Use: Many
+Weight: 1 
+Usable by: 
+  All~ 
+@140  = ~Grain Spirits~ 
+@141  = ~Grain spirits are distilled from fermented grain. If imbibed in large quantities, it results in intoxication, however the quantities commonly used in crafting herbal preparations is usually too small to produce any such effect. Grain spirits are a common component of herbal mixtures.
+
+Use: Many 
+Weight: 1 
+Usable by: 
+  All~ 
+@142  = ~Empty Bottle~ 
+@143  = ~This container may be used to store any of the herbal mixtures you prepare. 
+
+Use: Many 
+Weight: 0 (while empty) 
+Usable by: 
+  All~ 
+@144  = ~Snakebite~ 
+@145  = ~Snakebite will neutralize any poison currently affecting the user. The use of this potion is not without cost, however. The imbiber suffers a mild penalty to dexterity that persists for 1 hour. The cleansing is instant and the potion may only be used once.
+
+Use: Neutralizes poison.
+Dexterity Penalty: -1 for 1 hour 
+Usable By:
+  All~ 
+@146  = ~Darkberries~ 
+@147  = ~When crushed and applied to the skin, these purplish-black berries seem to exude darkness. They increase stealth by +30% 
+
+Stealth bonus: +30% 
+Duration: 10 turns 
+Usable By: 
+  Monks
+  Thieves 
+  Rangers~ 
+@148  = ~Felsul Flowers~ 
+@149  = ~Felsul trees tend to grow in cold, barren places, where the beauty of their blossoms is even more startling. When crushed and combined with grain spirits, they create a sweet-smelling perfume that enhances the wearer's charisma. 
+
+Use: Component of Felsul Flower Oil 
+Weight: 0~ 
+@150  = ~Felsul Flower Oil~ 
+@151  = ~This sweet-smelling perfume is made from the blossoms of the felsul tree. It enhances charisma for up to 12 hours. 
+
+Charisma Bonus: +2 
+Duration: 12 hours 
+Weight: 1 
+Usable By: 
+  All~ 
+@152  = ~Mule Pollen~ 
+@153  = ~This bright yellow daisy-like flower grows on the high moors and on the lower slopes of some mountain ranges. When its pollen is inhaled it grants the user a +2 bonus to strength, but a -2 penalty to intelligence and wisdom. These effects last for 1 hour.
+
+Strength Bonus: +2 
+Intelligence Penalty: -2 
+Wisdom Penalty: -2 
+Duration: 1 hour 
+Weight: 0 
+Usable By: 
+  All~ 
+@154  = ~Silverbark Sap~ 
+@155  = ~The sap of the silverbark tree is clear and slightly viscous. If consumed, it grants the imbiber a +2 bonus to save vs. poison.
+
+Save vs. Poison: +2 bonus
+Duration: 1 hour 
+Weight: 1 
+Usable By: 
+  All~ 
+@156  = ~Brown Mold Oil~ 
+@157  = ~When brown mold is stripped of the lime and algae that neutralize it and exposed to air, it quickly regenerates and expands, dealing 5-30 damage to all within its 30' blast radius. 
+
+Range: 40 
+Damage: 5-30 fire damage
+Weight: 1 
+Usable By: 
+  All~ 
+@158  = ~Brown Mold~ 
+@159  = ~This innocuous-looking yellow-brown mold is deceptively dangerous. A skilled herbalist may combine it with algae and lime to stabilize it until it is reactivated and used as a projectile weapon.
+
+Use: Component of Brown Mold Oil
+Weight: 0~ 
+@160  = ~Algae~ 
+@161  = ~Algae grows on the surface of stagnant water. It's typically slimy and green. Together with lime, it stabilizes brown mold until the latter can be deployed.
+
+Use: Component of Brown Mold Oil 
+Weight: 0~ 
+@162  = ~Lime~ 
+@163  = ~Limestone is a soft white rock typically found near water. Together with algae, pulverized lime stabilizes brown mold until the latter can be deployed. A chunk of limestone might also be hurled, in which case it does 1d4 damage. 
+
+Use: Component of Brown Mold Oil, potential weapon 
+Damage: 1d4  
+Weight: 1
+Usable By: 
+  All~ 
+@164  = ~Whittlewort Brew~ 
+@165  = ~Whittlewort Brew is made from the delicate, lacey leaves of the whittlewort plant, which grows in temperate, sub-tropical, and tropical regions. Fresh, whittlewort leaves are used to repel garden pests, but dried, powdered, and mixed with hot water, they make a tea that proteccts the imbiber from charm-based spells. The effects of Whittlewort Brew last for one hour. 
+
+Special: Protects imbiber from charm 
+Duration: 1 hour 
+Weight: 1 
+Usable By: 
+  All~ 
+@166  = ~Cotsbalm~ 
+@167  = ~This hardy plant is native to temperate and sub-tropical forests. Midwives and hedge-wizards consider its fresh-smelling leaves a curative against a variety of childhood ailments, though most clerics and skilled healers discredit this practice. Nevertheless, its leaves, when combined with honey and grain spirits, produce a salve that provides effective protection against poison.
+
+Use: Component of Purebalm
+Weight: 0 
+Usable By: 
+  All~ 
+@168  = ~Purebalm~ 
+@169  = ~Cotsbalm leaves are mixed with honey and grain spirits to produce Purebalm, an effective salve against poison. The salve provides protection for one hour. 
+
+Special: Protects against poison
+Duration: 1 hour 
+Weight: 1 
+Usable By: 
+  All~ 
+@170  = ~Medicine Bag~ 
+@171  = ~This sturdy leather bag can be used to store potions, medicinal preparations, or their components. 
+
+Weight: 2 
+Usable By: 
+  All~ 
+@172  = ~Gavin's Body~ 
+@173  = ~Gavin was captured by Bodhi and infected with vampirism, forcing you to slay him. There may be some way to revive him, though you don't know what it would be.~
+@174  = ~Prickly Tea~ 
+@175  = ~The soft, gray-green leaves of the prickly tea bush are used extensively in temple gardens, scriptoriums, and wizards' herb beds, no doubt because a tea brewed from them restores some measure of alertness and mental acuity. Early risers and sentries both favor the tea to remain alert. 
+
+Special: 
+  Reduces Fatigue
+Duration: 6 hours
+Weight: 0 
+Usable By: 
+  All~ 
+@176  = ~Senses~ 
+@177  = ~When extracted with grain alcohol, a decoction of prickly tea becomes a powerful stimulant capable of enhancing the senses. Thieves, especially benefit from this, as improved sight, hearing, and touch enhance their ability to detect illusion, open locks, and to detect, disarm and set traps. By itself, the solution is too bitter to drink, however, so honey is added to counteract the astringency. 
+
+Find Trap Bonus: +10% 
+Open Lock Bonus: +10% 
+Set Traps Bonus: +10%
+Detect Illusion Bonus: +10%
+Duration: 1 hour
+Weight: 1 
+Usable By: 
+  Thieves~ 
+@178  = ~Goody Nell's Potions and Herbs~ 
+@179  = ~Prison Guard~ 
+@180  = ~Prison Voucher~ 
+@181  = ~Form 0103c Voucher 
+
+The fine of 15 gold pearls has been received by the Office of the Exchequer to satisfy the debt of Gavin Mor to society. He may be released into the custody of responsible persons, together with his personal effects, pursuant to Article 236i, Section VI of the Penal Code, as ratified by the Council of Six 23 Eleint in 1360 DR. 
+
+This document is non-transferrable and non-reusable.~ 
+
+/* @182 - @192 used in setup-gavin.tra */
+
+
+@193  = ~Goody Nell~ 
+
+/* @194 - @195 used in setup-gavin.tra */
+
+@196  = ~Gavin's Drawing~ 
+@197  = ~Gavin made this drawing for you. If you find an art dealer, you might be able to sell it.~ 
+@198  = ~Goody Clara~ 
+@199  = ~Goody Clara's Canteen~ 
+@200  = ~Goody Vera~ 
+@201  = ~Goody Vera's Stillroom~ 
+@202  = ~Master Siman~ 
+@203  = ~Master Siman's Apothecary~ 
+@204  = ~Goody Marli~ 
+@205  = ~Goody Marli's Pantry~ 
+@206  = ~Master Uric~ 
+@207  = ~Master Uric's Sutlery~ 
+@208  = ~Goody Alma~ 
+@209  = ~Goody Alma's Cellar~ 
+@210  = ~Masyrd~ 
+@211  = ~<CHARNAME>: A Study in Charcoal~ 
+@212  = ~Gavin made this charcoal drawing of you at your request.~ 
+@213  = ~<CHARNAME> in Repose~ 
+@214  = ~Gavin drew this nude portrait of you at your request.~ 
+@215  = ~Gavin: A Figure Study in Charcoal~ 
+@216  = ~This is the nude drawing you made of Gavin.~ 
+
+/* @217 used in setup-gavin.tra */
+
+@300  = ~Master Grolim~ 
+@301  = ~Rose Garland~ 
+@302  = ~The enchantment that keeps the roses in this circlet fresh is unknown, but the passage of time has no effect on it and its beauty never fades. Whatever the enchantment is, however, it also bestows some regenerative powers to the wearer, as well as providing a modest AC bonus.
+
+STATISTICS
+
+While Equiped:
+  Regenerate 1 HP every 10 seconds 
+  AC Bonus: 1 
+  
+Not Usable By:
+  Wizard Slayer~ 
+@303  = ~Helm of Loyalty~ 
+@304  = ~Legend has it that King Haedrak III bestowed this heavy helmet on an unnamed foot soldier as a reward for performing a feat of exceptional loyalty. History declines to record the exact nature of this service, however. Regardless, the helmet offers protection against enchantments that would otherwise ensnare the wearer.
+
+STATISTICS
+
+While Equiped: 
+  Immunity to Charm 
+  Protection from Critical Hits
+  
+Not Usable By: 
+  Mage 
+  Thief~ 
+@305  = ~Wolf Totem~ 
+@306  = ~The origins of this carved-bone amulet are unknown. It bestows an AC bonus of 1 upon the wearer and improves THACO by 1.
+
+STATISTICS 
+
+While Equiped: 
+  AC Bonus +1
+  THACO Bonus +1~ 
+@307  = ~Thayvian Circlet~ 
+@308  = ~This ornate circlet is said to have been the property of Methoth Ankhalab, a legendary master of the Thayvian Academy. How it came to be in the hands of a gnome peddler is unknown. 
+
+STATISTICS
+
+While Equiped: 
+  AC Bonus +1
+  Saving Throw Bonus +1~ 
+@309  = ~Dawnbringer Medallion~ 
+@310  = ~This medallion is a holy symbol of Lathander. It has been imbued with additional enchantments that make it more valuable to a cleric of that faith.
+
+STATISTICS
+
+While Equipped:
+ Magic Resistance: +5%
+ Vocalize
+ Decrease Spell Casting Speed by 1
+ Immunity to Level Drain
+
+Usable By:
+ Cleric~ 
+@311  = ~Winella's Token~ 
+@312  = ~Winella of Silverymoon was never counted among the beauties of the court... until she began to wear these flowers pinned to her gown. By the time of her tragic death by poison, she was reported to have received no less than 87 separate marriage proposals. Though the identity of her assassin was never proven beyond all doubt, it was rumored to have been Mielana of the Emerald Orbs, a rival.
+
+STATISTICS 
+
+While Equiped: 
+  Charism Bonus +2~ 
+@313  = ~Clove Pink~ 
+@314  = ~This jeweled brooch is shaped like the flower of the same name. It grants one additional mage spell for levels 1 through 5.
+
+STATISTICS 
+
+While Equiped: 
+  Addional Mage Spells
+  Level 1 
+  Level 2 
+  Level 3
+  Level 4 
+  Level 5
+  
+Usable By:
+  Mage~ 
+@315  = ~Symbol of Silvanus~ 
+@316  = ~This leaf-shaped medallion is the holy symbol of Silvanus. It offers +20% to all elemental resistances.
+
+STATISTICS
+
+While Equiped: 
+  +20% fire resistance 
+  +20% cold resistance 
+  +20% electrical resistance 
+  +20% acid resistance 
+  
+Usable By: 
+  Druids~ 
+@317  = ~Ring of Judicious Retreat~ 
+@318  = ~The wearer of this ring is immune to any effects that would prevent a stealthy getaway, however the wearer is also immune to haste and slow spells.
+
+STATISTICS
+
+While Equiped:
+  Free Action
+  
+Not Usable By: 
+  Wizard Slayers~ 
+@319  = ~Swift in Duty~ 
+@320  = ~The speedy execution of one's duty is one of the hallmarks of a paladin's role, however not all are up to the task without magical assistance. To this end, Sir Roderick of Cormyr commissioned this holy symbol of Torm.
+
+STATISTICS 
+
+While Equiped: 
+  Dexterity set to 18
+  
+Usable By: 
+  Paladin~ 
+@321  = ~Iron Horn of Narfell~ 
+@322  = ~This engraved horn bears the tribal markings of the Narfel. Merely wearing it bestows a bonus to constitution.
+
+STATISTICS
+
+While Equiped: 
+  Constitution Bonus +2 
+ 
+Usable By:
+  Fighter~ 
+@323  = ~Holy Symbol of Avoreen~ 
+@324  = ~This amulet bears the emblem of Avoreen, the halfling god of valor. Its two crossed shortswords are worked in silver and gold, and it bears signs of magical enchantment. It grants the wearer complete immunity to poison and a modest combat bonus.
+
+STATISTICS 
+
+While Equiped:
+  Immunity to Poison
+  THACO Bonus +1 
+    
+Usable by:
+  Halfling Fighters~ 
+@325  = ~Buckle of Girding~ 
+@326  = ~This intricate golden belt buckle bears obvious signs of enchantment. It bestows a bonus to all saving throws and conveys an additional bonus to maximum HP.
+
+STATISTICS
+
+While Equiped:
+  Saving Throw Bonus +1 
+  +5 Bonus to Maximum HP
+  
+Usable By:
+  Ranger
+  Fighter~ 
+@327  = ~Halruuan Component Pouch~ 
+@328  = ~This handy spell component pouch and silk belt was made to the specifications of the most demanding mages in Halruua, or so Master Grolim claims. Not only does wearing this convenient accessory permit the memorization of one extra first through fifth level spell per level, it is stylish, too!    
+
+STATISTICS 
+
+While Equiped: 
+  Addional Mage Spells
+  Level 1 
+  Level 2 
+  Level 3
+  Level 4 
+  Level 5
+  
+Usable By:
+  Mage~ 
+@329  = ~Traveler's Smock~ 
+@330  = ~This well-worn woolen garment is a boon to wanderers everywhere. It shields the wearer from all sorts of elemental damage.
+
+STATISTICS
+
+While Equiped: 
+  +20% fire resistance 
+  +20% cold resistance 
+  +20% electrical resistance 
+  +20% acid resistance 
+  
+Usable By: 
+  Ranger~ 
+@331  = ~Nightcloak Medallion~ 
+@332  = ~This medallion is a holy symbol of Shar. It has been imbued with additional enchantments that make it more valuable to a cleric of that faith.
+
+STATISTICS
+
+While Equiped:
+ Magic Resistance: +5%
+ Vocalize
+ Decrease Spell Casting Speed by 1
+ Immunity to Level Drain
+
+Usable By:
+ Cleric~ 
+@333  = ~Shadow Signet~ 
+@334  = ~It is no longer possible to determing the symbol this ancient ring once bore, but its enchantment remains undimmed by the passage of time. It grants the wearer a bonus to lockpicking ability.
+
+STATISTICS
+
+While Equiped: 
+  Lockpicking Bonus +25% 
+
+Usable By:
+  Thief~ 
+@335  = ~Patrick's Cloak Pin~ 
+@336  = ~Mazzy gave this silver cloak pin to her lover Patrick before his death at the hands of the Shade Lord. Gavin found it by luck in the Umar Hills and returned it to Mazzy.~ 
+
+@400  = ~Aleto~ 
+
+/* script lines */
+
+/* b!ar0203.baf */
+@401  = ~Our aggression makes it stronger... Would trying to help it weaken it?~
+
+/* @902 - @999 used in setup-gavin.tra */
+
+@99900 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained... until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until Lanie was old enough to accompany him. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained the devoted lover and occasional companion of <CHARNAME>. He promised that one day, their paths might be joined forever, never to be parted again, but that day never came. They blamed one thing or another, but if pressed for honesty, both would admit that they were happier this way. Their love for each other never faded, but they had become accustomed to living apart. Between <CHARNAME>'s wanderlust and Gavin's desire for stability, they were content to celebrate their union with frequent visits and occasional journeys together. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with that of his beloved <CHARNAME> once more.~ 
+@99901 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until Lanie was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and Lanie returned to Athkatla and life became less hectic for a while... until it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until Lanie was old enough for his family to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position entailed a great deal of travel, but if pressed for honesty, he would confess that he did not care where he journeyed... as long as he traveled with his beloved <CHARNAME>. It was on one of these infrequent visits to their home in Athkatla that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99902 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until after the birth of their daughter. By that time, Lanie had completed her studies and was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and their two daughters returned to Athkatla and life became less hectic for a while... until it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until his children were old enough for his family to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position left him chained to a desk, but if pressed for honesty, he would confess that he was grateful to be spared the necessity of leaving his family. And so it continued for many, many years, until Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99903 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until Lanie was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and Lanie returned to Athkatla and life became less hectic for a while... until their daughter was born. Eventually, it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until his children were old enough for his family to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position left him chained to a desk, but if pressed for honesty, he would confess that he was grateful to be spared the necessity of leaving his family. And so it continued for many, many years, until Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99904 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until after the birth of their son. By that time, Lanie had completed her studies and was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and their two children returned to Athkatla and life became less hectic for a while... until it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until his children were old enough for his family to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position left him chained to a desk, but if pressed for honesty, he would confess that he was grateful to be spared the necessity of leaving his family. And so it continued for many, many years, until Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99905 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until Lanie was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and Lanie returned to Athkatla and life became less hectic for a while... until their son was born. Eventually, it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until his children were old enough for his family to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position left him chained to a desk, but if pressed for honesty, he would confess that he was grateful to be spared the necessity of leaving his family. And so it continued for many, many years, until Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99906 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until after the birth of their son. By that time, Lanie had completed her studies and was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and their two children returned to Athkatla and life became less hectic for a while... until their daughter was born. Eventually, it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until his children were old enough for his family to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position left him chained to a desk, but if pressed for honesty, he would confess that he was grateful to be spared the necessity of leaving his family. And so it continued for many, many years, until Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99907 = ~After <CHARNAME>'s victory at the Throne of Blood, the triumphant couple returned to Athkatla, where they remained until Lanie was able to accompany them to Beregost. There, <CHARNAME> and Gavin celebrated their vows in a ceremony presided over by Kelddath Ormlyr and attended by friends, Gavin's extended family, and more notables than the Song of the Morning could house. After a long-awaited honeymoon, the couple and Lanie returned to Athkatla and life became less hectic for a while... until their son was born. Eventually, it became impossible to ignore the signs that Gavin's faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unwilling to travel far from the city until his children were old enough for his family to accompany him. This resolve was further strengthened once their daughter was born. But Gavin's older daughter Lanie would not remain a child forever. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster. He complained that the position left him chained to a desk, but if pressed for honesty, he would confess that he was grateful to be spared the necessity of leaving his family. And so it continued for many, many years, until Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with <CHARNAME>'s once more.~ 
+@99908 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained... until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until Lanie was old enough to accompany him. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained close to <CHARNAME> and some of <PRO_HISHER> former companions, visiting when he could and corresponding when he could not travel. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when a newborn child is in need of a particularly clumsy soul.~ 
+@99909 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained... until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until Lanie was old enough to accompany him. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained the devoted lover and occasional companion of Imoen. He promised that one day, their paths might be joined forever, never to be parted again, but that day never came. They blamed one thing or another, but if pressed for honesty, both would admit that they were happier this way. Their love for each other never faded, but they had become accustomed to living apart. Between Imoen's wanderlust and Gavin's desire for stability, they were content to celebrate their union with frequent visits and occasional journeys together. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when his soul will return to be with that of his beloved Imoen once more.~ 
+@99910 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained... until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until Lanie was old enough to accompany him. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained faithful to the memory of his beloved <CHARNAME>. Though separated now by more than distance, he made annual pilgrimages to the temple where they first met. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... though it is said that instead of returning in the Great Cycle, his spirit joined <CHARNAME> in eternity.~ 
+@99911 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained, waiting for the delivery of the son whose mother he would never see again. In time, the baby arrived, carried by a cloaked and hooded woman with an unmistakably blue aura. For a while, life returned to normal... until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until his children were old enough to accompany him. Lanie struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained faithful to the memory of his beloved <CHARNAME>. Though separated now by more than distance, he made annual pilgrimages to the temple where they first met. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... though it is said that instead of returning in the Great Cycle, his spirit joined <CHARNAME> in eternity.~ 
+@99912 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained, grieving, until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until Lanie was old enough to accompany him. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained faithful to the memory of his beloved <CHARNAME>. Though separated now by more than distance, he made annual pilgrimages to the temple where they first met. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... though it is said that instead of returning in the Great Cycle, his spirit joined <CHARNAME> and the son he never knew in life, and that they were a family at last.~ 
+@99913 = ~After <CHARNAME>'s victory at the Throne of Blood, Gavin returned to Athkatla, where he remained... until it became impossible to ignore the signs that his faith would be part of some great "Deliverance". Following the miracle at the Temple of the Morn in 1374 DR, he attended a synod of his brethren at the Spires of the Morning in Waterdeep and returned deeply troubled. He joined the Order of the Aster in the same year and was instrumental in opening a chapter of the Order in Athakatla. He became very active in their recruitment campaign, though he was unable to travel far from the city until Lanie was old enough to accompany him. She struck out on her own in 1382 DR and was said to have joined the Harpers, and for the next two years, he heard nothing from her. She sent him a message after Spellplague to let him know that she survived and was not driven mad, but it was several more years before they could meet in person. By then, Amaunator's return was an established fact and Gavin had officially become the Sunmaster Chaplain of the Order of the Aster, a title that kept him chained to a desk far more often than he would like. Throughout the remainder of his life, Gavin remained close to his former companions, visiting when he could and corresponding when he could not travel. It was on one of these visits that Gavin met his inevitable death. A very old man by then, he rose for his morning devotions and offered his soul to his god in truth... until the day when a newborn child is in need of a particularly clumsy soul.~ 

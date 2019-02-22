@@ -1,0 +1,47 @@
+
+/* b!keldorn - drow form */ 
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  GlobalGT("Chapter","GLOBAL",%bg2_chapter_5%) 
+  Global("B!GavKel3","GLOBAL",0)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("B!GavKel3T","GLOBAL",500)
+    SetGlobal("B!GavKel3","GLOBAL",1)
+END
+
+IF
+  RealGlobalTimerExpired("B!GavKel3T","GLOBAL")
+  InParty(Myself)
+  InParty("B!Gavin2")
+  Global("B!GavKel3","GLOBAL",1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    SetGlobal("B!GavKel3","GLOBAL",2)
+END
+
+IF
+  InParty(Myself)
+  InParty("B!Gavin2")
+  Global("B!GavKel3","GLOBAL",2)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck("B!Gavin2",CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See([ENEMY])
+  See("B!Gavin2")
+THEN
+  RESPONSE #100
+    StartDialogueNoSet("B!Gavin2") 
+END

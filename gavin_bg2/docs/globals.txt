@@ -1,0 +1,232 @@
+
+DV: B!Gavin2
+Pre-join dialogue file: B!GAV
+Joined dialogue file: B!GAVJ
+Post dialogue file: B!GAVP
+Banter dialogue file: BB!GAV
+Override Script: B!GAVS
+Dream Script: B!GAVD
+ToB (same order): B!GAV25, B!GAV25J, B!GAV25P, BB!GAV25, B!GAV25S, B!GAV25D
+Talk Interval: GAV_TIME
+
+Party Management 
+    B!GavJoin: 0 = Gavin is not in the party
+             1 = Gavin is in the party
+    B!GavOffend: counter that tracks how badly the PC offends Gavin. 
+             >5 kills the romance and Gavin will not rejoin a party he has left
+             >10 Gavin leaves the party
+    B!GavLessInterject: 0 = normal
+             1 = PC told Gavin to keep his opinions to himself 
+    B!GavHush: 0 = PC has not told Gavin to hold off on the talks
+             1 = PC has told Gavin to hold off on the friendship talks or lovetalks 
+
+Friendship/Romance Related
+    B!GavRA: 0 = no romance
+             1 = not committed
+             2 = committed
+             3 = terminated
+             4 = "complicated" (goes to 4 by sleeping with too many other men, or by breaking off the relationship and saying commitment is too scary)
+    B!GavTalk: talks occur on even numbers
+    B!GavLove: -5 = romance breaks
+             18 = Gavin initiates the "lets get serious" talk that moves the RA to 2 (pc can refuse and it stays at 1, but no Gavin nookie) 
+             12 = Engaged PC breaks it off, restrarts the romance and says she needs more time to make sure it's really what she needs, Love goes back to 12 
+    B!GavKiss: 1 = Gavin and the PC have kissed 
+    B!GavSex: 0 = Gavin has not had sex with the PC in BG2
+             1 = Gavin has had sex with the PC in BG2 
+    B!GavPissed: 1 = Gavin is pissed off at the PC and not talking to him/her 
+    B!GavExplicit: 0 = teen content 
+             1 = NC17 content
+    B!PCWantsIt: (LOCALS) toggle indicating that the PC wants sex next rest
+             1 = wants sex
+    B!GavET: evil conversion talks occur on even numbers
+    B!GavChange: measure of the progress an evil PC has made toward neutrality, a result of the conversion talks
+    B!GavCuckold: B!GavRA=2 only, increases by 1 if PC has voluntarily had sex with a man who wasn't Gavin... and either confirmed it or was caught in the act
+    B!GavRomBreak: 0 = Relationship not broken 
+             1 = Relationship ended on good terms, can be restarted 
+             2 = Relationship ended on bad berms, cannot be restarted
+    B!GavSerious: whether RA has ever been at 2 
+             0 = B!GavRA was never at 2 
+             1 = Timer set for the "let's get serious" talk
+             2 = "Let's get serious talk" cued 
+             3 = "Let's get serious talk" happened or engaged PC chose to continue the engagement
+    B!GavFirstTime: (LOCALS) 1 = waiting until marriage 
+             2 = the first time the PC had sex with Gavin was in BG2
+             3 = the first time the PC had sex with *anyone* was with Gavin in BG2 
+    B!GavCassil: (LOCALS) 0 = no talk yet 
+             1 = timer set (B!GavCassilT) 
+             2 = talk cued 
+             3 = talk happened 
+             4 = PC has told Gavin that birth control is his responsibility 
+    B!GavAno: 0 = no duel 
+             1 = Gavin and Anomen duel 
+             2 = Duel over 
+    B!GavCheater: 0 = no Anomen or Edwin Romance kill 
+             1 = Romance kill activated (can be disabled by installing multi-romance friendly romance conflicts) 
+             2 = Romance kill completed (can be disabled by installing multi-romance friendly romance conflicts) 
+    B!GavAnoKill: 0 = no Anomen romance kill 
+             1 = Anomen's romance kill activated (can be disabled by installing multi-romance friendly romance conflicts) 
+             2 = Anomen's romance kill completed (can be disabled by installing multi-romance friendly romance conflicts) 
+    B!GavEdKill: 0 = no Edwin romance kill 
+             1 = Edwin's romance kill activated (can be disabled by installing multi-romance friendly romance conflicts) 
+             2 = Edwin's romance kill completed (can be disabled by installing multi-romance friendly romance conflicts) 
+    B!GavBodhiAbduction: 0 = no abduction 
+             1 = Gavin set up to be abducted 
+    B!GavVampire: 0 = not a vampire 
+             1 = Gavin turned into vampire, out of party 
+             2 = Vamp Gavin (B!GaVAMP) spawned in AR0809 
+             3 = Vamp Gavin (B!GaVAMP) killed 
+             4 = Gavin rezzed, override script changed back to b!gavs
+             10 = Gavin back in party after being rezzed 
+             11 = Gavin talked about his ordeal 
+    B!CleanseVampire: 0 = not started 
+             1 = 
+             2 = Gavin's body and Bodhi's heart placed on the altar in the Shadow Temple 
+
+Lanie-Related 
+    B!GavLanie: 0 = PC hasn't refused to take Gavin to the temple district
+             1 = Gavin asked to go to the temple district (sets up cutscene to run on PID or when the temple district is next entered)
+             2 = Met Miranda, at least part of the talk happened
+             3 = Talk finished, Gavin talked to PC afterward, Gavin went to the temple of Oghma
+             4 = PC talked to Gavin at the temple of Oghma 
+    B!GavOghma: 0 = Gavin has not gone to the temple of Oghma w/Lanie
+             1 = Gavin has gone to the temple of Oghma w/Lanie and the PC did not witness the entire dialogue 
+             2 = PC spoke to Gavin at temple of Oghma afterward 
+    B!GavMT: Miranda talks 
+             0 = no talks happened
+             1 = timer set 
+             2 = "Can we go to the Temple District" talk cued
+             3 = "Can we go to the Temple District" talk happened
+             4 = timer for "aftermath" talk set 
+             5 = "aftermath" talk cued 
+             6 = "aftermath" talk happened 
+    B!GavMirT: Miranda talk timer
+    B!GavGoToTemple: 0 = PC has not yet committed to one way or another
+             1 = PC has agreed to go to the temple district
+             2 = Gavin about to complained once
+             3 = gavin has complained once
+             4 = Gavin set to complained twice
+             5 = Gavin has complained twice
+             6 = cutscene cued for next time PC is outside in Athkatla
+             7 = Gavin cued to warn PC the jump is about to happen 
+             8 = Warning happend, jump initiated
+    B!GavNoGoToTemple: 0 = PC has not yet said s/he won't go
+             1 = PC said s/he won't go
+             2 = timer set to go on his own
+             3 = Gavin went himself
+             4 = Gavin's in the temple of Oghma
+             5 = PC has spoken to Gavin at the temple of Oghma 
+    B!GavVisit: 0 = not set 
+             1 = timer set for Gavin to visit Lanie at the temple of Oghma 
+             2 = timer expired 
+             3 = Gavin reminded PC 
+             4 = Gavin going himself 
+             5 = Gavin left for the temple 
+             9 = Cutscene visit occurs
+             
+Personal History Related 
+    B!GavinExistsInBG2: 0 = BG1 version not blown away
+             1 = BG1 version blown away (in ar0602.bcs) 
+    B!GavBhaal: 0 = Gavin doesn't know PC is a Bhaalspawn
+                1 = Gavin knows the PC is a Bhaalspawn 
+    B!GavInventiveLie: LOCALS 1 = pc told Gavin an exceptionally elaborate lie about her heritage 
+    B!GavRedeem: LOCALS 1 = Gavin has offered to redeem the PC 
+    B!GavRingPlaced: 0 = ring not placed
+             1 = ring placed in AR0602 Container 1 ("Chest1")
+             2 = PC/group has ring and dialogue triggers (b!ar0602.baf)
+	     3 = PC talk happened (b!player1.d)
+    B!GavinEngaged: 0 = never engaged
+             1 = engaged
+             2 = engagement broken 
+    B!GavBG1Rom: 0 = not checked
+             1 = no BG1 romance
+             2 = BG1 romance
+             3 = BG1 romance terminated before commitment
+    B!GavNoBG1: 0 = knew Gavin in BG1
+             1 = didn't know Gavin in BG1
+    B!GavFinger: 0 = PC did not have Gavin cut off his finger in BG1
+             1 = PC had Gavin cut off his finger in BG1, swap set up
+             2 = Swap made
+    B!GavArt: 0 = PC hasn't asked Gavin to draw anything 
+             1 = PC has established that Gavin is willing to provide him/her with drawings to sell 
+             2 = PC has asked Gavin to sketch something 
+
+  
+Timers 
+    B!GavT: FT/LT timer, sets after resolving issue with Miranda and Lanie, when Gavin is re-recruited in the temple of Oghma 
+    B!GavEvilT: redemption talk timer
+    B!GavDrunkT: spaces the drunk talks so they don't all fire at once 
+    B!GavMirT: Miranda talk timer 
+    B!GavAerT: real global timer for Aerie banters 
+    B!GavAnoT: real global timer for Gavin's apology to Anomen
+    B!GavStrongT: real global timer for Gavin's stronghold talk 
+    B!GavArtT: the PC can ask Gavin to draw something once per day
+
+Interjection-Related   
+    B!HelpIlmaterKids: 0 = not started
+             1 = convo cued
+             2 = Gavin talked to PC about helping kids
+             3 = PC agreed to help
+             4 = PC helped kids
+             5 = PC funded adoptions
+             6 = convo cued
+             7 = Gavin thanked PC
+    B!GavTalosPriest: 0 = didn't meet the priest of Talos
+             1 = met priest of Talos
+             2 = convo cued
+             3 = convo ran
+    B!GavMindFlayer: 0 = didn't see the Hidden's true form
+             1 = saw Hidden's true form and cued convo
+             2 = talked about it
+             99 = interjection negated 
+    B!GavLissa: 0 = didn't happen
+             1 = cued convo
+             2 = talked to Jan about Lissa
+             99 = interjection negated 
+    B!GavMadamNinRefused: 0 = didn't talk to Madam Nin
+             1 = refused an escort
+    BGavMADAM1: 0 = Romanced PC didn't sleep with prostitute
+             1 = romanced PC slept with prostitute
+             2 = convo cued
+             3 = talked to PC afterwards 
+    BGavMADAM2: 0 = Formerly romanced PC didn't sleep with prostitute
+             1 = formerly romanced PC slept with prostitute
+             2 = talked to PC afterwards (PID) 
+    B!GavINSPECTR: 0 = Didn't find Aegisfeld's body
+             1 = convo cued
+             2 = convo ran
+             99 = interjection negated 
+    B!GavAerConflict: 0 = no Gavin/Aerie conflict banters yet
+             1 = confrontation banter timer set
+             2 = confrontation banter cued
+             3 = confrontation, 4 = apology timer set
+             5 = apology cued
+             6 = apology ran
+    B!GavUmarTemple: 0 = never been to any of the Umar Hills Temple areas
+             1 = been to the Umar Hills temple areas at some point
+    B!GavAno6: alcohol related banters
+             0 = none
+             1 = Gavin got drunk in front of Anomen
+             2 = convo happened
+             3 = ready for morning after talk
+             4 = convo happened
+             5 = met Cor Delryn
+             6 = apology timer set
+             7 = apology cued
+             8 = apology happened 
+    B!GavBender: 0 = Gavin hasn't been in the gov't district after Viconia was freed or burned 
+             1  = Gavin was in the gov't district after Viconia was freed or burned 
+             2  = 'Wine, women, and no song' cued 
+             3  = 'Wine, women, and song' ran 
+             4  = Prison guard spawned 
+             5  = PC released alone 
+             10 = Gavin and PC both out of prison 
+             11 = Gavin apologized for bad behavior 
+             20 = PC and Gavin never went to prison 
+    B!GavStealLathander: 0 = not started 
+             1 = Interjection Cued 
+             2 = Interjection fired 
+             3 = Gavin left the party 
+             4 = Gavin recruited at the Copper Coronet 
+    B!GavEmbarl: 0 = not cued 
+             1 = Interjection cued 
+             2 = Interjection fired 

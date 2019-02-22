@@ -1,0 +1,37 @@
+The Talks:
+(The number before the talk is the global B!GavTalk)
+
+ 2 ~It's been a long time since we sat beside the fire together. How are you holding up?~ 
+ 4 ~Did you ever find out why you were abducted?~ 
+ 6 ~When I left the Sword Coast behind me, I had hoped that I traveled to a more enlightened place, but instead, I find just as much prejudice here as I did in Baldur's Gate... or even more.~ 
+ 8 ~<CHARNAME>, what do you believe?~ 
+10 ~<CHARNAME>, I've got something I need to talk to you about, and I doubt it's going to be a comfortable conversation for either of us.~ 
+12 ~<CHARNAME>, have you ever seen something you've wanted to forget, but couldn't?~ 
+14 ~Do you ever think about the friends you left behind?~ 
+16 ~How are you holding up, <CHARNAME>?~ 
+18 ~Where in the nine hells is my shaving mirror?~ 
+20 ~<CHARNAME>, I need to apologize for my outburst earlier. I know I said some terrible things, and I'm sorry, but I couldn't seem to stop.~ 
+22 ~You're hardly the same person you were, when I first joined your company.~ 
+24 ~So, where are we off to now?~ 
+26 ~Do you remember Beregost?~ 
+28 ~It's no use. I've just read this journal entry four times, and I still don't remember what in the nine hells I just read.~ (this one happens at rest)
+30 ~So, what's the first thing you're going to do when you finally get a chance to put your feet up and relax?~ *
+32 ~When this is all over, I think that maybe I'll settle in Athkatla.~ 
+
+* If Gavin is fond of you but your relationship is still uncommitted, he'll ask for a commitment either after this talk or after the next. In order for him to propose, B!GavLove needs to be 16 or higher. If you've been mostly decent to him up to this point, he'll drop the bomb now. If he doesn't, maybe you just need to get in more floaters, or buy him something nice... or possibly both. Since you can get up to 6 points just by being agreeable in dealing with his family demands, it shouldn't be too tough.
+
+The Floaters:
+
+Floater 1: You gain a stronghold (sorry, but no congratulating thieves).
+Floater 2: At an inn, you've already had the "When I left the Sword Coast behind..." talk.
+Floater 3: You're camping out, and you've already had the "DNR" talk.
+Floater 4: You're staying at an inn, you've had floater 2, and you've already either freed or burned Viconia.
+Floater 5: You're camping out, and you've alredy had the "something you want to forget" talk.
+Floater 6: You're in the Bridge District sometime after you've spoken to Rose Bouquet.
+Floater 7: You've visited every part of Athkatla
+
+
+Other non-timered talks:
+Let's get serious: Gavin commits
+PC-initiated intimate encounters
+Drawing sessions

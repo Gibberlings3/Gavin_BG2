@@ -1,0 +1,14 @@
+
+// b!ar0203.baf - EXTEND_BOTTOM ar0203.bcs - allow Gavin to react to Empathic Manifestation 
+
+IF 
+    Exists("B!Gavin2") 
+    InParty("B!Gavin2") 
+    Global("B!GavEmpathicManifest","AR0203",1) 
+    !StateCheck("B!Gavin2",CD_STATE_NOTVALID) 
+    Global("B!GavLessInterject","GLOBAL",1) 
+THEN 
+    RESPONSE #100 
+        DisplayStringHead("B!Gavin2",@401) 
+        SetGlobal("B!GavEmpathicManifest","AR0203",2) 
+END 
