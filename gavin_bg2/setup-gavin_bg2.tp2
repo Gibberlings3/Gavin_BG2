@@ -6,7 +6,7 @@ EET: summoning at the fate spirit will not give the Gavin that was left standing
 BACKUP ~weidu_external/gavin_bg2/backup~ 
 SUPPORT ~https://www.gibberlings3.net/forums/forum/128-gavin/~ //berelinde@gmail.com
 
-VERSION ~v24~  //180628 packed by jastey
+VERSION ~v24.1~  //180628 packed by jastey
 
 README ~gavin_bg2/readme-gavin_bg2-%LANGUAGE%.html~  ~gavin_bg2/readme-gavin_bg2.html~ 
 
@@ -62,8 +62,8 @@ ALWAYS
     
       OUTER_SPRINT ~tra_location~ ~weidu_external/gavin_bg2/languages~
 
-      ACTION_DEFINE_ARRAY fl#reload BEGIN game-gavin_bg2.tp2 journal-gavin_bg2.tra END
-      ACTION_DEFINE_ARRAY fl#noconvert BEGIN game-ee-gavin_bg2.tra setup-gavin_bg2.tra END
+      ACTION_DEFINE_ARRAY fl#reload BEGIN game-gavin_bg2.tra journal-gavin_bg2.tra END
+//      ACTION_DEFINE_ARRAY fl#noconvert BEGIN game-ee-gavin_bg2.tra setup-gavin_bg2.tra END
 
       LAF HANDLE_CHARSETS
       INT_VAR
@@ -75,7 +75,7 @@ ALWAYS
        reload_array = fl#reload
       END
       
-      LOAD_TRA ~gavin_bg2/languages/%LANGUAGE%/game-ee-gavin_bg2.tra~ 
+//      LOAD_TRA ~gavin_bg2/languages/%LANGUAGE%/game-ee-gavin_bg2.tra~ 
        
     END  
 
@@ -89,10 +89,7 @@ LANGUAGE ~English~ ~english~ ~gavin_bg2/languages/english/setup-gavin_bg2.tra~
                              ~gavin_bg2/languages/english/game-gavin_bg2.tra~ 
                              ~gavin_bg2/languages/english/journal-gavin_bg2.tra~
 
-LANGUAGE ~Russian (by Kirian & Arcanecoast Team)~ ~russian~ ~gavin_bg2/languages/english/setup-gavin_bg2.tra~ 
-                                                            ~gavin_bg2/languages/english/game-gavin_bg2.tra~ 
-                                                            ~gavin_bg2/languages/english/journal-gavin_bg2.tra~
-                                                            ~gavin_bg2/languages/russian/setup-gavin_bg2.tra~ 
+LANGUAGE ~Russian (by Kirian & Arcanecoast Team)~ ~russian~ ~gavin_bg2/languages/russian/setup-gavin_bg2.tra~ 
                                                             ~gavin_bg2/languages/russian/game-gavin_bg2.tra~ 
                                                             ~gavin_bg2/languages/russian/journal-gavin_bg2.tra~
 

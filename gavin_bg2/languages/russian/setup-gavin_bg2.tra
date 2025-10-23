@@ -1,1 +1,64 @@
-// this file left intentionally blank so that the installer will use english strings
+/* @99900 - @99913 is for epilogues */
+
+/* 10000 - is for journal entries */
+
+
+
+@0    = ~BGT install detected.~
+@1    = ~BG2 install detected.~
+@2    = ~Please install on either BG2, BG2EE, BGT, or EET.~
+@3    = ~Moved into main component~
+/* @4 - @65 used in game-gavin.tra */
+
+/* @111 - @117 used in game-gavin.tra */
+
+@127  = ~Gavin for BG2~ 
+
+/* @128 - @181 used in game-gavin.tra */
+
+@182  = ~Original portrait by berelinde (default)~ 
+@183  = ~Alternate Portrait Selection 
+(Default portrait is already installed)~ 
+@184  = ~Dawnbringer, by Amaurea~ 
+@185  = ~Dawn skies, by Kaeloree~ 
+@186  = ~Grey skies, by Kaeloree~ 
+@187  = ~Red tunic, by Miloch~ 
+@188  = ~Original alternate, by Kaeloree~ 
+//@189  = ~Blue cloak, by kiwidoc~ 
+//@190  = ~Looking up, by kiwidoc~ 
+@191  = ~Multi-romance cheat~ 
+@192  = ~Gavin heals the PC when below 50% health 
+(Can be disabled or enabled via player-initiated dialogue)~ 
+
+/* @0192 used in game-gavin.tra */
+
+@194  = ~Normal romance kills~  
+@195  = ~No romance kills~
+
+/* @196 - @216 used in game-gavin.tra */
+
+@217  = ~Dragon Age style portrait by berelinde~  
+
+/* @300 - @400 used in game-gavin.tra */
+
+@902  = ~Select Gavin's dialogue timer: 
+(please note that only timered talks are affected by this)~ 
+@903  = ~Please choose one of the following:
+[1] 1 hour real time minimum between dialogues
+[2] 45 minutes real time minimum between dialogues
+[3] 30 minutes real time minimum between dialogues
+[4] 15 minutes real time minimum between dialogues
+[5] 1 hour 30 minutes real time minimum between dialogues
+[6] 2 hours real time between dialogues~ 
+@904  = ~placeholder_value~ 
+@905  = ~Please select 1, 2, 3, 4, 5, or 6 and press enter.~ 
+@906  = ~Speed: 1 hour real time minimum between dialogues~ 
+@907  = ~Speed: 45 minutes real time minimum between dialogues~ 
+@908  = ~Speed: 30 minutes real time minimum between dialogues~ 
+@909  = ~Speed: 15 minutes real time minimum between dialogues~ 
+@910  = ~Speed: 1 hour 30 minutes real time minimum between dialogues~ 
+@911  = ~Speed: 2 hours real time minimum between dialogues~ 
+
+@999  = ~Gavin must be installed~ 
+
+/* @99900 - @99913 used in game-gavin.tra */
