@@ -93,6 +93,9 @@ LANGUAGE ~Russian (by Kirian & Arcanecoast Team)~ ~russian~ ~gavin_bg2/languages
                                                             ~gavin_bg2/languages/russian/game-gavin_bg2.tra~ 
                                                             ~gavin_bg2/languages/russian/journal-gavin_bg2.tra~
 
+LANGUAGE ~Schinese~ ~schinese~ ~gavin_bg2/languages/schinese/setup-gavin_bg2.tra~ 
+                             ~gavin_bg2/languages/schinese/game-gavin_bg2.tra~ 
+                             ~gavin_bg2/languages/schinese/journal-gavin_bg2.tra~
 
 BEGIN @906 DESIGNATED 0 
 SUBCOMPONENT @127
